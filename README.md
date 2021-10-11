@@ -22,7 +22,7 @@ Call it The Wrath of Scamazon, or Return of the Scamazon...Build a flexible MVC 
     5. Then navigate to built in: [The Seed Action](localhost:port/seed)
       
       //follow the onscreen instructions to create the desired number of users
-      
+
   Great!! Now you should be redirected back to the home page and ready to go. *fin*
 
 ## An Explainer
