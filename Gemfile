@@ -1,12 +1,19 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '3.0.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
+# Add search support for PGSql
+gem 'pg_search', '~> 1.0', '>= 1.0.5'
+
+# Faker for store population
+gem 'faker', '~> 2.19'
+
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -21,6 +28,25 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# For User Authentication / Satisfy Project Req
+gem 'devise', '~> 4.8'
+
+# 3rd Party Authorization
+gem 'omniauth', '~> 2.0', '>= 2.0.4'
+gem 'omniauth-facebook', '~> 8.0'
+gem 'omniauth-github', '~> 2.0'
+gem 'omniauth-rails_csrf_protection'
+
+
+# Fixing, pausing, and tinkering
+gem 'pry', '~> 0.14.1'
+
+# Look Pretty
+gem 'bootstrap', '~> 5.1.0'
+gem 'jquery-rails'
+
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
