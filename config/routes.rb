@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   root to: 'application#home'
 
+  get '/seed', to: 'application#seed', as: 'seedythedeebee'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
