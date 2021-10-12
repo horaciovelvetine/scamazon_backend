@@ -7,10 +7,14 @@ class ApplicationController < ActionController::Base
   # Homepage
   def home; end
 
-  def seed
+  def seed; end
 
+  def populate
+    Seed.populate_store(params)
+    redirect_to "/", notice: "Seeded Users & Items successfully"
   end
-  
+
+
 
   protected
 
