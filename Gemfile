@@ -28,10 +28,34 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Store/Item population
+gem 'faker'
+
+# Add search support for PGSql
+gem 'pg_search'
+
+# Add Authorization & User Model Build
+gem 'devise'
+
+# 3rd Party Authorization(s)
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
+
+# Fix issues as needed
+gem 'pry'
+
+# Look Pretty
+gem 'bootstrap'
+gem 'jquery-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
+
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
