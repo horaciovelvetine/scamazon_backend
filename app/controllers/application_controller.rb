@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   # Homepage
   def home; end
 
+  def seed
+
+  end
+  
+
   protected
 
   def configure_permitted_parameters
