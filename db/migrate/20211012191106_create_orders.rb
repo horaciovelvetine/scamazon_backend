@@ -7,7 +7,8 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.date :order_placed
       t.date :delivered_on
       t.boolean :slime
-      t.reference :user, null: false, foreign_key: true
+      
+      t.belongs_to :user, null: false
 
       t.timestamps
     end

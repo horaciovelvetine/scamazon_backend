@@ -4,7 +4,7 @@ class CreateGiftCards < ActiveRecord::Migration[6.1]
       t.bigint :code, unique: true
       t.money :balance
       t.string :notes
-      t.reference :user, null: false, foreign_key: true
+      t.belongs_to :user, null: false
 
       t.timestamps
     end

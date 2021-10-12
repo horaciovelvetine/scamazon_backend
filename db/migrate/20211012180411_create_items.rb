@@ -11,11 +11,11 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.money :price, null: false
       t.bigint :sku, unique: true
       t.decimal :rating, default: 0
-      t.smallint :weight
+      t.integer :weight
 
-      t.reference :inventory_item, null: false, foreign_key: true
-      t.reference :order, null: true, foreign_key: true
-      t.reference :shopping_cart, null: true, foreign_key: true
+      t.belongs_to :inventory, null: false
+      t.belongs_to :order_id, optional: true
+      t.belongs_to :shopping_cart_id, optional: true
 
       t.timestamps
     end

@@ -9,7 +9,7 @@ class CreateStores < ActiveRecord::Migration[6.1]
       t.string :industry
       t.string :mission_statement
       t.bigint :ein, unique: true
-      t.reference :user, null: false, foreign_key: true
+      t.belongs_to :user, null: false
 
       t.timestamps
     end
