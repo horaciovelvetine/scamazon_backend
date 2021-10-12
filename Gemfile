@@ -37,6 +37,9 @@ gem 'pg_search'
 # Add Authorization & User Model Build
 gem 'devise'
 
+# Define ENV variables for Secrets
+gem 'figaro'
+
 # 3rd Party Authorization(s)
 gem 'omniauth'
 gem 'omniauth-facebook'
