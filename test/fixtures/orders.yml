@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total: 
+  ship_to_address: MyString
+  status: MyString
+  order_placed: 2021-10-12
+  delivered_on: 2021-10-12
+  slime: false
+  user: 
+
+two:
+  total: 
+  ship_to_address: MyString
+  status: MyString
+  order_placed: 2021-10-12
+  delivered_on: 2021-10-12
+  slime: false
+  user: 
