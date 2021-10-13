@@ -35,13 +35,14 @@ class Seed < ApplicationRecord
   end
 
   def self.category_randomizer(item)
+    
     Category.all.order("RANDOM()").limit(3).each do |category|
       item.categories << category
     end
   end
 
   def self.create_user_sc
-    @user = User.create({ first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email , address: Faker::Address.full_address, phone: Faker::PhoneNumber.cell_phone, encrypted_password: 'test', balance: 0 })
+    @user = User.create({ first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email , address: Faker::Address.full_address, phone: Faker::PhoneNumber.cell_phone, password: 'defaultpass', balance: 0 })
   end
 
   def self.create_store_sc(user)
@@ -53,9 +54,9 @@ class Seed < ApplicationRecord
   end
 
   def self.create_item_sc(inventory)
-    @item = Item.new({sku: Faker::Number.number(digits: 10), name: Faker::Commerce.unique.product_name, description: Faker::Hipster.paragraph(sentence_count: 6), price: Faker::Commerce.price(range: 1..750), picture: Faker::Placeholdit.image(size: '50x50'), color: Faker::Commerce.color, material: Faker::Commerce.material, size: Faker::Measurement.weight, pieces: Faker::Number.between(from: 1, to: 10), manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country})
-    @item.inventory == inventory
     @item = Item.new({name: Faker::Commerce.unique.product_name, description: Faker::Hipster.paragraph(sentence_count: 6), model: Faker::Company.duns_number, manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country, picture: Faker::Placeholdit.image(size: '50x50'), material: Faker::Commerce.material, price: Faker::Commerce.price(range: 1..750), sku: Faker::Number.number(digits: 10), weight: Faker::Measurement.weight})
+    @item.inventory = inventory
+    @item
   end
 
 end
