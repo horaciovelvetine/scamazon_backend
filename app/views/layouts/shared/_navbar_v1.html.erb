@@ -5,52 +5,13 @@
 
     <%= render "/search/shared/flex_form" %>
 
-
     <% if !@user %>
-      <ul class="navbar-nav mb-0 mb-lg-0 me-4">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Hello, Sign In!<br>
-            Account & Lists
-          </a>
-          <ul class="dropdown-menu text-center dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li><button type="button" class="btn btn-success"><a class="dropdown-item" href="/login">Sign In</a></button><br></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><h6 class="text-center"><b>Your Account</b></h6>
-            <%= link_to "New? Signup!", sign_up_path, class: "dropdown-item" %>
-            <%= link_to "Account", show_profile_path, class: "dropdown-item" %>
-            <%= link_to "Orders", sign_in_path, class: "dropdown-item" %>
-            <%= link_to "Lists", sign_in_path, class: "dropdown-item"%>
-            <%= link_to "Store Dashboard", sign_in_path, class: "dropdown-item"%>
-          </ul>
-        </li>
-      </ul>
+      <%= render "/layouts/navbar_components/no_user_dropdown" %>
     <% else %>
-      <ul class="navbar-nav mb-0 mb-lg-0 me-4">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-              Hello, <%= @user.first_name %><br>
-              Account & Lists
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><h6 class="text-center"> Your Account </h6><li>
-              <li><hr class="dropdown-divider"></li>
-              <%= link_to "Account", root_path, class: "dropdown-item" %>
-              <%= link_to "Orders", root_path, class: "dropdown-item" %>
-              <%= link_to "Lists", root_path, class: "dropdown-item"%>
-              <% if @user.store %>
-                <%= link_to "Store Dashboard", root_path, class: "dropdown-item"%>
-              <% else %>
-                <%= link_to "Start a store", root_path, class: "dropdown-item"%>
-              <% end %>
-              <li><hr class="dropdown-divider"></li>
-              <%= link_to "logout", sign_out_path, class: "dropdown-item"%>
-            </ul>
-          </li>
-        </ul>
-      </ul>
+      <%= render "/layouts/navbar_components/user_dropdown" %>
     <% end %>
 
+    <%= render "/shopping_cart/shared/navbar_display"%>
   </div>
 </nav>
 
