@@ -1,11 +1,11 @@
-      <ul class="navbar-nav mb-0 mx-2">
+      <ul class="navbar-nav mb-0 ms-2">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-center text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-center text-white fw-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Hello, Sign In!<br>
             Account & Lists
           </a>
           <ul class="dropdown-menu text-center dropdown-menu-end p-2" aria-labelledby="navbarDropdown">
-            <li><button type="button" class="btn btn-success"><a class="dropdown-item" href="/login">Sign In</a></button><br></li>
+            <%= link_to "Sign-In!", sign_in_path, class:"btn btn-success dropdown-item", type:"button" %>
             <li><hr class="dropdown-divider"></li>
             <li><h6 class=""><b>Your Account</b></h6>
             <%= link_to "New? Signup!", sign_up_path, class: "dropdown-item text-start" %>
