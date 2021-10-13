@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Scamazon</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  <div id="notice_error">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+
+  </head>
+  
+  <body class="text-center">
+    
+    <a href="/"><img class="stretched-link" src="/assets/main-logo.png" style="height: 23%; width: 23%;"></a>
+
+    <div class="container"  style="width: 550px;">
+      <main class="form-sigin">
+        <div class="form-control card p-3">
+          <h4 class="h4 my-3 fw-sm text-start">Create Account</h4>
+          <%= render '/devise/registrations/shared/form' %>
+          
+          <p class="mt-2 text-muted">By creating an account, you agree to Scamazon's <a href="/conditionsofuse">Conditions of Use</a> and <a href="/privacynotice">Privacy Policy.</a>
+          
+          <p class="text-muted mt-2">Already have an account? <%=link_to 'Login', login_path %> or <%= link_to 'Login with Github', '/auth/:provider' %></p>
+        </div>
+
+      </main>
+          <p class="mb-5 text-muted">© 1996-2021, Scamazon.com, Inc. or its affiliates</p>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  </body>
+</html>
