@@ -13,9 +13,9 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.decimal :rating, default: 0
       t.integer :weight
 
-      t.belongs_to :inventory, null: false
-      t.belongs_to :order, optional: true
-      t.belongs_to :shopping_cart, optional: true
+      t.belongs_to :inventory
+      t.belongs_to :order, null: true
+      t.belongs_to :shopping_cart, null: true
 
       t.timestamps
     end
