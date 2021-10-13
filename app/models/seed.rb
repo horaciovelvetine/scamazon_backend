@@ -55,7 +55,7 @@ class Seed < ApplicationRecord
   def self.create_item_sc(inventory)
     @item = Item.new({sku: Faker::Number.number(digits: 10), name: Faker::Commerce.unique.product_name, description: Faker::Hipster.paragraph(sentence_count: 6), price: Faker::Commerce.price(range: 1..750), picture: Faker::Placeholdit.image(size: '50x50'), color: Faker::Commerce.color, material: Faker::Commerce.material, size: Faker::Measurement.weight, pieces: Faker::Number.between(from: 1, to: 10), manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country})
     @item.inventory == inventory
-    @item = Item.new({name: Faker::Commerce.unique.product_name, description: Faker::Hipster.paragraph(sentence_count: 6), model: Faker::Company.duns_number, manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country, picture: Faker::Placeholdit.image(size: '50x50'), material: Faker::Commerce.material, price: Faker::Commerce.price(range: 1..750), sku: Faker::Number.number(digits: 10), weight: Faker::Measurement.weight)
+    @item = Item.new({name: Faker::Commerce.unique.product_name, description: Faker::Hipster.paragraph(sentence_count: 6), model: Faker::Company.duns_number, manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country, picture: Faker::Placeholdit.image(size: '50x50'), material: Faker::Commerce.material, price: Faker::Commerce.price(range: 1..750), sku: Faker::Number.number(digits: 10), weight: Faker::Measurement.weight})
   end
 
 end
