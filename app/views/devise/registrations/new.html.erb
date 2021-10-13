@@ -23,7 +23,7 @@
   </head>
   
   <body class="text-center">
-    
+    <%# <%= link_to image_tag("/assets/main-logo.png"), root_path, style:"height: 23%; width: 23%;" %>
     <a href="/"><img class="stretched-link" src="/assets/main-logo.png" style="height: 23%; width: 23%;"></a>
 
     <div class="container"  style="width: 550px;">
@@ -32,9 +32,9 @@
           <h4 class="h4 my-3 fw-sm text-start">Create Account</h4>
           <%= render '/devise/registrations/shared/form' %>
           
-          <p class="mt-2 text-muted">By creating an account, you agree to Scamazon's <a href="/conditionsofuse">Conditions of Use</a> and <a href="/privacynotice">Privacy Policy.</a>
+          <p class="mt-2 text-muted text-start">By creating an account, you agree to Scamazon's <a href="/conditionsofuse">Conditions of Use</a> and <a href="/privacynotice">Privacy Policy.</a>
           
-          <p class="text-muted mt-2">Already have an account? <%=link_to 'Login', login_path %> or <%= link_to 'Login with Github', '/auth/:provider' %></p>
+          <p class="text-muted mt-2 text-start">Already have an account? <%=link_to 'Login', login_path %> or <%= link_to 'Login with Github', '/auth/:provider' %></p>
         </div>
 
       </main>
