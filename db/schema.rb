@@ -66,13 +66,13 @@ ActiveRecord::Schema.define(version: 2021_10_12_220258) do
     t.decimal "rating", default: "0.0"
     t.integer "weight"
     t.bigint "inventory_id", null: false
-    t.bigint "order_id_id"
-    t.bigint "shopping_cart_id_id"
+    t.bigint "order_id"
+    t.bigint "shopping_cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["inventory_id"], name: "index_items_on_inventory_id"
-    t.index ["order_id_id"], name: "index_items_on_order_id_id"
-    t.index ["shopping_cart_id_id"], name: "index_items_on_shopping_cart_id_id"
+    t.index ["order_id"], name: "index_items_on_order_id"
+    t.index ["shopping_cart_id"], name: "index_items_on_shopping_cart_id"
   end
 
   create_table "items_lists", id: false, force: :cascade do |t|
