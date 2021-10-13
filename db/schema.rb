@@ -172,7 +172,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_220258) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.boolean "slime", default: false
-    t.string "address", null: false
+    t.string "address"
     t.money "balance", scale: 2, default: "0.0"
     t.string "phone", null: false
     t.string "provider"
