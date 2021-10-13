@@ -1,5 +1,5 @@
 class Seed < ApplicationRecord
-  class Seed < ApplicationRecord
+
 
   def self.populate_store(params)
     # Sets amount of times around loop
@@ -41,23 +41,22 @@ class Seed < ApplicationRecord
   end
 
   def self.create_user_sc
-    @user = User.create({ first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email , address: Faker::Address.full_address, phone: Faker::PhoneNumber.cell_phone, password: 'test', balance: 'NA/BOT'})
+    @user = User.create({ first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.unique.email , address: Faker::Address.full_address, phone: Faker::PhoneNumber.cell_phone, encrypted_password: 'test', balance: 0 })
   end
 
   def self.create_store_sc(user)
-    @store = user.create_store({ name: Faker::Company.name, email: Faker::Internet.unique.email, address: Faker::Address.full_address, store_description: Faker::Company.catch_phrase, logo: Faker::Company.logo})
+    @store = user.create_store({ name: Faker::Company.name, email: Faker::Internet.unique.email, address: Faker::Address.full_address, description: Faker::Hipster.paragraph(sentence_count: 2), logo: Faker::Company.logo, industry: Faker::Company.industry, mission_statement: Faker::Company.catch_phrase, ein: Faker::Company.unique.ein })
   end
 
   def self.create_inventory_sc(store)
-    @inventory = store.create_inventory({description: Faker::Quotes::Shakespeare.as_you_like_it_quote})
+    @inventory = store.create_inventory({notes: Faker::Hipster.paragraph(sentence_count: 3)})
   end
 
   def self.create_item_sc(inventory)
-    item = Item.new({sku: Faker::Number.number(digits: 10), title: Faker::Commerce.unique.product_name, description: Faker::Hipster.unique.paragraph(sentence_count: 6), price: Faker::Commerce.price(range: 1..750), picture: Faker::Placeholdit.image(size: '50x50'), color: Faker::Commerce.color, material: Faker::Commerce.material, size: Faker::Measurement.weight, pieces: Faker::Number.between(from: 1, to: 10), manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country})
-    item.inventory == inventory
-    item
+    @item = Item.new({sku: Faker::Number.number(digits: 10), name: Faker::Commerce.unique.product_name, description: Faker::Hipster.paragraph(sentence_count: 6), price: Faker::Commerce.price(range: 1..750), picture: Faker::Placeholdit.image(size: '50x50'), color: Faker::Commerce.color, material: Faker::Commerce.material, size: Faker::Measurement.weight, pieces: Faker::Number.between(from: 1, to: 10), manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country})
+    @item.inventory == inventory
+    @item = Item.new({name: Faker::Commerce.unique.product_name, description: Faker::Hipster.paragraph(sentence_count: 6), model: Faker::Company.duns_number, manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country, picture: Faker::Placeholdit.image(size: '50x50'), material: Faker::Commerce.material, price: Faker::Commerce.price(range: 1..750), sku: Faker::Number.number(digits: 10), weight: Faker::Measurement.weight)
   end
 
 end
 
-end
