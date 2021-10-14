@@ -36,10 +36,9 @@ Rails.application.routes.draw do
     
 
     ## MIRROR DEVISE USERS ROUTING AND CONTROLLER PATHING
-    scope module: 'users', path: 'users', as: 'users' do 
+    scope module: 'users', path: 'user', as: 'user' do 
     
       ## RESOURCE: gift_card
-
       get 'gift_card_manger', to: 'gift_cards#show'
       post 'gift_card_manger', to: 'gift_cards#create'
     
@@ -48,8 +47,19 @@ Rails.application.routes.draw do
 
       
       
+      
     end
-
+    
+    scope  path: 'user', as: 'user' do
+      
+      ## RSEOURCE: shopping_cart :: for user belonged carts
+      resources :shooping_carts, only: [:show, :edit, :update, :destroy]
+    
+    end
+    
+    ## RESOURCE: shopping_cart :: for user NOT YET belonged carts
+    resources :shooping_carts, only: [:show, :edit, :update, :destroy]
+    
     ## NEST REVIEW UNDER ITEM / STILL NEED USER ACCESS
     scope module: 'items', path: 'item', as: 'item' do
     
@@ -57,12 +67,6 @@ Rails.application.routes.draw do
       resources :reviews, shallow: true
 
     end
-
-    ## RESOURCE: shopping_cart
-    #   not nested path because carts do not always belong to a user yet ~~~~>>
-    
-    resources :shooping_carts, only: [:show, :edit, :update, :destroy]
-    
   end
   
 
