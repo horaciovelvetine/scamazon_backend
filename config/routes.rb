@@ -44,9 +44,6 @@ Rails.application.routes.draw do
     
       ## RESOURCE: list && order
       resources :lists, :order 
-
-      
-      
       
     end
     
