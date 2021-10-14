@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-
   before_action :current_user
+  before_action :set_instance_user
 
 
   # Homepage
@@ -31,4 +31,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up)
     devise_parameter_sanitizer.permit(:account_update)
   end
+
+  def set_instance_user
+    if current_user
+      @user = current_user
+    end
+  end
+
 end
