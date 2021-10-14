@@ -11,4 +11,6 @@ class Item < ApplicationRecord
 
   validates_presence_of :name, :description, :manufacturer, :country_of_origin, :price, :sku
   validates_format_of :sku, :with => /[0-9]{10}/
+
+  @@displayed_itmes = []
 end
