@@ -8,7 +8,7 @@
               <li><h6 class="text-center"> Your Account </h6><li>
               <li><hr class="dropdown-divider"></li>
               <%= link_to "Account", profile_path, class: "dropdown-item" %>
-              <%= link_to "Orders", users_orders_path, class: "dropdown-item" %>
+              <%= link_to "Orders", user_orders_path, class: "dropdown-item" %>
               <%= link_to "Lists", user_lists_path, class: "dropdown-item"%>
               <% if @user.store %>
                 <%= link_to "Store Dashboard", user_store_path, class: "dropdown-item"%>
