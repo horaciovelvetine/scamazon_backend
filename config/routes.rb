@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
-    omniauth_callbacks: 'omni_auth'
+    omniauth_callbacks: 'omni_auth',
+    gift_cards: 'users/gift_cards',
+    orders: 'users/orders',
+    lists: 'users/lists',
+    shopping_carts: 'users/shopping_carts',
+    reviews: 'users/reviews'
   }
   devise_scope :user do
     get 'sign_in', to: 'users/sessions#new'
@@ -26,6 +31,11 @@ Rails.application.routes.draw do
     get 'reset_password', to: 'users/passwords#edit'
     get 'show_profile', to: 'users/sessions#show'
     get 'profile', to: 'users/sessions#show'
+    resources :gift_cards
+    # resources :orders
+    # resources :lists
+    # resources :shooping_carts
+    # resources :reviews
   end
   
 
