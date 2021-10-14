@@ -7,13 +7,13 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <li><h6 class="text-center"> Your Account </h6><li>
               <li><hr class="dropdown-divider"></li>
-              <%= link_to "Account", root_path, class: "dropdown-item" %>
-              <%= link_to "Orders", root_path, class: "dropdown-item" %>
-              <%= link_to "Lists", root_path, class: "dropdown-item"%>
+              <%= link_to "Account", profile_path, class: "dropdown-item" %>
+              <%= link_to "Orders", users_orders_path, class: "dropdown-item" %>
+              <%= link_to "Lists", user_lists_path, class: "dropdown-item"%>
               <% if @user.store %>
-                <%= link_to "Store Dashboard", root_path, class: "dropdown-item"%>
+                <%= link_to "Store Dashboard", user_store_path, class: "dropdown-item"%>
               <% else %>
-                <%= link_to "Start a store", root_path, class: "dropdown-item"%>
+                <%= link_to "Start a store", new_user_store_path, class: "dropdown-item"%>
               <% end %>
               <li><hr class="dropdown-divider"></li>
               <%= link_to "logout", sign_out_path, class: "dropdown-item"%>
