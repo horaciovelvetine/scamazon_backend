@@ -1,2 +1,0 @@
-class GiftCardController < ApplicationController
-end
