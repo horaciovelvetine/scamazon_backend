@@ -3,13 +3,13 @@ Rails.application.routes.draw do
 
   # All Static Application Routes 
   root to: 'application#home'
-  get "/covid_message", to: 'application#covid', as: 'scamazon-cares'
-  get "/slime", to: 'application#slime', as: 'scamazon-slime'
-  get "/conditionsofuse", to: "application#conditions", as: 'scamazon-conditionsofuse'
-  get "/privacynotice", to: "application#privacynotice", as: 'scamazon-privacy'
-  get "/privacy", to: "application#privacynotice"
-  get '/seed', to: 'application#seed', as: 'seedythedeebee'
-  post '/seed', to: 'application#populate'
+  get "covid_message", to: 'application#covid', as: 'scamazon-cares'
+  get "slime", to: 'application#slime', as: 'scamazon-slime'
+  get "conditionsofuse", to: "application#conditions", as: 'scamazon-conditionsofuse'
+  get "privacynotice", to: "application#privacynotice", as: 'scamazon-privacy'
+  get "privacy", to: "application#privacynotice"
+  get 'seed', to: 'application#seed', as: 'seedythedeebee'
+  post 'seed', to: 'application#populate'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -43,7 +43,10 @@ Rails.application.routes.draw do
       post 'gift_card_manger', to: 'gift_cards#create'
     
       ## RESOURCE: list && order
-      resources :lists, :order 
+      resources :lists, :orders
+      
+      ## RESOURCE: store :: for User has_one relationship
+      resources :store, module: 'stores', as: 'store', only: [:create, :new, :edit, :show, :update, :destroy]
       
     end
     
@@ -66,12 +69,18 @@ Rails.application.routes.draw do
     end
   end
   
-
+  
+  
   scope module: 'items' do 
     resources :items 
   end
-
+  
   scope module: 'stores' do 
+
+    ## RESOURCE store :: index not under User
+    get '/stores', to: 'stores#index'
+
+    ## RESOURCE inventory :: for store has_one relationship
     resources :inventory, only: [:show, :edit, :update, :destroy]
   end
 
