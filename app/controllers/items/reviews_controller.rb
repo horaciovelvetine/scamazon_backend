@@ -1,2 +1,2 @@
-class Users::ReviewsController < ApplicationController
+class Items::ReviewsController < ApplicationController
 end
