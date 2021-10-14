@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     get 'logout', to: 'users/sessions#destroy'
     get 'forgot_password', to: 'users/passwords#new'
     get 'reset_password', to: 'users/passwords#edit'
-    get 'show_profile', to: 'users/user#show'
-    get 'profile', to: 'users/user#show'
+    get 'show_profile', to: 'users/sessions#show'
+    get 'profile', to: 'users/sessions#show'
   end
   
 
