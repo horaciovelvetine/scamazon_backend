@@ -1,0 +1,56 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  
+  <div class="text-start fw-bolder">
+    <%= f.label :first_name %>
+  </div>
+  <div class="field py-2">
+    <%= f.text_field :first_name, autofocus: true, class:"form-control" %>
+  </div>
+
+  <div class="text-start fw-bolder">
+    <%= f.label :last_name %>
+  </div>
+  <div class="field py-2">
+    <%= f.text_field :last_name, class:"form-control" %>
+  </div>
+
+  <div class="text-start fw-bolder">
+    <%= f.label :phone %>
+  </div>
+  <div class="field py-2">
+    <%= f.text_field :phone, class:"form-control" %>
+  </div>
+
+  <div class="text-start fw-bolder">
+    <%= f.label :email %>
+  </div>
+  <div class="field py-2">
+    <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
+  </div>
+
+  <div class="text-start fw-bolder">
+    <%= f.label :pssword %>
+  </div>
+  <div class="field py-2">
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+
+    <% if @minimum_password_length %>
+    <div class="text-start pb-1">
+    <em>(<%= @minimum_password_length %> characters minimum)</em></div>
+    <% end %>
+  </div>
+
+
+  <div class="text-start fw-bolder">
+    <%= f.label :password_confirmation %>
+  </div>
+  <div class="field py-2">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
