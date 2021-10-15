@@ -1,15 +1,14 @@
 module ItemHelper
-
-  def get_random_items
-    @items = Item.find(Item.distinct.pluck(:id)).sample(20)
-  end
+  @@displayed_items = []
 
   def get_random_item
-    @items = get_random_items
-
-
-    @item = @items.sample(1)
-    # if @@item.exists?
+    
+    @item = Item.distinct.sample
+    until !@@displayed_items.include?(@item)
+      @item = Item.distinct.sample
+    end
+    @@displayed_items << @item
+    return @item
   end
-  
+
 end
