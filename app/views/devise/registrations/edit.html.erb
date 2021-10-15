@@ -1,4 +1,40 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class= "container p-4 mx-auto">
+  <div class="col-8">
+
+  <div class="row">
+    
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Library</li>
+    </ol>
+
+  </div>
+
+  <div class="row">
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Frist Name</li>
+        <li class="list-group-item">Last Name</li>
+        <li class="list-group-item">Phone</li>
+        <li class="list-group-item">Email</li>
+        <li class="list-group-item">Password</li>
+        <li class="list-group-item">Password Confirm</li>
+        <li class="list-group-item">Submit</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="container mt-5 pt-5">
 
 <%= render 'devise/registrations/shared/edit_form' %>
 
@@ -7,3 +43,4 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+</div>
