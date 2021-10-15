@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.string :material
       t.money :price, null: false
       t.bigint :sku
-      t.decimal :rating, default: 0
+      t.integer :rating, default: [0]
       t.integer :weight
 
       t.belongs_to :inventory
