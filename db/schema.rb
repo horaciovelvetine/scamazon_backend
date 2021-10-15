@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_220258) do
     t.string "country_of_origin", null: false
     t.string "picture"
     t.string "material"
-    t.money "price", scale: 2, null: false
+    t.string "price", null: false
     t.bigint "sku"
     t.integer "rating"
     t.integer "weight"
@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_220258) do
     t.string "last_name"
     t.boolean "slime", default: false
     t.string "address"
-    t.money "balance", scale: 2, default: "0.0"
+    t.string "balance", default: "0"
     t.string "phone"
     t.string "provider"
     t.string "uid"
