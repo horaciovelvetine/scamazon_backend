@@ -39,8 +39,8 @@ Rails.application.routes.draw do
     scope module: 'users', path: 'user', as: 'user' do 
     
       ## RESOURCE: gift_card
-      get 'gift_card_manger', to: 'gift_cards#show'
-      post 'gift_card_manger', to: 'gift_cards#create'
+      get 'gift_card_manager', to: 'gift_cards#show'
+      post 'gift_card_manager', to: 'gift_cards#create'
     
       ## RESOURCE: list && order
       resources :lists, :orders
