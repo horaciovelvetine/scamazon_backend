@@ -1,25 +1,27 @@
-<div class= "container p-4 mx-auto">
-  <div class="col-8">
+<div class= "container py-5">
+  <div class="col-md-6 offset-md-3">
 
-  <div class="row">
+  <div class="row align-items-center">
     
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Library</li>
+      <li class="breadcrumb-item"><a href="<%= profile_url %>">Profile</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
     </ol>
 
   </div>
 
-  <div class="row">
-    <div class="card">
+  <div class="d-flex flex-row pt-2 pb-0 align-items-end">
+    <div class="col flex-col flex-fill">
+      <h3 class="fw-light">Login & security</h3>
+    </div>
+    <div class="col flex-col">
+      <p class="text-muted text-end me-4">  <em><small>*edit here</small></em></p></div>
+  </div>
+
+  <div class="row align-items-center">
+    <div class="">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Frist Name</li>
-        <li class="list-group-item">Last Name</li>
-        <li class="list-group-item">Phone</li>
-        <li class="list-group-item">Email</li>
-        <li class="list-group-item">Password</li>
-        <li class="list-group-item">Password Confirm</li>
-        <li class="list-group-item">Submit</li>
+        <%= render 'devise/registrations/shared/edit_form' %>
       </ul>
     </div>
   </div>
