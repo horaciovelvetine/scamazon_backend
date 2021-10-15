@@ -2,7 +2,7 @@
 
 <% if @user.store.nil? %>
       <div class="d-flex ">
-        <a href="/stores/new" class="btn btn-outline-secondary flex-fill ">
+        <a href="<% new_user_store_url %>" class="btn btn-outline-secondary flex-fill ">
           <div class="d-flex mx-auto  align-items-center p-2">
             <img src="https://cdn3.iconfinder.com/data/icons/strokeicon-volume-7/512/0-3-57-512.png" class="p-1" alt="Your Account Icon" height="60" width="60">
               <div class="flex-column ps-2 text-start p-1">
@@ -15,7 +15,7 @@
 
   <% else %>
     <div class="d-flex ">
-        <a href="<%= user_store_url(user_id: @user.id, id: @user.store.id) %>" class="btn btn-outline-secondary flex-fill ">
+        <a href="<%= user_store_url( id: @user.store.id) %>" class="btn btn-outline-secondary flex-fill ">
           <div class="d-flex mx-auto  align-items-center p-2">
             <img src="https://cdn3.iconfinder.com/data/icons/strokeicon-volume-7/512/0-3-57-512.png" class="p-1" alt="Your Account Icon" height="60" width="60">
               <div class="flex-column ps-2 text-start p-1">
