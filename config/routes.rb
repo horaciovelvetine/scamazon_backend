@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     
       ## RESOURCE: list && order
       resources :lists, :orders
+      post 'lists/new', to: 'lists#create'
+      post 'orders/new', to: 'orders#create'
       
       ## RESOURCE: store :: for User has_one relationship
       resources :store, module: 'stores', as: 'store', only: [:create, :new, :edit, :show, :update, :destroy]
