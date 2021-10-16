@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<br><div class="container mt-5">
   <div class="card mw-75">
     <div class="card-header text-start d-flex flex-row align-items-center">
       <div class="flex-column flex-fill h4 fw-bolder mt-1 ">Your Lists</div>
@@ -10,7 +10,7 @@
           <ul class="list-unstyled p-0">
             <% @lists.each do |list| %>
               <% @l = list %>
-              <li class="p-1"><%= render "/lists/components/link_to_list"%></li>
+              <li class="p-1"><%= render "/users/lists/shared/link_to_list"%></li>
             <% end %>
           </ul>
         </div>
@@ -45,7 +45,7 @@
               
               <% @list.items.each do |item| %>
                 <% set_item(item) %>
-                <div class="row flex-row p-2"><%= render "/items/add_item/single_item_card_simple" %></div>
+                <div class="row flex-row p-2"><p>Man somebody should put an item here</p></div>
                 <div class="m-2"><hr></div>
               <% end %>
             </div>
@@ -57,12 +57,12 @@
         </div>
 
       </div>
+  <br><%= link_to "Back", :back, class:"ms-3" %>
     </div>
   </div>
 </div>
 
 <div class="mt-5">
-    <%= render "/items/cards/explore_more_items"%>
+    <%= render "/item/shared/explore_more_items"%>
 </div>
 
-  <%= link_to "Back", :back %>
