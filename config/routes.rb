@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     get 'reset_password', to: 'users/passwords#edit'
     get 'show_profile', to: 'users/sessions#show'
     get 'profile', to: 'users/sessions#show'
+    get 'users', to: 'users/sessions#show', as: 'user_profile'
     
 
     ## MIRROR DEVISE USERS ROUTING AND CONTROLLER PATHING
