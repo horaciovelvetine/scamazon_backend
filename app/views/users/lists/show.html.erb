@@ -1,1 +1,68 @@
-<
+<div class="container mt-5">
+  <div class="card mw-75">
+    <div class="card-header text-start d-flex flex-row align-items-center">
+      <div class="flex-column flex-fill h4 fw-bolder mt-1 ">Your Lists</div>
+      <div class="flex-column pe-3"><%= link_to "Create a List", new_user_list_path(user_id: @user.id), class:"text-decoration-none text-primary bg-transparent ms-5" %></div>
+      <div class="flex-column pe-3"><%= link_to "List Help", root_path, class:"text-decoration-none text-primary bg-transparent p-0" %></div>
+    </div>
+      <div class="row card-body">
+        <div class="col-3">
+          <ul class="list-unstyled p-0">
+            <% @lists.each do |list| %>
+              <% @l = list %>
+              <li class="p-1"><%= render "/lists/components/link_to_list"%></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="col-9">
+
+          <div class="d-flex flex-row align-items-center mb-4">
+            <div class="flex-column">
+              <span class="fs-6 fw-bolder"><%= @list.name %></span>
+            </div>
+            <div class="flex-column flex-fill">
+              <span class="fw-light text-muted ms-2"><small>private</small></span>
+            </div>
+
+            <div class="flex-column me-2">
+              <span><%= image_tag("https://m.media-amazon.com/images/G/01/gifts/registries/wishlist/icons/share-android._CB485935415_.svg", class:"ms-2 me-2", alt:"Share List", height:"24", width:"18")%><%= link_to "Send this list", root_path %></span>
+            </div> | 
+
+            <div class="flex-column me-2">
+              <%= image_tag("https://m.media-amazon.com/images/G/01/wishlist/ellipsis._CB485947373_.svg", class:"ms-2 me-2", alt:"More Options") %>
+              <%= link_to "More", root_path %></span>
+            </div>
+          </div>
+          <hr>
+          
+      
+            <% if @list.items.empty?%>
+              <p>This is the empty list text, so go add some items to this bad boy!</p>
+            <% else %>
+
+            <div class="flex-container m-2">
+              
+              <% @list.items.each do |item| %>
+                <% set_item(item) %>
+                <div class="row flex-row p-2"><%= render "/items/add_item/single_item_card_simple" %></div>
+                <div class="m-2"><hr></div>
+              <% end %>
+            </div>
+
+
+            <% end %>
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5">
+    <%= render "/items/cards/explore_more_items"%>
+</div>
+
+  <%= link_to "Back", :back %>
