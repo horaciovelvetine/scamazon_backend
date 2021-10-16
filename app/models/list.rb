@@ -3,4 +3,5 @@ class List < ApplicationRecord
   has_and_belongs_to_many :items
 
   validates :name, uniqueness: true, presence: true
+
 end
