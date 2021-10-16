@@ -8,6 +8,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     profile_path
   end
 
+  def after_update_path_for(_resource)
+    edit_user_registration_path
+  end
+
   protected
 
   
