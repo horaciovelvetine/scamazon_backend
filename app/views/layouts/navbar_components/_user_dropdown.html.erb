@@ -15,6 +15,7 @@
               <%= link_to "Account", profile_path, class: "dropdown-item" %>
               <%= link_to "Orders", user_orders_path, class: "dropdown-item" %>
               <%= link_to "Lists", user_lists_path, class: "dropdown-item"%>
+              <%= link_to "Gift Card", user_gift_card_manager_path, class: "dropdown-item"%>
               <% if @user.store %>
                 <%= link_to "Store Dashboard", user_store_path, class: "dropdown-item"%>
               <% else %>
