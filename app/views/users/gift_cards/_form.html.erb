@@ -1,16 +1,16 @@
-<%= bootstrap_form_with model: @gift_card do |f| %>
+<%= form_with model: @gift_card do |f| %>
   
   <div class="form-row">
   <%= fields_for :gift_card do |form| %>
   <div class="row p-0">
     <div class="field col-md-6">
-      <%= form.label :redemption_code, class:"col-form-label"  %>
-      <%= form.number_field :redemption_code, class:"form-control col-sm-10" %>
+      <%= form.label :code, class:"col-form-label"  %>
+      <%= form.number_field :code, class:"form-control col-sm-10" %>
     </div>
 
     <div class="field col-md-6">
-      <%= form.label :amount, class:"col-form-label" %>
-      <%= form.number_field :amount, in: 10.00..15000.00, step: 0.5, class:"form-control col-sm-10" %>
+      <%= form.label :balance, class:"col-form-label" %>
+      <%= form.number_field :balance, in: 10.00..15000.00, step: 0.5, class:"form-control col-sm-10" %>
     </div>
   </div>
   <div class="row">
