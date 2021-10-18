@@ -22,5 +22,10 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
+
+  def self.authorize_for_the_slime_time(user)
+    user.slime = true
+  end
+
   
 end
