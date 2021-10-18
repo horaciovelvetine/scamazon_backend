@@ -4,7 +4,7 @@
       <tr>
         <th scope="col">Date</th>
         <th scope="col">Description/Notes</th>
-        <th scope="col">Amount</th>
+        <th scope="col">Original Balance</th>
       </tr>
     </thead>
     <tbody>
@@ -12,7 +12,7 @@
         <tr>
           <td><%= gift_card.created_at.strftime('%B %d, %Y') %></td>
           <td><%= gift_card.notes %></td>
-          <td><%= gift_card.amount %></td>
+          <td><%= gift_card.balance %></td>
         </tr>
       <% end %>
     </tbody>
