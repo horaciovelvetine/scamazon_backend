@@ -27,8 +27,14 @@ class User < ApplicationRecord
     user.slime = true
   end
 
-  def self.add_gift_card(user, gift_card)
-    binding.pry
-    user.balance += gift_card.balance
+  def self.add_balance(user, balance)
+    
+    if user.balance.nil?
+      user.balance = 0
+      user.balance += balance
+    else
+      user.balance += balance
+    end
+
   end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'application#home'
   get "covid_message", to: 'application#covid', as: 'scamazon-cares'
   get "slime", to: 'application#slime', as: 'scamazonslime'
-  get "conditionsofuse", to: "application#conditions", as: 'scamazon-conditionsofuse'
+  get "termsandconditions", to: "application#conditions"
   get "privacynotice", to: "application#privacynotice", as: 'scamazon-privacy'
   get "privacy", to: "application#privacynotice"
   get 'seed', to: 'application#seed', as: 'seedythedeebee'

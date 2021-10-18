@@ -1,23 +1,25 @@
 class Users::GiftCardsController < ApplicationController
+  
+  def show; end
 
-  def create 
-    binding.pry
-    @gift_card = @user.gift_cards.create(gift_card_params)
-    User.add_gift_card(@user, @gift_card)
+  def create
+    @balance = GiftCard.balance_calculator
+    @gift_card = @user.gift_cards.new(gift_card_params)
+    @gift_card.balance = @balance
+    User.add_balance(@user, @balance)
     
     if @gift_card.save && @user.save
-      redirect_to gift_card_manger_path, notice: "Card amount successfully added to your account."
+      redirect_to user_gift_card_manager_path, notice: "Card amount successfully added to your account."
     else
-      redirect_to gift_card_manger_path, notice: "That didn't work. Please try again"
+      redirect_to user_gift_card_manager_path, notice: "That didn't work. Please try again"
     end
   end
 
-  def show; end
 
   private
 
   def gift_card_params
-    params.require(:gift_card).permit(:redemption_code, :amount, :notes)
+    params.require(:gift_card).permit(:code, :balance, :notes)
   end
 
 end

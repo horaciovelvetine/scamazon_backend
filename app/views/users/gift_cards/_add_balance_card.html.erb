@@ -1,10 +1,10 @@
-<div class="card">
-  <div class="card-body">
-    <div class="card-title"><span>Redeem a gift card</span></div>
-    <div class="row"><%= render 'form', gift_card: @gift_card %></div>
-    <div class="row">
-      <strong><h4 class="card-title">Current Account Balance:<span class="text-success"> $<%= @user.balance %></strong></span></h4>
-    </div>
-    
+<div class="container">
+
+  <div class="row"><div class="lead fs-2 pb-3">Redeem a gift card</div></div>
+  <div class="row"><%= render 'form', gift_card: @gift_card %></div>
+  <div class="row pt-5">
+    <strong><div class="lead fs-3 ">Current Account Balance:<span class="text-success"> $<%= @user.balance %></span></div></strong>
   </div>
+  
 </div>
+

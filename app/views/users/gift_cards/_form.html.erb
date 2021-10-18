@@ -3,21 +3,22 @@
   
   <%= fields_for :gift_card do |form| %>
   
-  <div class="row text-start p-0">
-    <div class="col-6 ">
-      <%= form.label :Enter_claim_code%>:<span class="text-muted"><small>(no punctuation, numbers no spaces!)</small></span>
+  <div class="row text-start align-items-center mb-4">
+    <div class="col-8">
+      <span class="fw-bolder"><%= form.label :Enter_claim_code%></span><span class="text-muted"><small> <em>(dashes not required)</em></small></span>
       <%= form.number_field :code, class:"form-control" %>
+      <em><div class="fs-6"><%= link_to "How do I find the claim code?", root_path, class:"text-muted text-decoration-none", style:"color:blue;" %></div></em>
     </div>
 
-    <div class="col-6 text-center">
-      <%= form.submit 'Submit', class:"actions w-25 btn btn-primary" %>
+    <div class="col-4">
+      <%= form.submit 'Apply to your balance', class:"actions btn btn-primary w-100" %>
     </div>
 
   </div>
   
-  <div class="text-start">
+  <div class="row text-start align-items-center">
     <div class="field">
-      <%= form.label :notes %>:
+      <span class="fw-bolder"><%= form.label :notes %></span><span class="text-muted"><em><small> (Only you will see this information)</small></em></span>
       <%= form.text_area :notes, class:"form-control" %>
     </div>
   </div>
