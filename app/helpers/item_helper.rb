@@ -6,8 +6,14 @@ module ItemHelper
     @item = Item.distinct.sample
     until !@@displayed_items.include?(@item)
       @item = Item.distinct.sample
+      
+      if @@displayed_items.length == Item.count
+        @@displayed_items = []
+      end
+
     end
     @@displayed_items << @item
+    
     return @item
   end
 
