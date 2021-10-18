@@ -90,4 +90,5 @@ Rails.application.routes.draw do
     resources :inventory, only: [:show, :edit, :update, :destroy]
   end
 
+  post 'search', to: 'searches#create'
 end
