@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.string :country_of_origin, null: false
       t.string :picture
       t.string :material
-      t.string :price, null: false
+      t.decimal :price, null: false
       t.bigint :sku
       t.integer :rating, default: [0]
       t.integer :weight

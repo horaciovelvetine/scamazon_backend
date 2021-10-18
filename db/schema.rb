@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_220258) do
 
   create_table "gift_cards", force: :cascade do |t|
     t.bigint "code"
-    t.money "balance", scale: 2
+    t.decimal "balance"
     t.string "notes"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_220258) do
     t.string "country_of_origin", null: false
     t.string "picture"
     t.string "material"
-    t.string "price", null: false
+    t.decimal "price", null: false
     t.bigint "sku"
     t.integer "rating"
     t.integer "weight"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_220258) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.money "total", scale: 2
+    t.decimal "total"
     t.string "ship_to_address"
     t.string "status"
     t.date "order_placed"
@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_220258) do
 
   create_table "shopping_carts", force: :cascade do |t|
     t.integer "item_count", default: 0
-    t.money "total", scale: 2
+    t.decimal "total"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 2021_10_12_220258) do
     t.string "last_name"
     t.boolean "slime", default: false
     t.string "address"
-    t.string "balance", default: "0"
+    t.decimal "balance", default: "0.0"
     t.string "phone"
     t.string "provider"
     t.string "uid"
