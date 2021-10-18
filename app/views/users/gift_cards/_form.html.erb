@@ -1,28 +1,28 @@
 <%= form_with model: @gift_card do |f| %>
   
-  <div class="form-row">
+  
   <%= fields_for :gift_card do |form| %>
-  <div class="row p-0">
-    <div class="field col-md-6">
-      <%= form.label :code, class:"col-form-label"  %>
-      <%= form.number_field :code, class:"form-control col-sm-10" %>
+  
+  <div class="row text-start p-0">
+    <div class="col-6 ">
+      <%= form.label :Enter_claim_code%>:<span class="text-muted"><small>(no punctuation, numbers no spaces!)</small></span>
+      <%= form.number_field :code, class:"form-control" %>
     </div>
 
-    <div class="field col-md-6">
-      <%= form.label :balance, class:"col-form-label" %>
-      <%= form.number_field :balance, in: 10.00..15000.00, step: 0.5, class:"form-control col-sm-10" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="field col-md-12">
-      <%= form.label :notes, class:"col-form-label" %>
-      <%= form.text_area :notes, class:"form-control col-sm-10" %>
-    </div>
-  </div>
-
-    <div class="text-center">
+    <div class="col-6 text-center">
       <%= form.submit 'Submit', class:"actions w-25 btn btn-primary" %>
     </div>
-  <% end %>
+
   </div>
+  
+  <div class="text-start">
+    <div class="field">
+      <%= form.label :notes %>:
+      <%= form.text_area :notes, class:"form-control" %>
+    </div>
+  </div>
+
+  
+  
+  <% end %>
 <% end %>
