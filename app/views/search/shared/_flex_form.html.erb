@@ -1,5 +1,10 @@
-      <%= form_with url: "/search", class:"input-group d-flex m-1 ms-3" do |f| %>
-        <%= fields_for :categories do |foo| %>
+      <%= form_with model: @search, class:"input-group d-flex m-1 ms-3" do |f| %>
+        <%= fields_for :search do |form| %>
+          <% binding.pry %>
+          <%= form.select :category, category_formatter, selected: "All" %>
+
+
+
           <select class="input-group-text" aria-label="category-select-sm" style="width: 74px" name="category" id="category" >
             <option selected >All</option>
               <% Category.all.each do |category| %>
