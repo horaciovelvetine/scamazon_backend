@@ -21,9 +21,7 @@ class SearchesController < ApplicationController
 
   end
   
-  def show
-    binding.pry
-  end
+  def show; end
 
 
 
