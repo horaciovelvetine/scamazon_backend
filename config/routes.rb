@@ -91,4 +91,5 @@ Rails.application.routes.draw do
   end
 
   post 'search', to: 'searches#create'
+  get 'search/:id', to: 'searches#show', as: 'results'
 end
