@@ -1,0 +1,11 @@
+<br>
+
+<div class="row row-cols-4 justify-content-center p-2 g-2">
+    <% @search.items.each do |item| %>
+      <% set_item(item) %>
+      <span class="p-2"><div class="d-flex flex-column border text-start  p-0">
+        <a href="<%= item_path(@item)%>" class="btn btn-link btn-light flex-fill"><%= render "/searches/shared/components/search_result_single_card" %></a>
+      </div></span>
+    <% end %>
+</div>
+<br><br><br>
