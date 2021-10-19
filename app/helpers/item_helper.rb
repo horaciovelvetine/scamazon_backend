@@ -17,4 +17,8 @@ module ItemHelper
     return @item
   end
 
+  def set_item(item)
+    @item = item
+  end
+  
 end
