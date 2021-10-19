@@ -37,3 +37,12 @@ Call it The Wrath of Scamazon, or Return of the Scamazon...Build a flexible MVC 
       * For the flexibility and added search functionality a more robust DB solution provides.
     - [Faker](https://github.com/faker-ruby/faker)
       * A spectacularly flexible tool for generating anything from quotes, to placeholder pictures to help make Scamazon feel a bit more real, as opposed to an empty storefront.
+
+
+## Last few notes: 
+
+- Need finish search page displaying results leading to items 
+- need to add reviews mechanics to those items 
+- simple cart screen when adding items to cart (maybe just search result cards???)
+
+Done. 
