@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
-  before_action :set_search, only: [:show]
+  before_action :set_search, only: [:show, :sort_by]
+  before_action :results, only: [:show]
 
   def create
     
@@ -23,7 +24,8 @@ class SearchesController < ApplicationController
   
   def show; end
 
-
+  def sort_by
+  end
 
   private 
 
@@ -32,7 +34,16 @@ class SearchesController < ApplicationController
   end
 
   def set_search
-    @search = Search.find(params[:id])
+    if params[:id]
+      @search = Search.find(params[:id])
+    end
+    if params[:format]
+      @search = Search.find(params[:format])
+    end
+  end
+  
+  def results
+    @results = @search.items
   end
 
 end

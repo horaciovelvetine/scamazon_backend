@@ -1,6 +1,48 @@
-<br>
+<div class="container-fluid pt-4">
+  <div class="d-flex flex-row px-2">
+    <div class="flex-col flex-fill">
+      <div class="fs-6"><small><%= @results.length %> of <%= @results.length %> results for "<%= @search.query %>"</div>
+    </div>
+    
+    <div class="flex-col">
+
+        <div class="btn-group dropstart rounded border shadow">
+          <button type="button" class="btn btn-grey dropdown-toggle btn-sm mx-3" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort by
+          </button>
+          <ul class="dropdown-menu">
+            <!-- Dropdown menu links -->
+            <%= link_to 'Featured', search_sort_by_path(search: "@search.id", selection: "Feat") %>
+          </ul>
+        </div>
+
+    </div>
+  </div>
+  <hr>
+
+  <div class="d-flex flex-row">
+    <div class="col-sm-3 p-2">
+      <p>Should be a menu for sorting search results</p>
+    </div>
+    <div class="col-sm-9">
+      <div class="row g-0 lh-1">
+      <% @results.each do |item| %>
+        <% set_item(item) %>
+        <div class="col-4 text-start lh-1">
+          <%= link_to render(:partial => '/searches/shared/components/search_result_single_card'), item_path(@item), class:"btn btn-link flex-fill" %><div class="px-4"><hr></div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 
 <div class="row row-cols-4 justify-content-center p-2 g-2">
+
     <% @search.items.each do |item| %>
       <% set_item(item) %>
       <span class="p-2"><div class="d-flex flex-column border text-start  p-0">
@@ -8,4 +50,4 @@
       </div></span>
     <% end %>
 </div>
-<br><br><br>
+

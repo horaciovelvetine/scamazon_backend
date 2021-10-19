@@ -9,5 +9,11 @@ module SearchHelper
     end
     @formatted
   end
+  
+  def set_item(item)
+    @item = item
+  end
+  
+
 
 end

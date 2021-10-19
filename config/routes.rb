@@ -92,4 +92,9 @@ Rails.application.routes.draw do
 
   post 'search', to: 'searches#create'
   get 'search/:id', to: 'searches#show', as: 'results'
+
+  ## the path that I want is: 
+  ## /search/sort_by/:selection
+
+  get '/search/sort_by/:selection', to: 'searches#sort_by', as: 'search/sort_by'
 end
