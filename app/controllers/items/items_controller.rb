@@ -1,8 +1,10 @@
-class Items::ItemController < ApplicationController
-
+class Items::ItemsController < ApplicationController
+  before_action :set_item, only: [:show]
   def index; end
 
   def create; end
+
+  def show; end
 
   def new; end
 
@@ -12,4 +14,10 @@ class Items::ItemController < ApplicationController
 
   def destroy; end
 
+  private
+
+  def set_item(item)
+    @item = item
+  end
+  
 end
