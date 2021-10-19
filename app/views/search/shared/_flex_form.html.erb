@@ -1,20 +1,7 @@
-      <%= form_with model: @search, class:"input-group d-flex m-1 ms-3" do |f| %>
-        <%= fields_for :search do |form| %>
-          <% binding.pry %>
-          <%= form.select :category, category_formatter, selected: "All" %>
-
-
-
-          <select class="input-group-text" aria-label="category-select-sm" style="width: 74px" name="category" id="category" >
-            <option selected >All</option>
-              <% Category.all.each do |category| %>
-                <option value="<%=category.name %>"><%= category.name %></option>
-              <% end %>
-            </select>
-        <% end %>
-        <%= fields_for :query do |bar| %>
-          <input type="text" class="form-control flex-fill" placeholder="" aria-label="Search" aria-describedby="basic-addon1" name="query" value="Search">
-        <% end %>
-      <%= f.submit "Search", class:"btn btn-success input-group-text" %>
-
-    <% end %>
+<%= form_with url: "/search", class:"input-group d-flex m-1 ms-3", method:"POST" do |f| %>
+  <%= fields_for :search do |form| %>
+    <%= form.select :category, category_formatter, selected: "All" %>
+    <%= form.text_field :query, class:"form-control flex-fill" %>
+  <% end %>
+    <%= f.submit "Search", class:"btn btn-success input-group-text"%>
+<% end %>
