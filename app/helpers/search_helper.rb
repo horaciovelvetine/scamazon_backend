@@ -1,15 +1,13 @@
-module SearchHelper
-  @@START HERE YOU GOOF 
+module SearchHelper 
+  
   def category_formatter
-    @results = get_categories
+    @categories = get_categories
+    @formatted = []
 
-    @double = { options => []}
-    @results.each do |category|
-      @double.options << [category, category]
-      return @
+    @categories.each do |category|
+      @formatted << [category, category]
     end
-
-
+    @formatted
   end
 
 end
