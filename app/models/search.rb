@@ -4,17 +4,42 @@ class Search < ApplicationRecord
 
 
   def get_results(search)
-    binding.pry
-    if search.category == "All"
-      @results = Item.search_by_all(search.query)
-      binding.pry
-    else 
-      @results = search.category.find_by_name(search.category).items.search_by_all(search.query)
+
+    if search.categories.length == 1 && search.categories.first.name == "All"
+      search.items << Item.search_by_all(search.query)
+    elsif search.categories.length == 1 && search.categories.first.name != "All"
+      search.items << search.categories.first.items.search_by_all(search.query)
+    elsif search.categories.length > 1
+      ## for later sorting of more detailed search which might have two or more categories
       binding.pry
     end
-    return @results
-    binding.pry
+    search.save
   end
+
+  def set_categories(search, categories)
+
+    if categories.is_a?(Array)
+      categories.each do |category|
+        search.categories << category
+      end
+    elsif categories.is_a?(String)
+      name = categories
+      search.categories << Category.find_by_name(name)
+    else
+      ##What data type?
+      binding.pry
+    end
+  
+  end
+
+  def set_query(search, query)
+    search.query = query
+  end
+
+  def set_user(search, user)
+    search.user_id = user.id
+  end
+
 
 
 end
