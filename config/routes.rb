@@ -79,7 +79,6 @@ Rails.application.routes.draw do
       ## ACTION ROUTES
     get 'add_item/:item_id/list/:id', to: 'lists#add_item', as: 'add_item_to_list'
     get 'remove_item/:item_id/list/:id', to: 'lists#remove_item', as: 'remove_item_from_list'
-    get 'move_item/:item_id/list/:id/to/:to_id', to: 'lists#move_item', as: 'move_item_to_list'
   end
 
   ## ADDITIONAL ACTION ROUTES FOR NON USER MODS
