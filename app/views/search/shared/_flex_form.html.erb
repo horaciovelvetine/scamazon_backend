@@ -1,7 +1,13 @@
 <%= form_with url: "/search", class:"input-group d-flex m-1 ms-3", method:"POST" do |f| %>
   <%= fields_for :search do |form| %>
-    <%= form.select :category, category_formatter, selected: "All" %>
-    <%= form.text_field :query, class:"form-control flex-fill" %>
+    <div class="col-2">
+      <%= form.select :category, category_formatter, selected: "All" %>
+    </div>
+    <div class="col">
+      <%= form.text_field :query, class:"form-control flex-fill" %>
+    </div>
   <% end %>
-    <%= f.submit "Search", class:"btn btn-success input-group-text"%>
+    <div class="col">
+      <%= f.submit "Search", class:"btn btn-success input-group-text"%>
+    </div>
 <% end %>
