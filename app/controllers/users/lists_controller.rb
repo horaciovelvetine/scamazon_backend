@@ -34,6 +34,18 @@ class Users::ListsController < ApplicationController
     @list = set_list
   end
 
+  def add_item
+binding.pry
+  end
+
+  def remove_item
+binding.pry
+  end
+
+  def move_item
+binding.pry
+  end
+
   ## NO VIEW
   def edit; end
 
