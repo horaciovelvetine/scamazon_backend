@@ -75,16 +75,27 @@ Rails.application.routes.draw do
     end
   end
   
+  scope module: 'users' do
+      ## ACTION ROUTES
+    get 'add_item/:item_id/list/:id', to: 'lists#add_item', as: 'add_item_to_list'
+    get 'remove_item/:item_id/list/:id', to: 'lists#remove_item', as: 'remove_item_from_list'
+    get 'move_item/:item_id/list/:id/to/:to_id', to: 'lists#move_item', as: 'move_item_to_list'
+  end
+
+  ## ADDITIONAL ACTION ROUTES FOR NON USER MODS
+  get 'add_item/:item_id/shopping_cart', to: 'shopping_carts#add_item', as: 'add_item_to_cart'
+  get 'remove_item/:item_id/shopping_cart', to: 'shopping_carts#remove_item', as: 'remove_item_from_cart'
   
   
   scope module: 'items' do 
     resources :items 
   end
   
-  scope module: 'stores' do 
+  scope module: 'stores', path: 'stores' do 
 
     ## RESOURCE store :: index not under User
-    get '/stores', to: 'stores#index'
+    get '/', to: 'stores#index'
+    get'/:id', to: 'stores#show', as: 'store_profile'
 
     ## RESOURCE inventory :: for store has_one relationship
     resources :inventory, only: [:show, :edit, :update, :destroy]
@@ -97,4 +108,6 @@ Rails.application.routes.draw do
   ## /search/sort_by/:selection
 
   get '/search/sort_by/:selection', to: 'searches#sort_by', as: 'search/sort_by'
+
+
 end
