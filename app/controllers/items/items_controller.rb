@@ -1,5 +1,7 @@
 class Items::ItemsController < ApplicationController
-  # before_action :set_item, only: [:show]
+  before_action :find_item, only: [:show]
+  before_action :random_item, only: [:show]
+  
   def index; end
 
   def create; end
@@ -16,8 +18,13 @@ class Items::ItemsController < ApplicationController
 
   private
 
-  # def set_item(item)
-  #   @item = item
-  # end
+  def find_item
+    @item = Item.find(params[:id])
+  end
+
+  def random_item
+    @item = Item.find(((params[:id].to_i) + 1).to_s )
+  end
+
   
 end
