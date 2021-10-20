@@ -1,4 +1,5 @@
 class Users::ListsController < ApplicationController
+  before_action :add_set_list, only: [:add_item, :remove_item]
   helper_method :set_lists, :set_list
   
   ## Should redirect to show with a random list chosen
@@ -35,15 +36,13 @@ class Users::ListsController < ApplicationController
   end
 
   def add_item
-binding.pry
+    @list.items << Item.find(params[:item_id])
+    redirect_to user_list_path(@user, @list), notice: "Item was successfully added to #{@list.name}"
   end
 
   def remove_item
-binding.pry
-  end
-
-  def move_item
-binding.pry
+    @list.items.delete(params[:item_id])
+    redirect_to user_list_path(@user, @list), notice: "Item was successfully removed from #{@list.name}"
   end
 
   ## NO VIEW
@@ -71,6 +70,10 @@ binding.pry
       else
         @list = List.find(params[:id])
       end
+    end
+
+    def add_set_list
+      @list = current_user.lists.find(params[:id])
     end
 
 end
