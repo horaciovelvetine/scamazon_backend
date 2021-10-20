@@ -23,7 +23,7 @@ class Items::ItemsController < ApplicationController
   end
 
   def random_item
-    @item = Item.find(((params[:id].to_i) + 1).to_s )
+    @rnd_item = Item.find(((params[:id].to_i) + 1).to_s )
   end
 
   
