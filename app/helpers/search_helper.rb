@@ -13,7 +13,5 @@ module SearchHelper
   def set_item(item)
     @item = item
   end
-  
-
 
 end

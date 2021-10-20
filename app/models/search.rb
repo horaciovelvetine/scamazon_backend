@@ -41,5 +41,15 @@ class Search < ApplicationRecord
   end
 
 
+  def relevant_categories(search)
+    @categorys = []
+    
+    search.items.each do |item|
+      item.categories.each{ |category| @categorys << category unless @categorys.include?(category) }
+    end
+    @categorys
+
+  end
+
 
 end
