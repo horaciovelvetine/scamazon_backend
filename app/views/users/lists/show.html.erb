@@ -1,4 +1,4 @@
-<br><div class="container mt-5">
+<br><div class="container mt-3">
   <div class="card mw-75">
     <div class="card-header text-start d-flex flex-row align-items-center">
       <div class="flex-column flex-fill h4 fw-bolder mt-1 ">Your Lists</div>
@@ -46,18 +46,16 @@
               <p>This is the empty list text, so go add some items to this bad boy!</p>
             <% else %>
 
-            <div class="flex-container m-2">
-              
-              <% @list.items.each do |item| %>
-                <% set_item(item) %>
-                <div class="row flex-row p-2"><p>Man somebody should put an item here</p></div>
-                <div class="m-2"><hr></div>
-              <% end %>
-            </div>
-
-
+              <div class="flex-container m-2">
+                
+                <% @list.items.each do |item| %>
+                  <% set_item(item) %>
+                  <div class="row flex-row p-2"><%= render 'item/shared/components/single_item' %></div>
+                <% end %>
+              </div>
             <% end %>
           </div>
+          <div class="m-2"><hr></div>
           
         </div>
 
