@@ -1,0 +1,26 @@
+<div class="mt-2 p-3">
+  <div class="row p-0">
+    <ol class="breadcrumb">
+      <%= link_to "‹-- Back to results", url_for(:back) %>
+    </ol>
+  </div>
+  
+  <div class="row p-0 d-flex flex-row flex-fill">
+    <div class="col-5">
+      <%= render "/items/items/show/fs_pictures_carousel"%>
+    </div>
+    <div class="col-4">
+      <%= render "/items/items/show/details" %>
+    </div>
+    <div class="col-3 p-2">
+      <%= render "/items/items/show/buybox"%>
+    </div>
+  </div><br><br>
+  <hr>
+  <div class="row mt-5"><%= render "/item/shared/explore_more_items"%></div>
+</div>
+
+
+
+
+

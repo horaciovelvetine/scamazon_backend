@@ -1,0 +1,12 @@
+<div class="flex text-start">
+  <span class="fs-5"><%= @item.name %></span><br>
+  <p class="p-0 lh-sm">
+    <%= link_to "Visit: #{@item.inventory.store.name}'s Store",store_profile_path(id: @item.inventory.store.id) %>
+    <%=link_to render("/item/ratings/item_show_rating", item: @item), item_path(@item), class:"bg-transparent text-decoration-none" %>
+    <hr>
+    <span class="bg-transparent text-start p-3"><h6>Price:<span class="text-danger">$<%= @item.price %></span></h6></span>
+    <span class="bg-transparent text-start p-3"><p><%= @item.description %></p></span>
+    <hr>
+    <%= render "item/shared/sponsored_item_p1" %>
+  </p>
+</div>
