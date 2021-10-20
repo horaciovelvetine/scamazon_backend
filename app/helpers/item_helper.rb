@@ -1,7 +1,7 @@
 module ItemHelper
   @@displayed_items = []
 
-  def get_random_item
+  def explore_more_item
     
     @item = Item.distinct.sample
     until !@@displayed_items.include?(@item)
