@@ -1,0 +1,10 @@
+<% @item = explore_more_item %>
+<a href="item/:id">
+  <div class="g-3 m-1 text-deocration-none">
+    <span><%= link_to image_tag(Faker::Placeholdit.image(size: '165x165'), class:"p-2 bg-transparent"), item_path(@item, id: @item.id)%><br></span>
+    <span class="h6"><%= link_to "#{@item.name}", item_path(@item), class:"link text-primary bg-white" %><br></span>
+    <span><%=link_to render("/item/ratings/small_rating", item: @item), item_path(@item), class:"link text-decoration-none bg-transparent" %></span>
+    <span class="text-danger h6">$<%= link_to @item.price, item_path(@item), class:"link-danger text-decoration-none bg-transparent" %></span>  
+  </div>
+</a>
+
