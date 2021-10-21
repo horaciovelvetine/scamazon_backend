@@ -67,7 +67,7 @@ Rails.application.routes.draw do
     resources :shooping_carts, only: [:show, :edit, :update, :destroy]
     
     ## NEST REVIEW UNDER ITEM / STILL NEED USER ACCESS
-    scope module: 'items', path: 'item', as: 'item' do
+    scope module: 'items', path: 'item/:id', as: 'item' do
     
       ## RESOURCE: review
       resources :reviews, shallow: true
