@@ -37,12 +37,12 @@ class Users::ListsController < ApplicationController
 
   def add_item
     @list.items << Item.find(params[:item_id])
-    redirect_to user_list_path(@user, @list), notice: "Item was successfully added to #{@list.name}"
+    redirect_to user_list_path(id: @list.id), notice: "Item was successfully added to #{@list.name}"
   end
 
   def remove_item
     @list.items.delete(params[:item_id])
-    redirect_to user_list_path(@user, @list), notice: "Item was successfully removed from #{@list.name}"
+    redirect_to user_list_path(id: @list.id), notice: "Item was successfully removed from #{@list.name}"
   end
 
   ## NO VIEW
