@@ -1,4 +1,5 @@
 <!-- checks item rating and then returns the correct represetation of stars and the total size of an item ratings --> 
+    
     <% if @item.rating.nil? %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
@@ -66,4 +67,4 @@
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
     <% else %>
-    <% end %><small><%=link_to "(#{@item.reviews.all.size})", item_path(item), class:"text-decoration-none btn p-0 bg-transparent" %></small>
+    <% end %>
