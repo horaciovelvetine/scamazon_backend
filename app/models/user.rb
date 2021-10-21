@@ -3,13 +3,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
   # Object Relationships
-  has_many :reviews
   has_one :store
+  has_one :shopping_cart
+  
+  has_many :reviews
+  has_many :reviewed_items, through: :reviews, source: :items
   has_many :orders
   has_many :ordered_items, through: :orders, source: :items
-  has_one :shopping_cart
-  has_many :gift_cards
   has_many :lists
+  has_many :listed_items, through: :lists, source: :items
+  
+  has_many :gift_cards
 
 
 
@@ -38,4 +42,5 @@ class User < ApplicationRecord
     end
 
   end
+
 end
