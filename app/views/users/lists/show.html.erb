@@ -1,5 +1,5 @@
 <br>
-<div class="flex-container border rounded-3 shadow mx-4 my-2">
+<div class="flex-container border rounded-3 shadow mx-4 my-2 mb-5">
   <div class="py-2 px-4">
   <div class="d-flex flex-row align-items-center text-start">
     <div class="flex-column flex-fill h4 fw-bolder m-2 ">Your Lists</div>
@@ -14,7 +14,7 @@
       <ul class="list-unstyled me-3">
         <% @lists.each do |list| %>
           <% @l = list %>
-          <li class="shadow-sm"><%= render "/users/lists/shared/link_to_list"%></li>
+          <li class="pb-2"><%= render "/users/lists/shared/link_to_list"%></li>
         <% end %>
       </ul>
     </div>
@@ -50,6 +50,27 @@
       </div>
       
 <hr>
+
+      <div class="d-flex flex-row align-items-center">
+        <div class="flex-column flex-fill">
+          <%= link_to image_tag("https://m.media-amazon.com/images/G/01/wishlist/switcher-grid-view._CB480597788_.svg", alt:"Grid View", height:"23", width:"16", class:"border-end"), root_path %> | <%= link_to image_tag("https://m.media-amazon.com/images/G/01/wishlist/switcher-list-view._CB480597788_.svg", alt:"List View", height:"23", width:"16"), root_path, class:"me-2" %><%= link_to "+ Add Idea to List", root_path, class:"text-decoration-none"%>
+        </div>
+        <div class="flex-column lh-1">
+
+
+            <div class="mx-3">
+                <%= form_with url: "/search", class:"input-group input-group-sm mx-2", method:"POST" do |f| %>
+                  <%= fields_for :search do |form| %>
+                      <%= form.text_field :query, class:"form-control", placeholder:"Search this site" %>
+                  <% end %>
+                      <%= f.submit "Search", class:"btn btn-primary btn-sm input-group-text w-25"%>
+                <% end %>
+            </div>
+
+        </div>
+      </div>
+<hr>
+    <div class="text-center">
       <% if @list.items.empty?%>
         <div class="text-muted lead">This is the empty list text, so go add some items to this bad boy!</div>
       <% end %>
@@ -57,9 +78,9 @@
       <div class="row">
         <% @list.items.each do |item| %>
           <% set_item(item) %>
-            <div class="col-lg-4 col-xl-3">
+            <div class="col-lg-4 col-xl-3 py-2">
               <%# item.name %>
-              <%= link_to render('item/shared/components/single_item'), class:"text-decoarion-none m-1" %>
+              <%= link_to render('item/shared/components/single_item'), class:"text-decoarion-none" %>
             </div>
         <% end %>
       </div>
@@ -71,7 +92,13 @@
   </div>
   </div>
 </div>
+</div>
 
+<div class="row mb-5 mx-4 shadow-sm">
+  <%= render "/item/shared/explore_more_items"%>
+</div>
+
+<%= link_to "Home", root_path %>
 
 
 
