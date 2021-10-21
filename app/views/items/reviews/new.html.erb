@@ -1,4 +1,4 @@
-<div class="fluid-container mx-5 px-5 pt-3 pb-1" style="background:#e6f9ff">
+<div class="fluid-container mx-5 px-5 pt-3 pb-2" style="background:#e6f9ff">
   <div class="d-flex flex-row align-items-center">
     <div class="flex-col" >
       <%= link_to image_tag(Faker::Placeholdit.image(size:'40x40'), class:"rounded"), root_path, class:"rounded ms-2" %>
@@ -12,7 +12,8 @@
   </div>
 </div>
 
-
+<%= form_with model: @review do |form| %>
+  <% fields_for :dustin do |f| %>
 <div class="container">
   <div class="d-flex flex-row justify-content-evenly">
     <div class="col-9 mt-3">
@@ -27,12 +28,16 @@
       <div class="row py-2">
         <div class="fs-5 fw-bolder text-start">Overall Rating</div>
       </div>
-      <div class="row">This should be a bunch of stars, big ones too, if you got em</div>
+      <div class="row">
+        <%= f.number_field :rating %>
+      </div>
 <hr>
       <div class="row py-2">
         <div class="fs-5 fw-bolder text-start">Add a headline</div>
       </div>
-      <div class="row">form to add text for headline for review</div>
+      <div class="row">
+        <%= f.text_field :description %>
+    </div>
 <hr>
     <div class="row py-2">
         <div class="fs-5 fw-bolder text-start">Add a photo or video</div><br>
@@ -43,13 +48,17 @@
     <div class="row py-2">
         <div class="fs-5 fw-bolder text-start">Add a written review</div>
       </div>
-      <div class="row">form gigantic text box to "What did you like or dislike? What did you use this product for?</div>
+      <div class="row">
+        <%= f.text_area :description, placeholder:"What did you like or dislike? What did you use this product for?", size:"70x5" %>
+      </div>
 
     <div class="d-flex flex-row justify-content-end my-3">
       <div class="col-4 text-end">
         <%= link_to 'submit', root_path, class:"btn btn-primary w-25 btn-sm" %>
       </div>
     </div>
+    <% end %>
+  <% end %>
 
     </div>
   </div>
