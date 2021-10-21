@@ -7,31 +7,31 @@
   </div>
 </div>
 
-<div class="d-flex flex-row align-items-center">
-  <div class="flex-col ms-3 lh-sm"><%= render '/item/ratings/small_rating_nocount' %></div>
-  <div class="flex-col ms-3 pt-1"><span class="fs-6 fw-bolder">This is going to be the title for each review.</span></div>
-</div>
-
-<div class="d-flex flex-row align-items-center">
-  <div class="flex-col ms-3 lh-1"><span class="fs-6 fw-bolder text-muted"><small>Reviewed in the Univted States on THE DATE GOES</small></span></div>
-</div>
-
-<%# if review.varified_purchaser %>
-  <div class="d-flex flex-row align-items-center my-2">
-    <div class="flex-col ms-3 lh-1"><span class="fs-6 text-danger fw-bolder"><small>Verified Purchaser</small></span></div>
+  <div class="d-flex flex-row align-items-center">
+    <div class="flex-col ms-3 lh-sm"><%= render '/item/ratings/small_rating_nocount' %></div>
+    <div class="flex-col ms-3 pt-1"><span class="fs-6 fw-bolder">This is going to be the title for each review.</span></div>
   </div>
-<%# end %>
 
-<div class="d-flex flex-row align-items-center my-2">
-  <div class="flex-col ms-3 lh-1"><span class="fs-6">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span></div>
-</div>
+  <div class="d-flex flex-row align-items-center">
+    <div class="flex-col ms-3 lh-1"><span class="fs-6 fw-bolder text-muted"><small>Reviewed in the Univted States on THE DATE GOES</small></span></div>
+  </div>
 
-<div class="d-flex flex-row align-items-center my-2 p-2">
-  <div class="flex-col ms-3"><%= link_to "Helpful", root_path, class:"btn btn-outline-secondary btn-sm shadow-sm me-1" %> | </div>
-  <div class="flex-col ms-2"><%= link_to "Report Abuse", root_path, class:"text-decoration-none text-muted fs-6" %></div>
-</div>
+  <%# if review.varified_purchaser %>
+    <div class="d-flex flex-row align-items-center my-2">
+      <div class="flex-col ms-3 lh-1"><span class="fs-6 text-danger fw-bolder"><small>Verified Purchaser</small></span></div>
+    </div>
+  <%# end %>
 
-<span class="mx-4"><hr></span>
+  <div class="d-flex flex-row align-items-center my-2">
+    <div class="flex-col ms-3 lh-1"><span class="fs-6">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span></div>
+  </div>
 
-<div class="d-flex flex-row align-items-center my-2">
-</div>
+  <div class="d-flex flex-row align-items-center my-2 p-2">
+    <div class="flex-col ms-3"><%= link_to "Helpful", root_path, class:"btn btn-outline-secondary btn-sm shadow-sm me-1" %> | </div>
+    <div class="flex-col ms-2"><%= link_to "Report Abuse", root_path, class:"text-decoration-none text-muted fs-6" %></div>
+  </div>
+
+  <span class="mx-4"><hr></span>
+
+  <div class="d-flex flex-row align-items-center my-2">
+  </div>
