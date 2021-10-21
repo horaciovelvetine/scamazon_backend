@@ -1,1 +1,48 @@
-<p> make a new store</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Scamazon</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+    
+  <div id="notice_error">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+  
+  <body class="text-center">
+    
+    <div class="container py-5"  style=""></div>
+    
+      <main class="form-sigin">
+        <div class="form-control card p-4">
+          <a href="/"><img class="mx-auto stretched-link" src="/assets/main-logo.png" style="height: 30%; width: 30%;"></a>
+          <h5 class="h4 my-4 fw-sm text-start mx-5">Start a Store</h5>
+
+
+
+        </div>
+
+          
+          <p class="mt-5 mb-2 text-muted">© 1996-2021, Scamazon.com, Inc. or its affiliates</p>
+      </main>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+

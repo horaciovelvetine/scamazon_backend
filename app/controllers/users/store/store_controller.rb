@@ -1,6 +1,8 @@
 class Users::Store::StoreController < ApplicationController
 before_action :get_user_store, only: [:show, :edit, :update, :destroy]
 
+  layout false, only: [:new]
+  
   def create
     binding.pry
     @store = current_user.store.create(store_params)
