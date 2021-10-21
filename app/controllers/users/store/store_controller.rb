@@ -1,4 +1,4 @@
-class Users::StoresController < ApplicationController
+class Users::Store::StoreController < ApplicationController
 
   def create; end
 

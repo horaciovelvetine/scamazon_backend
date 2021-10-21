@@ -52,7 +52,7 @@ Rails.application.routes.draw do
       post 'orders/new', to: 'orders#create'
       
       ## RESOURCE: store :: for User has_one relationship
-      resources :store, module: 'stores', as: 'store', only: [:create, :new, :edit, :show, :update, :destroy]
+      resources :store, module: 'store', as: 'store', only: [:create, :new, :edit, :show, :update, :destroy]
       
     end
     
