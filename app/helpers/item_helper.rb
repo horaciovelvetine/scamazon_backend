@@ -1,20 +1,7 @@
 module ItemHelper
-  @@displayed_items = []
 
   def explore_more_item
-    
-    @item = Item.distinct.sample
-    until !@@displayed_items.include?(@item)
-      @item = Item.distinct.sample
-      
-      if @@displayed_items.length == Item.count
-        @@displayed_items = []
-      end
-
-    end
-    @@displayed_items << @item
-    
-    return @item
+    @item = Item.all.sample
   end
 
   def set_item(item)
