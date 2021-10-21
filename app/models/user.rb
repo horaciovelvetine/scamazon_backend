@@ -6,10 +6,11 @@ class User < ApplicationRecord
   has_many :reviews
   has_one :store
   has_many :orders
-  has_many :items, through: :orders
+  has_many :ordered_items, through: :orders, source: :items
   has_one :shopping_cart
   has_many :gift_cards
   has_many :lists
+
 
 
   def self.from_omniauth(auth)
