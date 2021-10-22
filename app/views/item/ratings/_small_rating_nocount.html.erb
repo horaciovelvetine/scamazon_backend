@@ -1,66 +1,66 @@
 <!-- checks item rating and then returns the correct represetation of stars and the total size of an item ratings --> 
-    
+
     <% if review.rating.nil? %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
-    <% elsif review.rating.to_i.include?(0..0.49) %>
+    <% elsif review.rating.between?(0.0, 0.49) %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
-    <% elsif review.rating.to_i.include?(0.5..0.99) %>
+    <% elsif review.rating.between?(0.5, 0.99) %>
       <%= render "/item/ratings/stars/half" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
-    <% elsif review.rating.to_i.include?(1..1.49) %>
+    <% elsif review.rating.between?(1, 1.49) %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
-    <% elsif review.rating.to_i.include?(1.5..1.99) %>
+    <% elsif review.rating.between?(1.5, 1.99) %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/half" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
-    <% elsif review.rating.to_i.include?(2..2.49) %>
+    <% elsif review.rating.between?(2, 2.49) %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
-    <% elsif review.rating.to_i.include?(2.5..2.99) %>
+    <% elsif review.rating.between?(2.5, 2.99) %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/half" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
-    <% elsif review.rating.to_i.include?(3..3.49) %>
+    <% elsif review.rating.between?(3, 3.49) %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/empty" %>
       <%= render "/item/ratings/stars/empty" %>
-    <% elsif review.rating.to_i.include?(3.5..3.99) %>
+    <% elsif review.rating.between?(3.5, 3.99) %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/half" %>
       <%= render "/item/ratings/stars/empty" %>
-    <% elsif review.rating.to_i.include?(4..4.49) %>
+    <% elsif review.rating.between?(4, 4.49) %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/half" %>
-    <% elsif review.rating.to_i.include?(4.5..5) %>
+    <% elsif review.rating.between?(4.5, 5) %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
       <%= render "/item/ratings/stars/full" %>
