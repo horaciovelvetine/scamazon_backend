@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   belongs_to :order, optional: true
   belongs_to :shopping_cart, optional: true
   belongs_to :inventory
+  has_one :store, through: :inventory
   
   has_many :reviews
   has_many :reviewers, through: :reviews, source: :user
