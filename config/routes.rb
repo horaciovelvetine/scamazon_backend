@@ -52,7 +52,7 @@ Rails.application.routes.draw do
       post 'orders/new', to: 'orders#create'
       
       ## RESOURCE: store :: for User has_one relationship
-      resources :store, only: [:create, :new, :edit, :show, :update, :destroy]
+      resources :store, only: [ :new, :create, :edit, :show, :update, :destroy]
       
     end
     
@@ -91,10 +91,6 @@ Rails.application.routes.draw do
   end
   
   scope module: 'stores', path: 'stores' do 
-
-    ## RESOURCE store :: index not under User
-    get '/', to: 'stores#index'
-    get'/:id', to: 'stores#show', as: 'store_profile'
 
     ## RESOURCE inventory :: for store has_one relationship
     resources :inventory, only: [:show, :edit, :update, :destroy]
