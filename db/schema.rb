@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_222746) do
     t.string "material"
     t.float "price", null: false
     t.bigint "sku"
-    t.integer "rating"
+    t.float "rating", default: 0.0
     t.integer "weight"
     t.integer "quantity_in_stock"
     t.bigint "inventory_id"
