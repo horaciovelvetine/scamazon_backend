@@ -1,8 +1,6 @@
 class Items::ItemsController < ApplicationController
   before_action :find_item, only: [:show]
   before_action :random_item, only: [:show]
-
-  helper_method :find_item
   
   def index; end
 
