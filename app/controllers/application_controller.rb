@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :current_user
   before_action :set_instance_user
 
-  helper_method :find_item
+  helper_method :find_item, :find_review
 
   # Homepage
   def home; end
@@ -29,6 +29,11 @@ class ApplicationController < ActionController::Base
     def find_item
       @item = Item.find(params[:id])
     end
+
+    def find_review
+      @review = Review.find(params[:id])
+    end
+
 
   protected
 
