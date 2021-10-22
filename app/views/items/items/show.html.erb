@@ -31,10 +31,11 @@
             <div class="fs-3 fw-bolder mb-1">Customer reviews</div>
           </div>
           <div class="row">
+            
             <%= render '/item/ratings/review_show_rating' %>
           </div>
           <div class="row ps-1">
-            <span class="lead fs-6"><%= @item.reviews.all.length%> global ratings</span>
+            <span class="lead fs-6"><%= find_item.reviews.all.length%> global ratings</span>
           </div>
           <hr>
           <div class="row">
@@ -78,11 +79,10 @@
 
           <div class="row">
             <div class="col-12">
-              <% @rev_item = find_item %>
-              <% if @rev_item.reviews.empty? %>
+              <% if find_item.reviews.empty? %>
                 <div class="text-muted container"><em>No reviews for this item currently, <%= link_to "be the first!", new_item_review_path(@item)%></em></div>
               <% else %>
-                <% @rev_item.reviews.each do |review| %>
+                <% find_item.reviews.each do |review| %>
                     <%= render '/review/shared/customer_review_card', review: review %>
                 <% end %>
               <% end %>
