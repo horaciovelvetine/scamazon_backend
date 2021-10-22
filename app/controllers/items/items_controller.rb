@@ -1,6 +1,8 @@
 class Items::ItemsController < ApplicationController
   before_action :find_item, only: [:show]
   before_action :random_item, only: [:show]
+
+  helper_method :find_item
   
   def index; end
 
@@ -16,11 +18,8 @@ class Items::ItemsController < ApplicationController
 
   def destroy; end
 
-  private
 
-  def find_item
-    @item = Item.find(params[:id])
-  end
+  private
 
   def random_item
     @rnd_item = Item.find(((params[:id].to_i) + 1).to_s )
