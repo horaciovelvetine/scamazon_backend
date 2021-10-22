@@ -1,14 +1,8 @@
-<div class="fluid-container mx-5 px-5 pt-3 pb-2" style="background:#e6f9ff">
-  <div class="d-flex flex-row align-items-center">
-    <div class="flex-col" >
-      <%= link_to image_tag(Faker::Placeholdit.image(size:'40x40'), class:"rounded"), root_path, class:"rounded ms-2" %>
-    </div>
-    <div class="flex-col ms-3">
-      <div class="fs-6">James Tillman</div>
-    </div>
-    <div class="flex-col flex-fill ms-3">
-      <%= link_to 'Edit', edit_user_registration_path, class:"text-decoration-none" %>
-    </div>
+<br><div class="fluid-container mx-5 px-5 pt-3 pb-2" style="background:#e6f9ff">
+  <div class="col-4 offset-3">    
+  <div class="d-flex flex-row align-items-center ms-5 ps-5">
+      <%= link_to image_tag(Faker::Placeholdit.image(size:'40x40'), class:"rounded"), root_path, class:"rounded me-2 ms-5" %><span class="fs-6">James Tillman</span><%= link_to 'Edit', edit_user_registration_path, class:"text-decoration-none ms-2" %>
+  </div>
   </div>
 </div>
 
@@ -16,7 +10,7 @@
   <% fields_for :dustin do |f| %>
 <div class="container">
   <div class="d-flex flex-row justify-content-evenly">
-    <div class="col-9 mt-3">
+    <div class="col-8 mt-3">
       
       <div class="row py-2">
         <div class="fs-3 lead fw-bolder text-start">Create Review</div>
@@ -29,14 +23,16 @@
         <div class="fs-5 fw-bolder text-start">Overall Rating</div>
       </div>
       <div class="row">
-        <%= f.number_field :rating %>
+        <div class="col-2">
+          <%= f.number_field :rating, in: 0.0..5.0, step: 0.5, class:"form-control" %>
+        </div>
       </div>
 <hr>
       <div class="row py-2">
         <div class="fs-5 fw-bolder text-start">Add a headline</div>
       </div>
-      <div class="row">
-        <%= f.text_field :description %>
+      <div class="row mx-2">
+        <%= f.text_field :description, class:"form-control", placeholder:"What's important to know?" %>
     </div>
 <hr>
     <div class="row py-2">
@@ -44,21 +40,22 @@
         <div class="fs-6 text-muted"><small>Shoppers find images and videos more helpful than text alone.</small></div>
       </div>
       <div class="row">
-        <div class="input-group mb-3">
-          <input type="file" class="form-control" id="inputGroupFile02">
-          <label class="input-group-text" for="inputGroupFile02">Upload</label>
+        <div class="col-6">
+          <div class="input-group mb-2 mt-2">
+            <input type="file" class="form-control" id="faker">
+          </div>
         </div>
       </div>
 <hr>
     <div class="row py-2">
         <div class="fs-5 fw-bolder text-start">Add a written review</div>
       </div>
-      <div class="row">
-        <%= f.text_area :description, placeholder:"What did you like or dislike? What did you use this product for?", size:"70x5" %>
+      <div class="row mx-2">
+        <%= f.text_area :description, placeholder:"What did you like or dislike? What did you use this product for?", size:"70x5", class:"form-control" %>
       </div>
 
-    <div class="d-flex flex-row justify-content-end my-3">
-      <div class="col-4 text-end">
+    <div class="d-flex flex-row justify-content-end mt-5 mb-3">
+      <div class="col-4 text-end me-2">
         <%= link_to 'submit', root_path, class:"btn btn-primary w-25 btn-sm" %>
       </div>
     </div>
