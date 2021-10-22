@@ -1,4 +1,4 @@
-class Users::Store::StoreController < ApplicationController
+class Users::StoreController < ApplicationController
 before_action :get_user_store, only: [:show, :edit, :update, :destroy]
 
   layout false, only: [:new]
