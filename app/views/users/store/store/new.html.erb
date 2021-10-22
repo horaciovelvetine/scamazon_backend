@@ -22,25 +22,56 @@
     <p class="alert"><%= alert %></p>
   </div>
   
-  <body class="text-center">
-    
-    <div class="container py-5"  style=""></div>
-    
-      <main class="form-sigin">
-        <div class="form-control card p-4">
-          <a href="/"><img class="mx-auto stretched-link" src="/assets/main-logo.png" style="height: 30%; width: 30%;"></a>
-          <h5 class="h4 my-4 fw-sm text-start mx-5">Start a Store</h5>  
-
-
-          !!!!WORK ON THIS TOO YOU GOOBER
-
-
-
-        </div>
-
+  <body>
+        <div class="container-fluid">
+          <div class="d-flex flex-row justify-content-center">
+            <div class="col-4">
+              <%= link_to image_tag('main-logo', class:"img-fluid"), root_path %>
+            </div>
+          </div>
           
-          <p class="mt-5 mb-2 text-muted">© 1996-2021, Scamazon.com, Inc. or its affiliates</p>
-      </main>
+          <div class="d-flex flex-row justify-content-center">
+            <div class="col-6 text-start p-2 border-2 shadow rounded">
+              <div class="fs-3 px-5 pt-2 pb-2">Create your Store</div>
+              <main class="form-sigin px-5 pb-4">
+              <%= form_with url: new_user_store_path, method: 'POST' do |f| %>
+                <% f.fields_for :new_store do |form| %>
+                  <%= form.hidden_field :logo, value: Faker::Company.logo %>
+                  
+                  <%= form.label :name, class:"form-label" %>
+                  <%= form.text_field :name, class:"form-control"%>
+                  
+                  <%= form.label :email, class:"form-label pt-2" %>
+                  <%= form.text_field :email, class:"form-control"%>
+                  
+                  <%= form.label :address, class:"form-label pt-2" %>
+                  <%= form.text_field :address, class:"form-control"%>
+                  
+                  <%= form.label :description, class:"form-label pt-2" %>
+                  <%= form.text_field :description, class:"form-control" %>
+                  
+                  <%= form.label :industry, class:"form-label pt-2" %>
+                  <%= form.text_field :industry, class:"form-control"%>
+                  
+                  <%= form.label :mission_statement, class:"form-label pt-2" %>
+                  <%= form.text_field :mission_statement, class:"form-control"%>
+                  
+                  <%= form.label :ein, class:"form-label pt-2" %>
+                  <%= form.number_field :ein, class:"form-control"%>
+
+                <div class="my-4 text-end"><%= f.submit 'Done', class:"btn btn-primary" %></div>
+                <% end %>
+              <% end %>
+              </main>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row justify-content-center">
+        <p class="mt-5 mb-5 text-muted">© 1996-2021, Scamazon.com, Inc. or its affiliates</p>
+      </div><br><br>
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
