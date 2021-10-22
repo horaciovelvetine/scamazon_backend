@@ -1,4 +1,4 @@
-<% review = @review %>
+
 <div class="d-flex flex-row m-2 align-items-center">
   <div class="flex-col">
     <%= link_to image_tag(Faker::Placeholdit.image(size:'40x40'), class:"rounded"), root_path, class:"rounded ms-2" %>
@@ -9,7 +9,7 @@
 </div>
 
   <div class="d-flex flex-row align-items-center">
-    <div class="flex-col ms-3 lh-sm"><%= render '/item/ratings/small_rating_nocount' %></div>
+    <div class="flex-col ms-3 lh-sm"><%= render '/item/ratings/small_rating_nocount', review: review %></div>
     
     <div class="flex-col ms-3 pt-1"><%= link_to "#{review.title}", item_review_path(review), class:"fs-6 fw-bolder  text-black" %></div>
   </div>
