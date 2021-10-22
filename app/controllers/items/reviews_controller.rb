@@ -4,7 +4,8 @@ class Items::ReviewsController < ApplicationController
 
   def create
     @review = @item.reviews.create(review_params)
-    
+    @item.update_rating(@item)
+    @item.save
     redirect_to item_path(@item)
   end
 
