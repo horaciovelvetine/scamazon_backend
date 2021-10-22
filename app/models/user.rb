@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one :shopping_cart
   
   has_many :reviews
-  has_many :reviewed_items, through: :reviews, source: :items
+  has_many :reviewed_items, through: :reviews, source: :item
   has_many :orders
   has_many :ordered_items, through: :orders, source: :items
   has_many :lists
