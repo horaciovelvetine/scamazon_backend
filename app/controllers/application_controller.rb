@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :current_user
   before_action :set_instance_user
 
+  helper_method :find_item
 
   # Homepage
   def home; end
@@ -23,7 +24,11 @@ class ApplicationController < ActionController::Base
     redirect_to "/", notice: "Seeded Users & Items successfully"
   end
 
+  private 
 
+    def find_item
+      @item = Item.find(params[:id])
+    end
 
   protected
 
