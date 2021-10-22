@@ -1,5 +1,4 @@
 <!-- checks item rating and then returns the correct represetation of stars and the total size of an item ratings --> 
-<% item.update_rating(item) %> 
 <div>
     <% if item.rating.nil? %>
       <%= render "/item/ratings/stars/empty" %>
