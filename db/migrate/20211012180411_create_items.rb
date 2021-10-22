@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.string :material
       t.float :price, null: false
       t.bigint :sku
-      t.float :rating, default: 0
+      t.float :rating, null: true
       t.integer :weight
       t.integer :quantity_in_stock
 
