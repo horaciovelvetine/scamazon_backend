@@ -34,7 +34,7 @@
             <div class="col-6 text-start p-2 border-2 shadow rounded">
               <div class="fs-3 px-5 pt-2 pb-2">Create your Store</div>
               <main class="form-sigin px-5 pb-4">
-              <%= form_with url: new_user_store_path, method: 'POST' do |f| %>
+              <%= form_with url: user_store_index_url, method: 'POST' do |f| %>
                 <% f.fields_for :new_store do |form| %>
                   <%= form.hidden_field :logo, value: Faker::Company.logo %>
                   
