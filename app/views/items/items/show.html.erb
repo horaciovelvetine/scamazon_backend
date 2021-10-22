@@ -44,7 +44,7 @@
             <div class="fs-6">Share your thoughts with other customers</div>
           </div>
           <div class="row mx-3 my-3 pb-4">
-            <%= link_to "Write a cusomer review", new_item_review_path(id: @item.id), class:"btn btn-outline-dark w-100 shadow-sm"%>
+            <%= link_to "Write a cusomer review", new_item_review_path(id: params[:id]), class:"btn btn-outline-dark w-100 shadow-sm"%>
           </div>
           <hr>
           <div class="row p-3">
@@ -78,11 +78,12 @@
 
           <div class="row">
             <div class="col-12">
-              <% if @item.reviews.empty? %>
+              <% @rev_item = find_item %>
+              <% if @rev_item.reviews.empty? %>
                 <div class="text-muted container"><em>No reviews for this item currently, <%= link_to "be the first!", new_item_review_path(@item)%></em></div>
               <% else %>
-                <% @item.reviews.each do |review| %>
-                  <div class="container"><%= render '/review/shared/customer_review_card' %></div>
+                <% @rev_item.reviews.each do |review| %>
+                    <%= render '/review/shared/customer_review_card', review: review %>
                 <% end %>
               <% end %>
             </div>
