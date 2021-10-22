@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_222746) do
 
   create_table "gift_cards", force: :cascade do |t|
     t.bigint "code"
-    t.decimal "balance"
+    t.float "balance"
     t.string "notes"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -61,10 +61,11 @@ ActiveRecord::Schema.define(version: 2021_10_18_222746) do
     t.string "country_of_origin", null: false
     t.string "picture"
     t.string "material"
-    t.decimal "price", null: false
+    t.float "price", null: false
     t.bigint "sku"
     t.integer "rating"
     t.integer "weight"
+    t.integer "quantity_in_stock"
     t.bigint "inventory_id"
     t.bigint "order_id"
     t.bigint "shopping_cart_id"
@@ -99,7 +100,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_222746) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal "total"
+    t.float "total"
     t.string "ship_to_address"
     t.string "status"
     t.date "order_placed"
@@ -123,10 +124,11 @@ ActiveRecord::Schema.define(version: 2021_10_18_222746) do
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.decimal "rating"
+    t.float "rating"
     t.boolean "verified_purchaser"
     t.bigint "user_id"
     t.bigint "item_id"
+    t.integer "helpful"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_reviews_on_item_id"
@@ -148,7 +150,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_222746) do
 
   create_table "shopping_carts", force: :cascade do |t|
     t.integer "item_count", default: 0
-    t.decimal "total"
+    t.float "total"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -182,7 +184,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_222746) do
     t.string "last_name"
     t.boolean "slime", default: false
     t.string "address"
-    t.decimal "balance", default: "0.0"
+    t.float "balance", default: 0.0
     t.string "phone"
     t.string "provider"
     t.string "uid"

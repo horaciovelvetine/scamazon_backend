@@ -40,7 +40,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.boolean :slime, default: false
       t.string :address, null: true
-      t.decimal :balance, default: [0]
+      t.float :balance, default: 0
       t.string :phone
       
     end
