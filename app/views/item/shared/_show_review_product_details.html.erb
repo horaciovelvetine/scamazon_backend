@@ -1,0 +1,29 @@
+<div class="d-flex flex-row align-items-end">
+  <div class="fs-5 fw-bolder text-end">Product Details</div>
+</div>
+
+<div class="d-flex flex-row justifty-content-start align-items-start">
+  
+  <div class="flex-col p-1">
+      <%= link_to image_tag(Faker::Placeholdit.image(size: '65x65'), class:"bg-transparent"), item_path(id: @item.id)%>
+  </div>
+
+  <div class="flex-col ps-1 pt-2">
+    <div class="row">
+      <%= link_to "#{@item.name}", item_path(id: @item.id), class:"fs-6 text-decoration-none  lh-1"%>
+    </div>
+    
+    <div class="row">
+      <small>by
+        <%= link_to "#{@item.store.name}", store_profile_path(id: @item.store.id), class:"fs-6 text-decoration-none lh-1"%>
+      </small>
+    </div>
+  </div>
+
+</div>
+
+<div class="d-flex flex-row justifty-content-start align-items-start">
+  <div class="flex-col ps-1 pt-1">
+    <%= render '/item/ratings/review_show_rating' %>
+  </div>
+</div>
