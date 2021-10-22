@@ -54,7 +54,7 @@ class Seed < ApplicationRecord
   end
 
   def self.create_item_sc(inventory)
-    @item = Item.new({name: Faker::Commerce.unique.product_name, description: Faker::Hipster.paragraph(sentence_count: 6), model: Faker::Company.duns_number, manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country, picture: Faker::Placeholdit.image(size: '50x50'), material: Faker::Commerce.material, price: Faker::Commerce.price(range: 1..750), sku: Faker::Number.number(digits: 10), weight: Faker::Measurement.weight})
+    @item = Item.new({name: Faker::Commerce.unique.product_name, description: Faker::Hipster.paragraph(sentence_count: 6), model: Faker::Company.duns_number, manufacturer: Faker::Commerce.brand, country_of_origin: Faker::Address.country, picture: Faker::Placeholdit.image(size: '50x50'), material: Faker::Commerce.material, price: Faker::Commerce.price(range: 1..750), sku: Faker::Number.number(digits: 10), weight: Faker::Measurement.weight, quantity_in_stock: Faker::Number.number(digits: 1)})
     @item.inventory = inventory
     @item
   end
