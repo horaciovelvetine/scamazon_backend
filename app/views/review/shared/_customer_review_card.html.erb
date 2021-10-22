@@ -1,5 +1,5 @@
 
-<div class="d-flex flex-row m-2 align-items-center">
+<div class="d-flex flex-row mx-2 align-items-center">
   <div class="flex-col">
     <%= link_to image_tag(Faker::Placeholdit.image(size:'40x40'), class:"rounded"), root_path, class:"rounded ms-2" %>
   </div>
@@ -30,12 +30,9 @@
     <div class="flex-col ms-3 lh-1"><span class="fs-6"><%= review.description %></span></div>
   </div>
 
-  <div class="d-flex flex-row align-items-center my-2 p-2">
+  <div class="d-flex flex-row align-items-center mt-2 px-2 pt-2">
     <div class="flex-col ms-3"><%= link_to "Helpful", root_path, class:"btn btn-outline-secondary btn-sm shadow-sm me-1" %> | </div>
     <div class="flex-col ms-2"><%= link_to "Report Abuse", root_path, class:"text-decoration-none text-muted fs-6" %></div>
   </div>
 
   <span class="mx-4"><hr></span>
-
-  <div class="d-flex flex-row align-items-center my-2">
-  </div>
