@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     lists: 'users/lists',
     shopping_carts: 'users/shopping_carts',
     reviews: 'users/reviews',
-    slimes: 'users/slimes'
+    slimes: 'users/slimes',
+    store: 'users/store'
   }
   devise_scope :user do
     ## Statick route to unlock slime for a user
@@ -59,12 +60,12 @@ Rails.application.routes.draw do
     scope  path: 'user', as: 'user' do
       
       ## RSEOURCE: shopping_cart :: for user belonged carts
-      resources :shooping_carts, only: [:show, :edit, :update, :destroy]
+      resources :shopping_carts, only: [:show, :edit, :update, :destroy]
     
     end
     
     ## RESOURCE: shopping_cart :: for user NOT YET belonged carts
-    resources :shooping_carts, only: [:show, :edit, :update, :destroy]
+    resources :shopping_carts, only: [:show, :edit, :update, :destroy]
     
     ## NEST REVIEW UNDER ITEM / STILL NEED USER ACCESS
     scope module: 'items', path: 'item/:id', as: 'item' do
@@ -94,6 +95,14 @@ Rails.application.routes.draw do
 
     ## RESOURCE inventory :: for store has_one relationship
     resources :inventory, only: [:show, :edit, :update, :destroy]
+
+    get '/', to: 'stores#index', as:'all_stores'
+    ## /sotre/:id/profile
+    
+  end
+  
+  scope module: 'stores', path: 'store' do
+    get ':id/profile', to: 'stores#show', as: 'store_profile'
   end
 
   post 'search', to: 'searches#create'

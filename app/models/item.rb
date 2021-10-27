@@ -13,6 +13,7 @@ class Item < ApplicationRecord
 
   validates_presence_of :name, :description, :manufacturer, :country_of_origin, :price, :sku
   validates_format_of :sku, :with => /[0-9]{10}/
+  validates_uniqueness_of :sku
 
   include PgSearch::Model
   pg_search_scope :search_by_all, against: [:name, :description, :manufacturer, :model, :material]
