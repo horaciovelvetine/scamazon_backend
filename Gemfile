@@ -42,10 +42,10 @@ gem 'devise'
 gem 'figaro'
 
 # 3rd Party Authorization(s)
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-github'
-gem 'omniauth-rails_csrf_protection'
+# gem 'omniauth'
+# gem 'omniauth-facebook'
+# gem 'omniauth-github'
+# gem 'omniauth-rails_csrf_protection'
 
 # Fix issues as needed
 gem 'pry'
