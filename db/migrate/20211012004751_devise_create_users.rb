@@ -36,10 +36,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.timestamps 
 
       ## Add'l User Information
-      t.string :first_name
-      t.string :last_name
+      t.string :full_name
       t.boolean :slime, default: false
-      t.string :address, null: true
+      
       t.float :balance, default: 0
       t.string :phone
       
