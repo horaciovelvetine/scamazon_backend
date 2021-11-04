@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
 
+  resources :questions
+  resources :reviews
+  resources :items
+  resources :pay_methods
+  resources :gift_cards
+  resources :wallets
+  resources :orders
+  resources :shopping_carts
+  resources :searches
+  resources :lists
+  resources :inventories
   resources :stores
   root to: 'application#home'
 
@@ -37,10 +48,7 @@ end
 
 
 #Legacy Routing out to slowly build back and ref
-# Rails.application.routes.draw do
   
-
-  resources :stores
 #   # All Static Application Routes 
 #   root to: 'application#home'
 #   get "covid_message", to: 'application#covid', as: 'scamazon-cares'
