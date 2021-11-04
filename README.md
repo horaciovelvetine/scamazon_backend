@@ -1,7 +1,6 @@
 # Scamazon
 
-Call it The Wrath of Scamazon, or Return of the Scamazon...Build a flexible MVC Store using mainly Rails 6 and  Using lessons learned from the original repository to shrink &amp; make efficient the V.0.0.1 lacked, like, working.
-
+Currently in the process of taking my original project and converting it in to a more fully flushed out backend to work be able to work with JS. Thanks for your patience -- HV
 ## Getting Started
 
   In order to start up Scamazon first fork and clone this repository locally. Then: 1. First youll need to install all of the dependencies using bundler, inside the root directory type:
@@ -27,17 +26,7 @@ Call it The Wrath of Scamazon, or Return of the Scamazon...Build a flexible MVC 
 
 ## An Explainer
 
-  Scamazon was built as my first Rails application built as a part of my graduation from the Flatiron School's full stack web developer course and is inteded purely for my own edification. In addition to the base requirements this project features some additional technologies I wanted the oppurtunity to practice and learn:
-
-    - [Bootstrap](https://getbootstrap.com/)
-      * As a part of Bootstrap this site includes [Popper](https://popper.js.org/) to handle dropdown and popover Javascript elements
-    - [Devise](https://github.com/heartcombo/devise)
-      * A robust Authorization tool which integrates [OmniAuth](https://github.com/omniauth/omniauth)
-    - [Postgres SQL](https://www.postgresql.org/)
-      * For the flexibility and added search functionality a more robust DB solution provides.
-    - [Faker](https://github.com/faker-ruby/faker)
-      * A spectacularly flexible tool for generating anything from quotes, to placeholder pictures to help make Scamazon feel a bit more real, as opposed to an empty storefront.
-
+  Scamazon was built as my first Rails application built as a part of my graduation from the Flatiron School's full stack web developer course and is inteded purely for my own edification. 
 
 ## Known Issues :
   - Store EIN seed is only seeding first 2 char --> change data type to string!
