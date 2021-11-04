@@ -115,8 +115,4 @@ yarn-debug.log*
 yarn-debug.log*
 /backend/Scamazon1.1.0/yarn-debug.log*
 .yarn-integrity
-/backend/Scamazon1.1.0/.yarn-integrity
 
-/backend/Scamazon1.1.0/log
-/backend/Scamazon1.1.0/backend/Scamazon1.1.0/log
-.DS_store
