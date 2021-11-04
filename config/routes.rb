@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
 
+  resources :stores
   root to: 'application#home'
 
   get '/seed', to: 'application#seed', as: 'seedythedeebee'
-  post '/seed' to: 'application#populate'
+  post '/seed', to: 'application#populate'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -39,6 +40,7 @@ end
 # Rails.application.routes.draw do
   
 
+  resources :stores
 #   # All Static Application Routes 
 #   root to: 'application#home'
 #   get "covid_message", to: 'application#covid', as: 'scamazon-cares'
