@@ -1,6 +1,6 @@
 # Scamazon
 
-Call it The Wrath of Scamazon, or Return of the Scamazon...Build a flexible MVC Store using mainly Rails 6 and  Using lessons learned from the original repository to shrink &amp; make efficient the V.0.0.1 lacked, like, working.
+In transition to a FrontEnd / Backend copy of the O.G. 
 
 ## Getting Started
 
@@ -25,9 +25,7 @@ Call it The Wrath of Scamazon, or Return of the Scamazon...Build a flexible MVC 
       
   Great!! Now you should be redirected back to the home page and ready to go. *fin*
 
-## An Explainer
-
-  Scamazon was built as my first Rails application built as a part of my graduation from the Flatiron School's full stack web developer course and is inteded purely for my own edification. In addition to the base requirements this project features some additional technologies I wanted the oppurtunity to practice and learn:
+## Some Tech: 
 
     - [Bootstrap](https://getbootstrap.com/)
       * As a part of Bootstrap this site includes [Popper](https://popper.js.org/) to handle dropdown and popover Javascript elements
@@ -37,8 +35,3 @@ Call it The Wrath of Scamazon, or Return of the Scamazon...Build a flexible MVC 
       * For the flexibility and added search functionality a more robust DB solution provides.
     - [Faker](https://github.com/faker-ruby/faker)
       * A spectacularly flexible tool for generating anything from quotes, to placeholder pictures to help make Scamazon feel a bit more real, as opposed to an empty storefront.
-
-
-## Known Issues :
-  - Store EIN seed is only seeding first 2 char --> change data type to string!
-  
