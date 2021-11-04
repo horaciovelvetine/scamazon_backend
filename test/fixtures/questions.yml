@@ -3,17 +3,13 @@
 one:
   title: MyString
   body: MyString
-  rating: 9.99
-  helpful: 1
-  verified_purchase: false
+  helpful: MyString
   user: one
   item: one
 
 two:
   title: MyString
   body: MyString
-  rating: 9.99
-  helpful: 1
-  verified_purchase: false
+  helpful: MyString
   user: two
   item: two

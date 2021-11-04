@@ -1,19 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
   body: MyString
-  rating: 9.99
   helpful: 1
-  verified_purchase: false
   user: one
-  item: one
+  question: one
 
 two:
-  title: MyString
   body: MyString
-  rating: 9.99
   helpful: 1
-  verified_purchase: false
   user: two
-  item: two
+  question: two

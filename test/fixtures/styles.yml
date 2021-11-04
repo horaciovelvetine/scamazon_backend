@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  description: MyString
-  private: MyString
-  user: one
+  stock: 1
+  model_num: MyString
+  item: one
 
 two:
   name: MyString
-  description: MyString
-  private: MyString
-  user: two
+  stock: 1
+  model_num: MyString
+  item: two

@@ -3,21 +3,19 @@
 one:
   name: MyString
   email: MyString
-  address: MyString
   description: MyString
   logo: MyString
   industry: MyString
   mission_statement: MyString
-  ein: 
-  user: 
+  ein: MyString
+  user: one
 
 two:
   name: MyString
   email: MyString
-  address: MyString
   description: MyString
   logo: MyString
   industry: MyString
   mission_statement: MyString
-  ein: 
-  user: 
+  ein: MyString
+  user: two

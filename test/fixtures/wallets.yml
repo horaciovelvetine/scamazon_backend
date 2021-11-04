@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  query: MyString
+  name: MyString
+  balance: 9.99
   user: one
 
 two:
-  query: MyString
+  name: MyString
+  balance: 9.99
   user: two

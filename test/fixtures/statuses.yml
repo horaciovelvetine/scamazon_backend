@@ -2,12 +2,10 @@
 
 one:
   name: MyString
-  description: MyString
-  private: MyString
-  user: one
+  track_info: MyString
+  order: one
 
 two:
   name: MyString
-  description: MyString
-  private: MyString
-  user: two
+  track_info: MyString
+  order: two
