@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 pb-4">
+      <%= render 'add_balance_card', gift_card: @gift_card %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <strong><h4>Gift Card Activity</h4></strong>
+        <div class="pt-1">
+          <%= render 'transaction_history', user: @user %><br>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-8 p-2">
+      <small><em><p class="text-muted lh-sm">Your balance will never expire. We'll automatically apply your Gift Card Balance to eligible orders when you checkout. If you would rather not use your balance, you can deselect it in the Payment Selection step of checkout. <strong>Limitations:</strong> Your Gift Card Balance cannot be transferred to other accounts. See the <%= link_to "Scmazon.com Gift Card terms and conditions", scamazon_conditionsofuse_path %> for further information.</em></p></small>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "/items/cards/explore_more_items"%>
+

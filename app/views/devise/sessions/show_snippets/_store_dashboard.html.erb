@@ -1,0 +1,11 @@
+<% if @user.store.nil? %>
+  <div class="d-flex ">
+    <%= link_to render('/devise/sessions/show_snippets/addl_components/create_store_button'), new_user_store_path, class:"btn btn-outline-secondary flex-fill"%>
+  </div>
+
+  <% else %>
+    <div class="d-flex ">
+    <%= link_to render('/devise/sessions/show_snippets/addl_components/store_admin_button'), user_store_path, class:"btn btn-outline-secondary flex-fill"%>
+    </div>
+  <% end %>
+

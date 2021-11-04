@@ -1,0 +1,77 @@
+<div class="d-flex flex-col align-items-center">
+  <span class="mx-1 pb-1">
+
+  <% if find_item.rating.nil? %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+  <% elsif find_item.rating.between?(0.0, 0.49) %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+  <% elsif find_item.rating.between?(0.5, 0.99) %>
+    <%= render "/item/ratings/stars/half" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+  <% elsif find_item.rating.between?(1.0, 1.49) %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+  <% elsif find_item.rating.between?(1.5, 1.99) %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/half" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+  <% elsif find_item.rating.between?(2.0, 2.49) %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+  <% elsif find_item.rating.between?(2.5, 2.99) %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/half" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+  <% elsif find_item.rating.between?(3.0, 3.49) %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/empty" %>
+    <%= render "/item/ratings/stars/empty" %>
+  <% elsif find_item.rating.between?(3.5, 3.99) %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/half" %>
+    <%= render "/item/ratings/stars/empty" %>
+  <% elsif find_item.rating.between?(4.0, 4.5) %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/half" %>
+  <% elsif find_item.rating.between?(4.51, 5.01) %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+    <%= render "/item/ratings/stars/full" %>
+  <% end %></span>
+  <span class="ms-2"><% if find_item.rating.nil? %>
+    <span class="lead fs-4">0 out of 5</span>
+  <% else %>
+    <span class="lead fs-4"><%= find_item.rating%> out of 5</span>
+  <% end %>
+
+</div>

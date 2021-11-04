@@ -1,0 +1,46 @@
+<%  review = @review %>
+<div class="d-flex flex-row">
+  <div class="fs-2 mb-2">Customer Review</div>
+</div>
+<div class="d-flex flex-row m-2 align-items-center">
+  <div class="flex-col">
+    <%= link_to image_tag(Faker::Placeholdit.image(size:'40x40'), class:"rounded"), root_path, class:"rounded ms-2" %>
+  </div>
+  <div class="flex-col flex-fill ms-3">
+    <div class="fs-6"><%= review.user.first_name %> <%= review.user.last_name %></div>
+  </div>
+</div>
+
+<div class="d-flex flex-row align-items-center">
+  <div class="flex-col ms-3 lh-sm">
+    <%= render '/item/ratings/small_rating_nocount' %>
+  </div>
+  
+  <div class="flex-col ms-3 pt-1">
+    <%= link_to "#{review.title}", item_review_path(review), class:"fs-6 fw-bolder  text-black" %>
+  </div>
+</div>
+
+<div class="d-flex flex-row align-items-center">
+  <div class="flex-col ms-3 lh-1"><span class="fs-6 fw-bolder text-muted"><small>Reviewed in the Univted States on <%= review.created_at.strftime("%A %B %d, %Y") %> </small></span></div>
+</div>
+
+<% if review.verified_purchaser %>
+  <div class="d-flex flex-row align-items-center my-2">
+    <div class="flex-col ms-3 lh-1"><span class="fs-6 text-danger fw-bolder"><small>Verified Purchaser</small></span></div>
+  </div>
+<% else %>
+  <div class="ms-3 text-muted fs-6"><em>...</em></div>
+<% end %>
+
+<div class="d-flex flex-row align-items-center my-2">
+  <div class="flex-col ms-3 lh-1"><span class="fs-6"><%= review.description %></span></div>
+</div>
+
+<div class="d-flex flex-row align-items-center my-2 p-2">
+  <div class="flex-col ms-3"><%= link_to "Helpful", root_path, class:"btn btn-outline-secondary btn-sm shadow-sm me-1" %> | </div>
+  <div class="flex-col ms-2"><%= link_to "Report Abuse", root_path, class:"text-decoration-none text-muted fs-6" %></div>
+</div>
+
+<div class="d-flex flex-row align-items-center my-2">
+</div>

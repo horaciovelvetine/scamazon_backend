@@ -1,0 +1,104 @@
+<br>
+<div class="flex-container border rounded-3 shadow mx-4 my-2 mb-5">
+  <div class="py-2 px-4">
+  <div class="d-flex flex-row align-items-center text-start">
+    <div class="flex-column flex-fill h4 fw-bolder m-2 ">Your Lists</div>
+    <div class="flex-column pe-2"><%= link_to "Create a List", new_user_list_path(user_id: @user.id), class:"text-decoration-none text-primary bg-transparent ms-4" %> | </div>
+    <div class="flex-column pe-2"> <%= link_to "List Help", root_path, class:"text-decoration-none text-primary bg-transparent p-0" %></div>
+  </div>
+
+
+  <div class="d-flex flex-row ms-2">
+    
+    <div class="col-3">
+      <ul class="list-unstyled me-3">
+        <% @lists.each do |list| %>
+          <% @l = list %>
+          <li class="pb-2"><%= render "/users/lists/shared/link_to_list"%></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-9 mb-4 ms-1">
+      
+      <div class="d-flex flex-row align-items-center lh-sm">
+        
+        <div class="flex-column">
+          <span class="fs-5 fw-bolder"><%= @list.name %></span>
+        </div>
+        
+        <div class="flex-column flex-fill">
+          <span class="fw-light text-muted ms-1"><small>private</small></span>
+        </div>
+
+        <div class="flex-column me-2">
+          <span><%= image_tag("https://m.media-amazon.com/images/G/01/gifts/registries/wishlist/icons/share-android._CB485935415_.svg", class:"ms-2 me-2", alt:"Share List", height:"24", width:"18")%><%= link_to "Send this list", root_path %></span>
+        </div> | 
+
+        <div class="flex-column me-2">
+          <span><%= image_tag("https://m.media-amazon.com/images/G/01/wishlist/ellipsis._CB485947373_.svg", class:"ms-2 me-2", alt:"More Options") %>
+          <%= link_to "More", root_path %></span>
+        </div>
+      
+      </div>
+
+
+      <div class=" d-flex flex-row align-items-end">
+        <div class="flex-column">
+          <div class="text-muted fs-6 lh-1 pt-1"> <small><%= @list.description %></small></div>
+        </div>
+      </div>
+      
+<hr>
+
+      <div class="d-flex flex-row align-items-center">
+        <div class="flex-column flex-fill">
+          <%= link_to image_tag("https://m.media-amazon.com/images/G/01/wishlist/switcher-grid-view._CB480597788_.svg", alt:"Grid View", height:"23", width:"16", class:"border-end"), root_path %> | <%= link_to image_tag("https://m.media-amazon.com/images/G/01/wishlist/switcher-list-view._CB480597788_.svg", alt:"List View", height:"23", width:"16"), root_path, class:"me-2" %><%= link_to "+ Add Idea to List", root_path, class:"text-decoration-none"%>
+        </div>
+        <div class="flex-column lh-1">
+
+
+            <div class="mx-3">
+                <%= form_with url: "/search", class:"input-group input-group-sm mx-2", method:"POST" do |f| %>
+                  <%= fields_for :search do |form| %>
+                      <%= form.text_field :query, class:"form-control", placeholder:"Search this site" %>
+                  <% end %>
+                      <%= f.submit "Search", class:"btn btn-primary btn-sm input-group-text w-25"%>
+                <% end %>
+            </div>
+
+        </div>
+      </div>
+<hr>
+    <div class="text-center">
+      <% if @list.items.empty?%>
+        <div class="text-muted lead">This is the empty list text, so go add some items to this bad boy!</div>
+      <% end %>
+
+      <div class="row">
+        <% @list.items.each do |item| %>
+          <% set_item(item) %>
+            <div class="col-lg-4 col-xl-3 py-2">
+              <%# item.name %>
+              <%= link_to render('item/shared/components/single_item'), class:"text-decoarion-none" %>
+            </div>
+        <% end %>
+      </div>
+          
+    </div>
+      
+      <hr>
+      
+  </div>
+  </div>
+</div>
+</div>
+
+<div class="row mb-5 mx-4 shadow-sm">
+  <%= render "/item/shared/explore_more_items"%>
+</div>
+
+<%= link_to "Home", root_path %>
+
+
+

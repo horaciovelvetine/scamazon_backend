@@ -1,0 +1,29 @@
+      <ul class="navbar-nav mb-0 ms-2">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white fw-light" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+              <% if @user.first_name.nil? %>
+                Hello, user <br>
+                Account & Lists
+              <% else %>
+              Hello, <%= @user.first_name %><br>
+              Account & Lists
+              <% end %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><h6 class="text-center"> Your Account </h6><li>
+              <li><hr class="dropdown-divider"></li>
+              <%= link_to "Account", profile_path, class: "dropdown-item" %>
+              <%= link_to "Orders", user_orders_path, class: "dropdown-item" %>
+              <%= link_to "Lists", user_lists_path, class: "dropdown-item"%>
+              <%= link_to "Gift Card", user_gift_card_manager_path, class: "dropdown-item"%>
+              <% if @user.store %>
+                <%= link_to "Store Dashboard", user_store_path, class: "dropdown-item"%>
+              <% else %>
+                <%= link_to "Start a store", new_user_store_path, class: "dropdown-item"%>
+              <% end %>
+              <li><hr class="dropdown-divider"></li>
+              <%= link_to "logout", sign_out_path, class: "dropdown-item"%>
+            </ul>
+          </li>
+        </ul>
+      </ul>

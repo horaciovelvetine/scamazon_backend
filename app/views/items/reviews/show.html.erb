@@ -1,0 +1,21 @@
+<% review = @review %>
+<div class="fluid-container p-4">
+  <div class="d-flex flex-row">
+    <div class="col-8 me-3">
+
+      <%= render '/review/shared/show_card' %>
+
+    </div>
+
+    <div class="col-3 ms-3">
+    
+      <%= render '/item/shared/show_review_product_details' %>
+
+    </div>
+  
+  </div>
+</div>
+
+<div class="row mt-5 mx-3">
+  <%= render "/item/shared/explore_more_items"%>
+</div>
