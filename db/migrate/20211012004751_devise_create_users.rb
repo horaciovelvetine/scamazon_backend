@@ -39,7 +39,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :full_name
       t.boolean :slime, default: false
       
-      t.float :balance, default: 0
       t.string :phone
       
     end
