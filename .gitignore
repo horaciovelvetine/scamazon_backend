@@ -119,3 +119,4 @@ yarn-debug.log*
 
 /backend/Scamazon1.1.0/log
 /backend/Scamazon1.1.0/backend/Scamazon1.1.0/log
+.DS_store
