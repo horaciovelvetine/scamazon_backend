@@ -116,6 +116,7 @@ yarn-debug.log*
 
 .yarn-integrity
 /log
-.DS_store
+
 node_modules
 /Users/hamesdrillman/Development/code/fischool/mod4/scamazon/node_modules
+.DS_Store
