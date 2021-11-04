@@ -1,18 +1,7 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
 
-  resources :questions
-  resources :reviews
-  resources :items
-  resources :pay_methods
-  resources :gift_cards
-  resources :wallets
-  resources :orders
-  resources :shopping_carts
-  resources :searches
-  resources :lists
-  resources :inventories
-  resources :stores
+
   root to: 'application#home'
 
   get '/seed', to: 'application#seed', as: 'seedythedeebee'
@@ -31,6 +20,23 @@ Rails.application.routes.draw do
   end
   
 end
+
+
+
+
+#NEW DATA LIST 
+  # resources :questions
+  # resources :reviews
+  # resources :items
+  # resources :accounts
+  # resources :gift_cards
+  # resources :wallets
+  # resources :orders
+  # resources :shopping_carts
+  # resources :searches
+  # resources :lists
+  # resources :inventories
+  # resources :stores
 
 
 
