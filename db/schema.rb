@@ -142,10 +142,14 @@ ActiveRecord::Schema.define(version: 2021_11_05_195551) do
     t.decimal "grand_total", precision: 10, scale: 2
     t.decimal "shipping", precision: 6, scale: 2
     t.datetime "shipped_on"
+    t.string "shipping_info"
+    t.string "tracking_info"
     t.boolean "slime"
     t.bigint "user_id", null: false
+    t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_orders_on_order_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -196,12 +200,9 @@ ActiveRecord::Schema.define(version: 2021_11_05_195551) do
 
   create_table "statuses", force: :cascade do |t|
     t.string "name"
-    t.string "tracking_info"
-    t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_statuses_on_name"
-    t.index ["order_id"], name: "index_statuses_on_order_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -285,6 +286,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_195551) do
   add_foreign_key "lists", "users"
   add_foreign_key "lists_tags", "lists"
   add_foreign_key "lists_tags", "tags"
+  add_foreign_key "orders", "orders"
   add_foreign_key "orders", "users"
   add_foreign_key "questions", "items"
   add_foreign_key "questions", "users"
@@ -293,7 +295,6 @@ ActiveRecord::Schema.define(version: 2021_11_05_195551) do
   add_foreign_key "searches", "categories"
   add_foreign_key "searches", "users"
   add_foreign_key "shopping_carts", "users"
-  add_foreign_key "statuses", "orders"
   add_foreign_key "stores", "users"
   add_foreign_key "styles", "items"
   add_foreign_key "wallets", "users"
