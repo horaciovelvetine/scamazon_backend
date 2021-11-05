@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_190713) do
+ActiveRecord::Schema.define(version: 2021_11_05_190937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 2021_11_05_190713) do
     t.index ["account_id"], name: "index_addresses_on_account_id"
     t.index ["store_id"], name: "index_addresses_on_store_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.string "body"
+    t.integer "helpful"
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -117,6 +128,18 @@ ActiveRecord::Schema.define(version: 2021_11_05_190713) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.integer "helpful"
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_questions_on_item_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -215,6 +238,8 @@ ActiveRecord::Schema.define(version: 2021_11_05_190713) do
   add_foreign_key "addresses", "accounts"
   add_foreign_key "addresses", "stores"
   add_foreign_key "addresses", "users"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
   add_foreign_key "gift_cards", "wallets"
   add_foreign_key "inventories", "stores"
   add_foreign_key "items", "categories"
@@ -223,6 +248,8 @@ ActiveRecord::Schema.define(version: 2021_11_05_190713) do
   add_foreign_key "items", "shopping_carts"
   add_foreign_key "lists", "users"
   add_foreign_key "orders", "users"
+  add_foreign_key "questions", "items"
+  add_foreign_key "questions", "users"
   add_foreign_key "reviews", "items"
   add_foreign_key "reviews", "users"
   add_foreign_key "searches", "categories"
