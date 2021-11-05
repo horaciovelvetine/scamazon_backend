@@ -7,12 +7,13 @@ class Item < ApplicationRecord
   has_one :store, through: :inventory
 
   has_many :reviews, dependent: :destroy
-  has_many :tags
+
   has_many :quesitons, dependent: :destroy
   has_many :answers, through: :quesitons
   has_many :reviewers, through: :reviews, source: :user
 
   has_and_belongs_to_many :lists
+  has_and_belongs_to_many :tags
   has_and_belongs_to_many :searches
 
   #Validations
