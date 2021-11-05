@@ -1,43 +1,26 @@
 *.rbc
-/backend/Scamazon1.1.0/*.rbc
 capybara-*.html
-/backend/Scamazon1.1.0/capybara-*.html
 .rspec
-/backend/Scamazon1.1.0/.rspec
 /db/*.sqlite3
-/backend/Scamazon1.1.0/db/*.sqlite3
 /db/*.sqlite3-journal
-/backend/Scamazon1.1.0/db/*.sqlite3-journal
 /db/*.sqlite3-[0-9]*
-/backend/Scamazon1.1.0/db/*.sqlite3-[0-9]*
 /public/system
-/backend/Scamazon1.1.0/public/system
 /coverage/
-/backend/Scamazon1.1.0/coverage/
 /spec/tmp
-/backend/Scamazon1.1.0/spec/tmp
 *.orig
-/backend/Scamazon1.1.0/*.orig
 rerun.txt
-/backend/Scamazon1.1.0/rerun.txt
 pickle-email-*.html
-/backend/Scamazon1.1.0/pickle-email-*.html
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/backend/Scamazon1.1.0/log/*
 /tmp/*
-/backend/Scamazon1.1.0/tmp/*
 !/log/.keep
-/backend/Scamazon1.1.0/!/log/.keep
 !/tmp/.keep
-/backend/Scamazon1.1.0/!/tmp/.keep
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
-/backend/Scamazon1.1.0/config/initializers/secret_token.rb
 config/master.key
-/backend/Scamazon1.1.0/config/master.key
+
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
 # config/secrets.yml
@@ -48,9 +31,7 @@ config/master.key
 
 ## Environment normalization:
 /.bundle
-/backend/Scamazon1.1.0//.bundle
 /vendor/bundle
-/backend/Scamazon1.1.0//vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
