@@ -1,0 +1,19 @@
+{
+  "files.exclude": {
+    ".yarn": true,
+    "node_modules": true,
+    "public": true,
+    "tmp": true,
+    ".ruby-version": true,
+    "Gemfile.lock": true,
+    "bin": true,
+    ".browserslistrc": true,
+    "vendor": true,
+    "babel.config.js": true,
+    ".yarnrc.yml": true,
+    "package.json": true,
+    "postcss.config.js": true,
+    "yarn.lock": true,
+
+  }
+}
