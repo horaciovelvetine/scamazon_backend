@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_185526) do
+ActiveRecord::Schema.define(version: 2021_11_05_185744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,23 @@ ActiveRecord::Schema.define(version: 2021_11_05_185526) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["number"], name: "index_accounts_on_number", unique: true
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "unit"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.boolean "def_address"
+    t.bigint "user_id"
+    t.bigint "store_id"
+    t.bigint "account_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_addresses_on_account_id"
+    t.index ["store_id"], name: "index_addresses_on_store_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -142,6 +159,9 @@ ActiveRecord::Schema.define(version: 2021_11_05_185526) do
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
+  add_foreign_key "addresses", "accounts"
+  add_foreign_key "addresses", "stores"
+  add_foreign_key "addresses", "users"
   add_foreign_key "gift_cards", "wallets"
   add_foreign_key "inventories", "stores"
   add_foreign_key "lists", "users"
