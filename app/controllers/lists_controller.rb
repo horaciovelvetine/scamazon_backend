@@ -1,69 +1,76 @@
 class ListsController < ApplicationController
+
+  # Should be used to update user/lists, then reduced to show action where it checks for that lists privacy first and only displays if authorized or redirects
+
   before_action :set_list, only: %i[ show edit update destroy ]
 
   # GET /lists or /lists.json
-  def index
-    @lists = List.all
-  end
+  # def index
+  #   @lists = List.all
+  # end
 
   # GET /lists/1 or /lists/1.json
   def show
+  #should check if a list is private redirect or make an alias of that list, freeze it, and send that information out to the client
+    binding.pry
+  
   end
 
-  # GET /lists/new
-  def new
-    @list = List.new
-  end
 
-  # GET /lists/1/edit
-  def edit
-  end
+  # # GET /lists/new
+  # def new
+  #   @list = List.new
+  # end
 
-  # POST /lists or /lists.json
-  def create
-    @list = List.new(list_params)
+  # # GET /lists/1/edit
+  # def edit
+  # end
 
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: "List was successfully created." }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # # POST /lists or /lists.json
+  # def create
+  #   @list = List.new(list_params)
 
-  # PATCH/PUT /lists/1 or /lists/1.json
-  def update
-    respond_to do |format|
-      if @list.update(list_params)
-        format.html { redirect_to @list, notice: "List was successfully updated." }
-        format.json { render :show, status: :ok, location: @list }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @list.save
+  #       format.html { redirect_to @list, notice: "List was successfully created." }
+  #       format.json { render :show, status: :created, location: @list }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @list.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
-  # DELETE /lists/1 or /lists/1.json
-  def destroy
-    @list.destroy
-    respond_to do |format|
-      format.html { redirect_to lists_url, notice: "List was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+  # # PATCH/PUT /lists/1 or /lists/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @list.update(list_params)
+  #       format.html { redirect_to @list, notice: "List was successfully updated." }
+  #       format.json { render :show, status: :ok, location: @list }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @list.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_list
-      @list = List.find(params[:id])
-    end
+  # # DELETE /lists/1 or /lists/1.json
+  # def destroy
+  #   @list.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to lists_url, notice: "List was successfully destroyed." }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
-    # Only allow a list of trusted parameters through.
-    def list_params
-      params.require(:list).permit(:name, :description, :private, :user_id)
-    end
+  # private
+  #   # Use callbacks to share common setup or constraints between actions.
+  #   def set_list
+  #     @list = List.find(params[:id])
+  #   end
+
+  #   # Only allow a list of trusted parameters through.
+  #   def list_params
+  #     params.require(:list).permit(:name, :description, :private, :user_id)
+  #   end
 end
