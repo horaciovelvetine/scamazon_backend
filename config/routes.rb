@@ -2,19 +2,25 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 
+
+
+
+
+  # All static routes (these routes rails views??)
+  root to: 'application#home'
+  get "covid_message", to: 'application#covid', as: 'scamazon-cares'
+  get "slime", to: 'application#slime', as: 'scamazonslime'
+  get "termsandconditions", to: "application#conditions"
+  get "privacynotice", to: "application#privacynotice", as: 'scamazon-privacy'
+  get "privacy", to: "application#privacynotice"
+  get 'seed', to: 'application#seed', as: 'seedythedeebee'
+  post 'seed', to: 'application#populate'
+
 end
 
 #ADDS In ALL OG Routes to slowly build back to (suss out falsely nested store issue)
 
-  # # All Static Application Routes 
-  # root to: 'application#home'
-  # get "covid_message", to: 'application#covid', as: 'scamazon-cares'
-  # get "slime", to: 'application#slime', as: 'scamazonslime'
-  # get "termsandconditions", to: "application#conditions"
-  # get "privacynotice", to: "application#privacynotice", as: 'scamazon-privacy'
-  # get "privacy", to: "application#privacynotice"
-  # get 'seed', to: 'application#seed', as: 'seedythedeebee'
-  # post 'seed', to: 'application#populate'
+  
   
   # devise_for :users, controllers: {
   #   sessions: 'users/sessions',
