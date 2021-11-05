@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_190530) do
+ActiveRecord::Schema.define(version: 2021_11_05_190713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,6 +177,17 @@ ActiveRecord::Schema.define(version: 2021_11_05_190530) do
     t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
+    t.integer "stock"
+    t.string "model_num"
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_styles_on_item_id"
+    t.index ["model_num"], name: "index_styles_on_model_num", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -219,5 +230,6 @@ ActiveRecord::Schema.define(version: 2021_11_05_190530) do
   add_foreign_key "shopping_carts", "users"
   add_foreign_key "statuses", "orders"
   add_foreign_key "stores", "users"
+  add_foreign_key "styles", "items"
   add_foreign_key "wallets", "users"
 end
