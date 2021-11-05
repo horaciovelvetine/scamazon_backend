@@ -3,11 +3,16 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
+    #needs JSON language response
+    binding.pry
     @items = Item.all
+
   end
 
   # GET /items/1 or /items/1.json
   def show
+    #needs JSON language response
+    binding.pry
   end
 
   private
