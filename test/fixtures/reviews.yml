@@ -2,16 +2,18 @@
 
 one:
   title: MyString
-  description: MyString
-  rating.decimal: MyString
-  verified_purchaser: false
-  item: 
-  user: 
+  body: MyString
+  rating: 9.99
+  helpful: 1
+  verified_pur: false
+  user: one
+  item: one
 
 two:
   title: MyString
-  description: MyString
-  rating.decimal: MyString
-  verified_purchaser: false
-  item: 
-  user: 
+  body: MyString
+  rating: 9.99
+  helpful: 1
+  verified_pur: false
+  user: two
+  item: two

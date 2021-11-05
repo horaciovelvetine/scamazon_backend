@@ -1,46 +1,21 @@
 class User < ApplicationRecord
-  # Devise attributes for:
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
-  # Object Relationships
+  #Associations:::
   has_one :store
   has_one :shopping_cart
-  
-  has_many :reviews
+  has_one :wallet, dependent: :destroy
+
+  has_many :reviews, dependent: :destroy
   has_many :reviewed_items, through: :reviews, source: :item
   has_many :orders
   has_many :ordered_items, through: :orders, source: :items
-  has_many :lists
-  has_many :listed_items, through: :lists, source: :items
-  
-  has_many :gift_cards
+  has_many :lists, dependent: :destroy
 
+  validates_uniqueness_of :email
+  validates_presence_of :full_name, :phone, :email
 
-
-  def self.from_omniauth(auth)
-    
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|    
-      user.first_name = auth.info.nickname && user.last_name = auth.info.name
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-    end
-  end
-
-  def self.authorize_for_the_slime_time(user)
-    user.slime = true
-  end
-
-  def self.add_balance(user, balance)
-    
-    if user.balance.nil?
-      user.balance = 0
-      user.balance += balance
-    else
-      user.balance += balance
-    end
-
-  end
 
 end

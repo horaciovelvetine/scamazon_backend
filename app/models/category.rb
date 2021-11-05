@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  has_and_belongs_to_many :items
-  has_and_belongs_to_many :searches
+  has_many :items, dependent: :destroy
+  has_many :searhes, dependent: :destroy
 end

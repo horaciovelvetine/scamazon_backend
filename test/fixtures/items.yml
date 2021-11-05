@@ -2,26 +2,38 @@
 
 one:
   name: MyString
+  sku: MyString
   description: MyString
-  model: MyString
-  manufacturer: MyString
-  country_of_origin: MyString
-  picture: MyString
-  material: MyString
-  price: 
-  sku: 
+  price: 9.99
   rating: 9.99
-  weight.smallint: MyString
+  brand: MyString
+  weight: MyString
+  dimensions: MyString
+  manufacturer: MyString
+  origin: MyString
+  colo: MyString
+  material: MyString
+  quantity: MyString
+  inventory: one
+  category: one
+  order: one
+  shopping_cart: one
 
 two:
   name: MyString
+  sku: MyString
   description: MyString
-  model: MyString
-  manufacturer: MyString
-  country_of_origin: MyString
-  picture: MyString
-  material: MyString
-  price: 
-  sku: 
+  price: 9.99
   rating: 9.99
-  weight.smallint: MyString
+  brand: MyString
+  weight: MyString
+  dimensions: MyString
+  manufacturer: MyString
+  origin: MyString
+  colo: MyString
+  material: MyString
+  quantity: MyString
+  inventory: two
+  category: two
+  order: two
+  shopping_cart: two

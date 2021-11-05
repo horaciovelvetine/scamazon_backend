@@ -1,1 +1,34 @@
-<p>Should show a single users single order</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sub total:</strong>
+  <%= @order.sub_total %>
+</p>
+
+<p>
+  <strong>Grand total:</strong>
+  <%= @order.grand_total %>
+</p>
+
+<p>
+  <strong>Shipping:</strong>
+  <%= @order.shipping %>
+</p>
+
+<p>
+  <strong>Shipped on:</strong>
+  <%= @order.shipped_on %>
+</p>
+
+<p>
+  <strong>Slime:</strong>
+  <%= @order.slime %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

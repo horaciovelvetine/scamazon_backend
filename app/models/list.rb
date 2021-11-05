@@ -1,7 +1,4 @@
 class List < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :items
-
-  validates :name, uniqueness: true, presence: true
-
+  has_and_belongs_to_many :tags
 end

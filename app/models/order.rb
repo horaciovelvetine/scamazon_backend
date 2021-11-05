@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :stores, through: :items
+  belongs_to :status
   has_many :items
+  has_many :stores, through: :items
 end

@@ -1,1 +1,37 @@
-<p>Should show a single users orders </p>
+<p id="notice"><%= notice %></p>
+
+<h1>Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sub total</th>
+      <th>Grand total</th>
+      <th>Shipping</th>
+      <th>Shipped on</th>
+      <th>Slime</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.sub_total %></td>
+        <td><%= order.grand_total %></td>
+        <td><%= order.shipping %></td>
+        <td><%= order.shipped_on %></td>
+        <td><%= order.slime %></td>
+        <td><%= order.user_id %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path %>

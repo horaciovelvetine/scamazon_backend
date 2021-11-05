@@ -3,9 +3,11 @@
 one:
   name: MyString
   description: MyString
-  user: 
+  private: false
+  user: one
 
 two:
   name: MyString
   description: MyString
-  user: 
+  private: false
+  user: two

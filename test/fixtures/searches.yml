@@ -2,8 +2,10 @@
 
 one:
   query: MyString
-  user: 
+  user: one
+  category: one
 
 two:
   query: MyString
-  user: 
+  user: two
+  category: two

@@ -6,6 +6,13 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def show; end
+
+  def destroy
+    # in pry to prevent storage of abandoned carts when no user is logged in
+    binding.pry
+    super
+  end
+
   
 
 end
