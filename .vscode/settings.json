@@ -14,6 +14,6 @@
     "package.json": true,
     "postcss.config.js": true,
     "yarn.lock": true,
-
+    "test": true
   }
 }
