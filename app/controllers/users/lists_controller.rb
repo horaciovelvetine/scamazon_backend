@@ -1,6 +1,4 @@
 class Users::ListsController < ApplicationController
-  before_action :add_set_list, only: [:add_item, :remove_item]
-  helper_method :set_lists, :set_list
   
   # ## Should redirect to show with a random list chosen
   # def index
