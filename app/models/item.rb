@@ -6,9 +6,9 @@ class Item < ApplicationRecord
   belongs_to :shopping_cart, optional: true
   has_one :store, through: :inventory
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :tags
-  has_many :quesitons
+  has_many :quesitons, dependent: :destroy
   has_many :answers, through: :quesitons
   has_many :reviewers, through: :reviews, source: :user
 
