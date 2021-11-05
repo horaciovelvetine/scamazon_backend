@@ -8,6 +8,8 @@ class Item < ApplicationRecord
 
   has_many :reviews
   has_many :tags
+  has_many :quesitons
+  has_many :answers, through: :quesitons
   has_many :reviewers, through: :reviews, source: :user
 
   has_and_belongs_to_many :lists
