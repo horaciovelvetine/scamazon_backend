@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_190123) do
+ActiveRecord::Schema.define(version: 2021_11_05_190530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,6 +119,20 @@ ActiveRecord::Schema.define(version: 2021_11_05_190123) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.decimal "rating", precision: 3, scale: 2
+    t.integer "helpful"
+    t.boolean "verified_pur"
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_reviews_on_item_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "searches", force: :cascade do |t|
     t.string "query"
     t.bigint "user_id", null: false
@@ -198,6 +212,8 @@ ActiveRecord::Schema.define(version: 2021_11_05_190123) do
   add_foreign_key "items", "shopping_carts"
   add_foreign_key "lists", "users"
   add_foreign_key "orders", "users"
+  add_foreign_key "reviews", "items"
+  add_foreign_key "reviews", "users"
   add_foreign_key "searches", "categories"
   add_foreign_key "searches", "users"
   add_foreign_key "shopping_carts", "users"
