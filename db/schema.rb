@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_184536) do
+ActiveRecord::Schema.define(version: 2021_11_05_185011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "type"
+    t.string "number"
+    t.datetime "expires"
+    t.string "name_on"
+    t.integer "code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["number"], name: "index_accounts_on_number", unique: true
+  end
+
+  create_table "gift_cards", force: :cascade do |t|
+    t.string "redeem_code"
+    t.string "notes"
+    t.decimal "amount", precision: 7, scale: 2
+    t.bigint "wallet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["redeem_code"], name: "index_gift_cards_on_redeem_code"
+    t.index ["wallet_id"], name: "index_gift_cards_on_wallet_id"
+  end
 
   create_table "inventories", force: :cascade do |t|
     t.string "description"
@@ -111,6 +133,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_184536) do
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
+  add_foreign_key "gift_cards", "wallets"
   add_foreign_key "inventories", "stores"
   add_foreign_key "lists", "users"
   add_foreign_key "orders", "users"
