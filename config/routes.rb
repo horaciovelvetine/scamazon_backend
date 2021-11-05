@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :wallets
   resources :statuses
   resources :orders
   resources :shopping_carts
