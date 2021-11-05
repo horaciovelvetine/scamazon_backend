@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :statuses
   resources :orders
   resources :shopping_carts
-  resources :searches
   resources :inventories
   resources :lists
   resources :stores
