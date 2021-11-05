@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_190937) do
+ActiveRecord::Schema.define(version: 2021_11_05_191236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,20 @@ ActiveRecord::Schema.define(version: 2021_11_05_190937) do
     t.index ["order_id"], name: "index_items_on_order_id"
     t.index ["shopping_cart_id"], name: "index_items_on_shopping_cart_id"
     t.index ["sku"], name: "index_items_on_sku"
+  end
+
+  create_table "items_lists", id: false, force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "list_id", null: false
+    t.index ["item_id", "list_id"], name: "index_items_lists_on_item_id_and_list_id"
+    t.index ["list_id", "item_id"], name: "index_items_lists_on_list_id_and_item_id"
+  end
+
+  create_table "items_searches", id: false, force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "search_id", null: false
+    t.index ["item_id", "search_id"], name: "index_items_searches_on_item_id_and_search_id"
+    t.index ["search_id", "item_id"], name: "index_items_searches_on_search_id_and_item_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -246,6 +260,10 @@ ActiveRecord::Schema.define(version: 2021_11_05_190937) do
   add_foreign_key "items", "inventories"
   add_foreign_key "items", "orders"
   add_foreign_key "items", "shopping_carts"
+  add_foreign_key "items_lists", "items"
+  add_foreign_key "items_lists", "lists"
+  add_foreign_key "items_searches", "items"
+  add_foreign_key "items_searches", "searches"
   add_foreign_key "lists", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "questions", "items"
