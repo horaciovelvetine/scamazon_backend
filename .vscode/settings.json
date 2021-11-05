@@ -1,8 +1,9 @@
-// {
-//   "files.exclude": {
-//     "**/._*": true,
-//     "**/*.js": true,
-//     "**/*.map": true,
-//     "node_modules/": true
-//   }
-// }
+//adds in ability to hide files visually from explorer
+{
+  "files.exclude": {
+    "**/._*": true,
+    "**/*.js": true,
+    "**/*.map": true,
+    "node_modules/": true
+  }
+}
