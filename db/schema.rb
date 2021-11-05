@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_185744) do
+ActiveRecord::Schema.define(version: 2021_11_05_190123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,34 @@ ActiveRecord::Schema.define(version: 2021_11_05_185744) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["store_id"], name: "index_inventories_on_store_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "sku", limit: 10
+    t.string "description"
+    t.decimal "price", precision: 10, scale: 2
+    t.decimal "rating", precision: 3, scale: 2
+    t.string "brand"
+    t.string "weight"
+    t.string "dimensions"
+    t.string "manufacturer"
+    t.string "origin"
+    t.string "colo"
+    t.string "material"
+    t.string "quantity"
+    t.bigint "inventory_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "order_id"
+    t.bigint "shopping_cart_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["inventory_id"], name: "index_items_on_inventory_id"
+    t.index ["name"], name: "index_items_on_name"
+    t.index ["order_id"], name: "index_items_on_order_id"
+    t.index ["shopping_cart_id"], name: "index_items_on_shopping_cart_id"
+    t.index ["sku"], name: "index_items_on_sku"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -164,6 +192,10 @@ ActiveRecord::Schema.define(version: 2021_11_05_185744) do
   add_foreign_key "addresses", "users"
   add_foreign_key "gift_cards", "wallets"
   add_foreign_key "inventories", "stores"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "inventories"
+  add_foreign_key "items", "orders"
+  add_foreign_key "items", "shopping_carts"
   add_foreign_key "lists", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "searches", "categories"
