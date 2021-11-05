@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   has_one :store, through: :inventory
 
   has_many :reviews
+  has_many :tags
   has_many :reviewers, through: :reviews, source: :user
 
   has_and_belongs_to_many :lists
@@ -19,4 +20,19 @@ class Item < ApplicationRecord
   # Make items searchable through PGSearch inherited PGSearch model from PG Search gem
   include PgSearch::Model
   pg_search_scope :search_by_all, against: [:name, :description, :manufacturer, :model, :material]
+
+  def update_rating(item)
+    @sum = 0
+    item.reviews.each do |review|
+      @sum += review.rating
+    end
+    if item.reviews.length > 0
+      item.rating = @sum / item.reviews.length
+    else
+      item.rating = item.reviews.length
+    end
+    item.save
+  end
+
+end
 end
