@@ -3,11 +3,15 @@ class StoresController < ApplicationController
 
   # GET /stores or /stores.json
   def index
+    #should show all of the stores on scamazon
     @stores = Store.all
+    binding.pry
   end
 
   # GET /stores/1 or /stores/1.json
   def show
+    #should show a specific stroes profile
+    binding.pry
   end
 
   
