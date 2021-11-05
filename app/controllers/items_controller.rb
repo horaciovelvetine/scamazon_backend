@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     #needs JSON language response
+    
     binding.pry
     @items = Item.all
 
@@ -12,6 +13,7 @@ class ItemsController < ApplicationController
   # GET /items/1 or /items/1.json
   def show
     #needs JSON language response
+    # doesnt need to check for authorization
     binding.pry
   end
 
