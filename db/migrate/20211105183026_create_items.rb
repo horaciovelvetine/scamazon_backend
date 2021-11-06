@@ -7,7 +7,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.decimal :price, precision: 10, scale: 2
       t.decimal :rating, precision: 3, scale: 2
       t.string :manufacturer
-      t.string :origin
+      t.string :country_origin
       t.belongs_to :category, null: false, foreign_key: true
       t.belongs_to :order, null: true, foreign_key: true
       t.belongs_to :shopping_cart, null: true, foreign_key: true

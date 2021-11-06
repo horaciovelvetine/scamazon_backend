@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_195551) do
     t.decimal "price", precision: 10, scale: 2
     t.decimal "rating", precision: 3, scale: 2
     t.string "manufacturer"
-    t.string "origin"
+    t.string "country_origin"
     t.bigint "category_id", null: false
     t.bigint "order_id"
     t.bigint "shopping_cart_id"
