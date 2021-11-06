@@ -72,6 +72,12 @@ ActiveRecord::Schema.define(version: 2021_11_05_195551) do
     t.index ["wallet_id"], name: "index_gift_cards_on_wallet_id"
   end
 
+  create_table "inventories", force: :cascade do |t|
+    t.string "description"
+    t.bigint "store_id"
+    t.index ["store_id"], name: "index_inventories_on_store_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "sku", limit: 10
@@ -104,13 +110,6 @@ ActiveRecord::Schema.define(version: 2021_11_05_195551) do
     t.bigint "search_id", null: false
     t.index ["item_id", "search_id"], name: "index_items_searches_on_item_id_and_search_id"
     t.index ["search_id", "item_id"], name: "index_items_searches_on_search_id_and_item_id"
-  end
-
-  create_table "items_stores", id: false, force: :cascade do |t|
-    t.bigint "store_id", null: false
-    t.bigint "item_id", null: false
-    t.index ["item_id", "store_id"], name: "index_items_stores_on_item_id_and_store_id"
-    t.index ["store_id", "item_id"], name: "index_items_stores_on_store_id_and_item_id"
   end
 
   create_table "items_tags", id: false, force: :cascade do |t|
@@ -272,6 +271,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_195551) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
   add_foreign_key "gift_cards", "wallets"
+  add_foreign_key "inventories", "stores"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "orders"
   add_foreign_key "items", "shopping_carts"
@@ -279,8 +279,6 @@ ActiveRecord::Schema.define(version: 2021_11_05_195551) do
   add_foreign_key "items_lists", "lists"
   add_foreign_key "items_searches", "items"
   add_foreign_key "items_searches", "searches"
-  add_foreign_key "items_stores", "items"
-  add_foreign_key "items_stores", "stores"
   add_foreign_key "items_tags", "items"
   add_foreign_key "items_tags", "tags"
   add_foreign_key "lists", "users"
