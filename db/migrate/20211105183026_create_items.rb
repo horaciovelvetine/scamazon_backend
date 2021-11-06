@@ -2,7 +2,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
   def change
     create_table :items do |t|
       t.string :name, unique: true
-      t.string :sku, limit: 10, unique: true
+      t.string :sku, unique: true
       t.string :description
       t.decimal :price, precision: 10, scale: 2
       t.decimal :rating, precision: 3, scale: 2, default: 0.0
