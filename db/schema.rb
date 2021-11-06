@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.string "sku"
+    t.bigint "sku"
     t.string "description"
     t.decimal "price", precision: 10, scale: 2
     t.decimal "rating", precision: 3, scale: 2, default: "0.0"
