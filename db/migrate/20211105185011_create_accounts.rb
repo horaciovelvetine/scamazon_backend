@@ -3,9 +3,9 @@ class CreateAccounts < ActiveRecord::Migration[6.1]
     create_table :accounts do |t|
       t.string :type
       t.string :number, unique: true
-      t.datetime :expires
-      t.string :name_on
-      t.integer :code
+      t.datetime :expires, :null => false
+      t.string :name_on, null: false
+      t.integer :security_code, null: false
 
       t.timestamps
     end
