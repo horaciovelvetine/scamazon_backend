@@ -36,6 +36,13 @@ class Seed < ApplicationRecord
     # wallet = user.wallet.create(name: "#{user.full_name}'s Wallet")
     # address = user.address.create(street: Faker::Address.street_address, unit: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state, zip: Faker::Address.zip)
     # account = wallet.accounts.create(type: Faker::Stripe.valid_token, number: Faker::Stripe.valid_card, expires: "#{Faker::Stripe.month}/#{Faker::Stripe.year}", security_code: Faker::Stripe.ccv, address: address)
+    
+    
+    
+    sc = user.shopping_cart.create ###################################################################################
+    ####<------- This should add all of the default values to the cart and not need attributes so start there
+    
+    
     # return user
   end
 
