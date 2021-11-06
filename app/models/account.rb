@@ -4,5 +4,5 @@ class Account < ApplicationRecord
 
 
   validates_uniqueness_of :number
-  validates_presence_of :code, :number, :expires, :name_on
+  validates_presence_of :security_code, :number, :expires, :name_on
 end
