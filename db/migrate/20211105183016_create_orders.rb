@@ -7,9 +7,9 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.datetime :shipped_on, null: true
       t.string :shipping_info, null: true
       t.string :tracking_info, null: true
-      t.boolean :slime, default: false
+      t.boolean :slime, null: false, default: false
       t.belongs_to :user, null: false, foreign_key: true
-      t.belongs_to :order, null: false, foreign_key: true
+      t.belongs_to :status, null: false, foreign_key: true
 
       t.timestamps
     end
