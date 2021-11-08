@@ -1,0 +1,24 @@
+<div class="container">
+  <%= form_with do |f| %>
+    <%= fields_for :seed do |form| %>
+
+  <div class="row align-items-start">
+    <div class="field p-2 col-4">
+      <h6>Number of users to create:</h6>
+      <div class="d-flex mt-5 align-items-center"><%= form.label :users, class:"form-label" %>
+      <%= form.number_field :users, in: 1..201, step: 1, class:"form-control ms-2 w-50"%></div>
+    </div>
+    <div class="field p-2 col-8">
+      <h6>Number of unique items they have:</h6>
+      <p><i>Generate a random number of unique items by entering 0</i></p>
+      <div class="d-flex align-items-center"><%= form.label :items, class:"form-label" %>
+      <%= form.number_field :items, in: 0..30, step: 1, class:"form-control ms-2 w-50" %></div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+      <%= form.submit 'Submit', class:"actions btn btn-warning w-25" %>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
