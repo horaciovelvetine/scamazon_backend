@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_one :shopping_cart
   has_one :wallet, dependent: :destroy
 
+  has_many :addresses, dependent: :destroy
 
   has_many :viewed_items
   has_many :reviews, dependent: :destroy
