@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
-  resources :reviews
-  resources :items
-  resources :searches
-  resources :accounts
-  resources :gift_cards
-  resources :wallets
-  resources :statuses
-  resources :orders
-  resources :shopping_carts
-  resources :inventories
-  resources :lists
-  resources :stores
-  devise_for :users
+  # resources :reviews
+  # resources :items
+  # resources :searches
+  # resources :accounts
+  # resources :gift_cards
+  # resources :wallets
+  # resources :statuses
+  # resources :orders
+  # resources :shopping_carts
+  # resources :inventories
+  # resources :lists
+  # resources :stores
+  # devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 
