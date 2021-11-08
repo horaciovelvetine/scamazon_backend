@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.string "type"
+    t.string "issued_by"
     t.string "number"
     t.string "expires", null: false
     t.string "name_on", null: false
-    t.integer "security_code", null: false
+    t.integer "ccv", null: false
     t.bigint "wallet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
