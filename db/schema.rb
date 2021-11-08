@@ -268,7 +268,7 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.string "name", default: ""
+    t.string "name"
     t.decimal "balance", precision: 10, scale: 2, default: "0.0"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
