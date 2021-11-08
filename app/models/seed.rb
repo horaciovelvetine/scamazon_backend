@@ -43,21 +43,21 @@ class Seed < ApplicationRecord
   def self.create_store_with_inventory(user)
     store = user.create_store(name: Faker::Company.name, email: Faker::Internet.unique.email, description: Faker::Hipster.paragraph(sentence_count: 3), logo: Faker::Company.logo, industry:Faker::Company.industry, mission_statement: Faker::Company.catch_phrase, ein: Faker::Company.unique.ein)
     store.create_inventory
-    binding.pry
   end
 
   def self.create_item(inventory)
-    # rand_category = Categories.all.order("RANDOM()").first
+    rand_category = Category.all.order("RANDOM()").first
     
-    # item = inventory.items.create(name: Faker::Commerce.unique.product_name, sku: Faker::Number.unique.number(digits: 10), description: Faker::Hipster.paragraph(sentence_count: 12), price: Faker::Commerce.price, manufacturer: Faker::Commerce.vendor, country_origin: Faker::Address.country, category: rand_category)
+    item = inventory.items.create(name: Faker::Commerce.unique.product_name, sku: Faker::Number.unique.number(digits: 10), description: Faker::Hipster.paragraph(sentence_count: 12), price: Faker::Commerce.price, manufacturer: Faker::Commerce.vendor, country_origin: Faker::Address.country, category: rand_category)
     
     # rand(1..5).times { create_styles(item)}
+    create_styles(item)
     binding.pry
   end
 
   def self.create_styles(item)
-    # col = Faker::Commerce.color
-    # mat = Faker::Commerce.material
+    col = Faker::Commerce.color
+    mat = Faker::Commerce.material
     # style = item.styles.create(name: "#{col} #{mat}", model: Faker::Company.duns_number, color: col, material: mat, quantity: rand(1..50), weight: Faker::Measurement.weight, dimensions: "#{Faker::Measurement.length} x #{Faker::Measurement.height} x #{Faker::Measurement.length")
     binding.pry
   end
