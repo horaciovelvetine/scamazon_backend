@@ -17,7 +17,10 @@ class Seed < ApplicationRecord
     y.times {create_item(@user.store.inventory)}
 
     binding.pry
+    ##################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 
+    ## need to add in tags, possibly by checking item description
+    ## need to add in som sham orders with various staus.
   end
 
 
@@ -50,16 +53,13 @@ class Seed < ApplicationRecord
     
     item = inventory.items.create(name: Faker::Commerce.unique.product_name, sku: Faker::Number.unique.number(digits: 10), description: Faker::Hipster.paragraph(sentence_count: 12), price: Faker::Commerce.price, manufacturer: Faker::Commerce.vendor, country_origin: Faker::Address.country, category: rand_category)
     
-    # rand(1..5).times { create_styles(item)}
-    create_styles(item)
-    binding.pry
+    rand(1..5).times {create_styles(item)}
   end
 
   def self.create_styles(item)
     col = Faker::Commerce.color
     mat = Faker::Commerce.material
-    # style = item.styles.create(name: "#{col} #{mat}", model: Faker::Company.duns_number, color: col, material: mat, quantity: rand(1..50), weight: Faker::Measurement.weight, dimensions: "#{Faker::Measurement.length} x #{Faker::Measurement.height} x #{Faker::Measurement.length")
-    binding.pry
+    style = item.styles.create(name: "#{col} #{mat}", model: Faker::Company.duns_number, color: col, material: mat, quantity: rand(1..50), weight: Faker::Measurement.weight, dimensions: "#{Faker::Measurement.length} x #{Faker::Measurement.height} x #{Faker::Measurement.length}")
   end
 
 
