@@ -24,7 +24,6 @@ class Order < ApplicationRecord
     if items.nil?
       binding.pry
     end
-    
     items.each do |item|
       self.items << item
     end
