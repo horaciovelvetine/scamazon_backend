@@ -140,9 +140,9 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.decimal "sub_total", precision: 10, scale: 2
-    t.decimal "grand_total", precision: 10, scale: 2
-    t.decimal "shipping_cost", precision: 6, scale: 2
+    t.decimal "sub_total", precision: 10, scale: 2, default: "0.0"
+    t.decimal "grand_total", precision: 10, scale: 2, default: "0.0"
+    t.decimal "shipping_cost", precision: 6, scale: 2, default: "0.0"
     t.datetime "shipped_on"
     t.string "shipping_info"
     t.string "tracking_info"
@@ -192,8 +192,8 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
   end
 
   create_table "shopping_carts", force: :cascade do |t|
-    t.decimal "sub_total", precision: 10, scale: 2
-    t.integer "num_items"
+    t.decimal "sub_total", precision: 10, scale: 2, default: "0.0"
+    t.integer "num_items", default: 0
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
