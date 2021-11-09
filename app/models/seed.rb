@@ -16,11 +16,12 @@ class Seed < ApplicationRecord
     create_store_with_inventory(@user)
     y.times {create_item(@user.store.inventory)}
 
+    ## Tags could be generated for each item, but won't with seeding.
+    ## Should take the user that is created and create some orders for them with a status. 
+    3.times{ create_orders_for_user(@user)}
     binding.pry
-    ##################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 
-    ## need to add in tags, possibly by checking item description
-    ## need to add in som sham orders with various staus.
+    
   end
 
 
@@ -62,6 +63,28 @@ class Seed < ApplicationRecord
     style = item.styles.create(name: "#{col} #{mat}", model: Faker::Company.duns_number, color: col, material: mat, quantity: rand(1..50), weight: Faker::Measurement.weight, dimensions: "#{Faker::Measurement.length} x #{Faker::Measurement.height} x #{Faker::Measurement.length}")
   end
 
+  def self.create_orders_for_user(user)
+    items = Item.all.order("RANDOM()").take(3)
+    
+    ship_info = {shipped_on: Faker::Date.between(from: 5.days.ago, to: Date.today), shipping_info: "via Scamazon Shipping"}
+    
+    tracking = Faker::Invoice.reference
+    
+    order = user.orders.new
+    
+    order.add_items(items)
+    
+    binding.pry 
+
+    # order.update_shipping_info(ship_info)
+    # order.calculate_sub_total
+    # order.calculate_grand_total
+    # order.update_tracking_info(tracking)
+    binding.pry
+
+    
+
+  end
 
 
 
