@@ -17,7 +17,7 @@ class Seed < ApplicationRecord
     y.times {create_item(@user.store.inventory)}
     
     3.times{ create_orders_for_user(@user)}
-    
+    binding.pry
   end
 
 
@@ -76,7 +76,6 @@ class Seed < ApplicationRecord
     order.status = status
     order.calculate_sub_total
     order.calculate_grand_total
-    binding.pry
     order.save
 
 
