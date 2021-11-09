@@ -3,7 +3,7 @@ class Seed < ApplicationRecord
 
   def self.initiate_seeding(x, y)
     if y == 0 
-      y = rand(1..50)
+      y = rand(1..20)
     end
     x.times { populate_loop(y) }
   end
@@ -15,12 +15,8 @@ class Seed < ApplicationRecord
     
     create_store_with_inventory(@user)
     y.times {create_item(@user.store.inventory)}
-
-    ## Tags could be generated for each item, but won't with seeding.
-    ## Should take the user that is created and create some orders for them with a status. 
+    
     3.times{ create_orders_for_user(@user)}
-    binding.pry
-
     
   end
 
@@ -50,9 +46,7 @@ class Seed < ApplicationRecord
   end
 
   def self.create_item(inventory)
-    rand_category = Category.all.order("RANDOM()").first
-    
-    item = inventory.items.create(name: Faker::Commerce.unique.product_name, sku: Faker::Number.unique.number(digits: 10), description: Faker::Hipster.paragraph(sentence_count: 12), price: Faker::Commerce.price, manufacturer: Faker::Commerce.vendor, country_origin: Faker::Address.country, category: rand_category)
+    item = inventory.items.create(name: Faker::Commerce.unique.product_name, sku: Faker::Number.unique.number(digits: 10), description: Faker::Hipster.paragraph(sentence_count: 12), price: Faker::Commerce.price, manufacturer: Faker::Commerce.vendor, country_origin: Faker::Address.country, category: Category.all.order("RANDOM()").first)
     
     rand(1..5).times {create_styles(item)}
   end
@@ -64,25 +58,27 @@ class Seed < ApplicationRecord
   end
 
   def self.create_orders_for_user(user)
+    
+    #grabs sample info from database to create Order
     items = Item.all.order("RANDOM()").take(3)
-    
-    ship_info = {shipped_on: Faker::Date.between(from: 5.days.ago, to: Date.today), shipping_info: "via Scamazon Shipping"}
-    
+    ship_info = {shipped_on: Faker::Date.between(from: 5.days.ago, to: Date.today), info: "via Scamazon Shipping"}
     tracking = Faker::Invoice.reference
-    
+    status = Status.all.order("RANDOM()").take(2).last
+
+    #Creates order associated to that user
     order = user.orders.new
     
+
+    #Call all order update methods to assign info to order
     order.add_items(items)
-    
-    binding.pry 
-
-    # order.update_shipping_info(ship_info)
-    # order.calculate_sub_total
-    # order.calculate_grand_total
-    # order.update_tracking_info(tracking)
+    order.update_shipping_info(ship_info)
+    order.tracking_info = tracking
+    order.status = status
+    order.calculate_sub_total
+    order.calculate_grand_total
     binding.pry
+    order.save
 
-    
 
   end
 
