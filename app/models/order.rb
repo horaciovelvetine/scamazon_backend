@@ -4,9 +4,6 @@ class Order < ApplicationRecord
   has_many :items
   has_many :stores, through: :items
 
-  def update_order_information
-
-  end
 
   def calculate_sub_total
     #calculates the sub totals based on all item prices
@@ -47,6 +44,18 @@ class Order < ApplicationRecord
     end
     binding.pry
   end
+
+  def update_status(status_info)
+    #should take in a status param match, find that status, and then add it to the order
+    status = Status.find_by_name(status_info)
+    if status.nil?
+      #uhoh that didnt work
+    else
+      self.status = status
+    end
+  end
+
+
 
 
 end
