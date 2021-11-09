@@ -4,56 +4,48 @@ class Order < ApplicationRecord
   has_many :items
   has_many :stores, through: :items
 
+  validates :items, :length => {minimum: 1}
 
+
+  #calculates the sub totals based on all item prices
   def calculate_sub_total
-    #calculates the sub totals based on all item prices
-    # self.items.each do |item|
-    #   self.sub_total += item.price
-    # end
-    binding.pry
+    self.items.each do |item|
+      self.sub_total += item.price
+    end
   end
 
+  def calculate_grand_total
+    self.grand_total = self.sub_total + self.shipping_cost
+  end
+
+
+  #iterates over the items array provided and adds items to the order
   def add_items(items)
-    #iterates over the returns array, and adds items to the order
+    if items.nil?
+      binding.pry
+    end
+    
     items.each do |item|
-      self << item
+      self.items << item
     end
-    binding.pry
   end
 
+  #should take in info form store order update form, and update the order
   def update_shipping_info(info)
-    #should take in info form store form, and update the order
-    # self.shipping_info = info[:info]
-    # self.shipped_on = info[:shipped_on]
-    # self.shipping_cost = shipping_calculator(self)
-    binding.pry
+    self.shipping_info = info[:info]
+    self.shipped_on = info[:shipped_on]
+    self.shipping_cost = shipping_calculator(self)
   end
 
-  def update_tracking_info(tracking)
-    #Should take in tracking info to update the ordera
-    self.tracking_info = tracking
-    binding.pry
-  end
 
-  def shipping_calculator
-    #Eventually should take the orders address and calculate the cost from A to B. In demo will provide random price. 
-    if self.slime?
+  #Eventually should take the order, check if slime free shipping,if not find address and calculate the cost from A to B. In demo will provide random price. 
+  def shipping_calculator(order)
+    if order.slime?
       return 0.00
-    else
-      rand(5.99..28.99)
     end
-    binding.pry
+    return rand(5.99..28.99)
   end
 
-  def update_status(status_info)
-    #should take in a status param match, find that status, and then add it to the order
-    status = Status.find_by_name(status_info)
-    if status.nil?
-      #uhoh that didnt work
-    else
-      self.status = status
-    end
-  end
 
 
 
