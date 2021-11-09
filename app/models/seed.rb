@@ -17,7 +17,6 @@ class Seed < ApplicationRecord
     y.times {create_item(@user.store.inventory)}
     
     3.times{ create_orders_for_user(@user)}
-    binding.pry
   end
 
 

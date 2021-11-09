@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
     t.string "name"
     t.bigint "sku"
     t.string "description"
-    t.decimal "price", precision: 10, scale: 2
     t.decimal "rating", precision: 3, scale: 2, default: "0.0"
     t.string "manufacturer"
     t.string "country_origin"
@@ -225,16 +224,19 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
   create_table "styles", force: :cascade do |t|
     t.string "name", null: false
     t.string "model"
+    t.decimal "price", precision: 10, scale: 2
     t.string "color"
     t.string "material"
     t.integer "quantity", null: false
     t.string "weight"
     t.string "dimensions"
     t.bigint "item_id", null: false
+    t.bigint "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_styles_on_item_id"
     t.index ["model"], name: "index_styles_on_model"
+    t.index ["order_id"], name: "index_styles_on_order_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -308,5 +310,6 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
   add_foreign_key "shopping_carts", "users"
   add_foreign_key "stores", "users"
   add_foreign_key "styles", "items"
+  add_foreign_key "styles", "orders"
   add_foreign_key "wallets", "users"
 end

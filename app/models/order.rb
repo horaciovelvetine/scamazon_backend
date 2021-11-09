@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   belongs_to :status
   has_many :items
   has_many :stores, through: :items
+  has_many :styles, class_name: :items_styles
 
   validates :items, :length => {minimum: 1}
 

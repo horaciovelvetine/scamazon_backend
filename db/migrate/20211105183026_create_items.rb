@@ -4,7 +4,6 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.string :name, unique: true
       t.bigint :sku, unique: true
       t.string :description
-      t.decimal :price, precision: 10, scale: 2
       t.decimal :rating, precision: 3, scale: 2, default: 0.0
       t.string :manufacturer
       t.string :country_origin
