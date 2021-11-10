@@ -7,7 +7,7 @@ class ShoppingCart < ApplicationRecord
   def update_number_of_items
     self.num_items = 0 
     self.styles.each do |style|
-      self.num_items += .style.quantity
+      self.num_items += style.quantity
     end
   end
 
