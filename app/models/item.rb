@@ -19,10 +19,6 @@ class Item < ApplicationRecord
   has_and_belongs_to_many :searches
   
 
-  #Validations
-  validates_format_of :sku, :with => /[0-9]{10}/
-  validates_uniqueness_of :sku
-
   # Make items searchable through PGSearch inherited PGSearch model from PG Search gem
   include PgSearch::Model
   pg_search_scope :search_by_all, against: [:name, :description, :manufacturer, :model, :material]
