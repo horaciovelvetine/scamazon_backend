@@ -30,11 +30,14 @@ class Order < ApplicationRecord
     end
   end
 
-  #iterates over an array of styles and, creates a new style to associate with that order
+  #iterates over an array of styles and, creates a new style to associate with that order, adds it to the order and updates the original style by removing the quantity ordered
   def add_update_and_duplicate_styles(styles, quantities)
     
     styles.each_with_index do |style, i|
-      self.styles << style 
+      #adds style to order
+      self.styles << style
+      
+      #checkes if there are enough of that style to order the desired quantity, duplicates and saves new style with correct quantities for it and the original.
       if style.quantity < quantities[i]
         d = style.dup
         style.quantity = 0
