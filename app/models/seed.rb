@@ -45,7 +45,7 @@ class Seed < ApplicationRecord
   end
 
   def self.create_item(inventory)
-    item = inventory.items.create(name: Faker::Commerce.unique.product_name, sku: Faker::Number.unique.number(digits: 10), description: Faker::Hipster.paragraph(sentence_count: 12), manufacturer: Faker::Commerce.vendor, country_origin: Faker::Address.country, category: Category.all.order("RANDOM()").first)
+    item = inventory.items.create(name: Faker::Commerce.unique.product_name,  description: Faker::Hipster.paragraph(sentence_count: 12),  category: Category.all.order("RANDOM()").first)
     
     rand(1..5).times {create_styles(item)}
   end
@@ -53,7 +53,7 @@ class Seed < ApplicationRecord
   def self.create_styles(item)
     col = Faker::Commerce.color
     mat = Faker::Commerce.material
-    style = item.styles.create(name: "#{col} #{mat}", model: Faker::Company.duns_number, price: Faker::Commerce.price,color: col, material: mat, quantity: rand(1..50), weight: Faker::Measurement.weight, dimensions: "#{Faker::Measurement.length} x #{Faker::Measurement.height} x #{Faker::Measurement.length}")
+    style = item.styles.create(name: "#{col} #{mat}", model: Faker::Company.duns_number, sku: Faker::Number.unique.number(digits: 10), price: Faker::Commerce.price,color: col, material: mat, quantity: rand(1..50), weight: Faker::Measurement.weight, manufacturer: Faker::Commerce.vendor, country_origin: Faker::Address.country, dimensions: "#{Faker::Measurement.length} x #{Faker::Measurement.height} x #{Faker::Measurement.length}")
   end
 
   def self.create_orders_for_user(user)
