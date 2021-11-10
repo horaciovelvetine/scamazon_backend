@@ -81,11 +81,8 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.bigint "sku"
     t.string "description"
     t.decimal "rating", precision: 3, scale: 2, default: "0.0"
-    t.string "manufacturer"
-    t.string "country_origin"
     t.bigint "category_id", null: false
     t.bigint "order_id"
     t.bigint "shopping_cart_id"
@@ -97,7 +94,6 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
     t.index ["name"], name: "index_items_on_name"
     t.index ["order_id"], name: "index_items_on_order_id"
     t.index ["shopping_cart_id"], name: "index_items_on_shopping_cart_id"
-    t.index ["sku"], name: "index_items_on_sku"
   end
 
   create_table "items_lists", id: false, force: :cascade do |t|
@@ -224,19 +220,25 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
   create_table "styles", force: :cascade do |t|
     t.string "name", null: false
     t.string "model"
+    t.bigint "sku"
     t.decimal "price", precision: 10, scale: 2
     t.string "color"
     t.string "material"
     t.integer "quantity", null: false
     t.string "weight"
     t.string "dimensions"
+    t.string "manufacturer"
+    t.string "country_origin"
     t.bigint "item_id", null: false
     t.bigint "order_id"
+    t.bigint "shopping_cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_styles_on_item_id"
     t.index ["model"], name: "index_styles_on_model"
     t.index ["order_id"], name: "index_styles_on_order_id"
+    t.index ["shopping_cart_id"], name: "index_styles_on_shopping_cart_id"
+    t.index ["sku"], name: "index_styles_on_sku"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -311,5 +313,6 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
   add_foreign_key "stores", "users"
   add_foreign_key "styles", "items"
   add_foreign_key "styles", "orders"
+  add_foreign_key "styles", "shopping_carts"
   add_foreign_key "wallets", "users"
 end
