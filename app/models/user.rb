@@ -4,18 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   #Associations:::
-  has_one :store, dependent: :destroy
-  has_one :shopping_cart, dependent: :destroy
-  has_one :wallet, dependent: :destroy
+  has_one :store
+  has_one :shopping_cart
+  has_one :wallet
 
-  has_many :addresses, dependent: :destroy
+  has_many :addresses
 
-  has_many :viewed_items, dependent: :destroy
-  has_many :reviews, dependent: :destroy
+  has_many :viewed_items #
+  has_many :reviews#
   has_many :reviewed_items, through: :reviews, source: :item
   has_many :orders
   has_many :ordered_items, through: :orders, source: :items
-  has_many :lists, dependent: :destroy
+  has_many :lists
 
   has_many :returns
 

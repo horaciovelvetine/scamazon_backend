@@ -7,11 +7,11 @@ class Item < ApplicationRecord
   belongs_to :shopping_cart, optional: true
   
 
-  has_many :styles, dependent: :destroy
-  has_many :quesitons, dependent: :destroy
+  has_many :styles
+  has_many :quesitons
   has_many :answers, through: :quesitons
   has_many :viewers, through: :viewed_items, source: :user
-  has_many :reviews, dependent: :destroy
+  has_many :reviews
   has_many :reviewers, through: :reviews, source: :user
 
   has_and_belongs_to_many :lists

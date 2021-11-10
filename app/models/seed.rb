@@ -3,6 +3,8 @@ class Seed < ApplicationRecord
 
   def self.initiate_seeding(x, y)
     x.times { populate_loop(y) }
+
+    User.all.first.destroy if User.all.first.orders.first.items.empty?
   end
   
   
