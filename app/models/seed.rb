@@ -67,7 +67,7 @@ class Seed < ApplicationRecord
     #grabs and creates information to populate new order
     ship_info = {shipped_on: Faker::Date.between(from: 5.days.ago, to: Date.today), info: "via Scamazon Shipping"}
     tracking = Faker::Invoice.reference
-    status = Status.all.order("RANDOM()").take(2).last
+    status = Status.find_by_name("Delivered")    
 
     #Creates order associated to that user
     order = user.orders.new
