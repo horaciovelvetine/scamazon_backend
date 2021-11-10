@@ -45,7 +45,7 @@ class Seed < ApplicationRecord
   end
 
   def self.create_item(inventory)
-    item = inventory.items.create(name: Faker::Commerce.unique.product_name, sku: Faker::Number.unique.number(digits: 10), description: Faker::Hipster.paragraph(sentence_count: 12), price: Faker::Commerce.price, manufacturer: Faker::Commerce.vendor, country_origin: Faker::Address.country, category: Category.all.order("RANDOM()").first)
+    item = inventory.items.create(name: Faker::Commerce.unique.product_name, sku: Faker::Number.unique.number(digits: 10), description: Faker::Hipster.paragraph(sentence_count: 12), manufacturer: Faker::Commerce.vendor, country_origin: Faker::Address.country, category: Category.all.order("RANDOM()").first)
     
     rand(1..5).times {create_styles(item)}
   end
@@ -53,13 +53,18 @@ class Seed < ApplicationRecord
   def self.create_styles(item)
     col = Faker::Commerce.color
     mat = Faker::Commerce.material
-    style = item.styles.create(name: "#{col} #{mat}", model: Faker::Company.duns_number, color: col, material: mat, quantity: rand(1..50), weight: Faker::Measurement.weight, dimensions: "#{Faker::Measurement.length} x #{Faker::Measurement.height} x #{Faker::Measurement.length}")
+    style = item.styles.create(name: "#{col} #{mat}", model: Faker::Company.duns_number, price: Faker::Commerce.price,color: col, material: mat, quantity: rand(1..50), weight: Faker::Measurement.weight, dimensions: "#{Faker::Measurement.length} x #{Faker::Measurement.height} x #{Faker::Measurement.length}")
   end
 
   def self.create_orders_for_user(user)
     
-    #grabs sample info from database to create Order
+    #grabs sample item/style info from database to create Order
     items = Item.all.order("RANDOM()").take(3)
+    styles = items.map { |i| i.styles.order("RANDOM()").first }
+    quantities = Array.new(items.length) { rand(1..3) }
+    
+
+    #grabs and creates information to populate new order
     ship_info = {shipped_on: Faker::Date.between(from: 5.days.ago, to: Date.today), info: "via Scamazon Shipping"}
     tracking = Faker::Invoice.reference
     status = Status.all.order("RANDOM()").take(2).last
@@ -70,12 +75,15 @@ class Seed < ApplicationRecord
 
     #Call all order update methods to assign info to order
     order.add_items(items)
+    order.add_update_and_duplicate_styles(styles, quantities)
     order.update_shipping_info(ship_info)
     order.tracking_info = tracking
     order.status = status
     order.calculate_sub_total
     order.calculate_grand_total
     order.save
+
+    binding.pry
 
 
   end

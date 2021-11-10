@@ -3,15 +3,15 @@ class Order < ApplicationRecord
   belongs_to :status
   has_many :items
   has_many :stores, through: :items
-  has_many :styles, class_name: :items_styles
+  has_many :styles
 
   validates :items, :length => {minimum: 1}
 
 
   #calculates the sub totals based on all item prices
   def calculate_sub_total
-    self.items.each do |item|
-      self.sub_total += item.price
+    self.styles.each do |style|
+      self.sub_total += ((style.price) * style.quantity)
     end
   end
 
@@ -29,6 +29,26 @@ class Order < ApplicationRecord
       self.items << item
     end
   end
+
+  #iterates over an array of styles and, creates a new style to associate with that order
+  def add_update_and_duplicate_styles(styles, quantities)
+    
+    styles.each_with_index do |style, i|
+      self.styles << style 
+      if style.quantity < quantities[i]
+        d = style.dup
+        style.quantity = 0
+        d.save
+      else
+        d = style.dup
+        d.quantity = quantities[i]
+        style.quantity -= quantities[i]
+        d.save
+      end      
+    end
+
+  end
+
 
   #should take in info form store order update form, and update the order
   def update_shipping_info(info)
