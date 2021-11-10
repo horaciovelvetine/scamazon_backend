@@ -12,6 +12,7 @@ class Item < ApplicationRecord
   has_many :viewers, through: :viewed_items, source: :user
   has_many :reviews, dependent: :destroy
   has_many :reviewers, through: :reviews, source: :user
+  has_many :returns
 
   has_and_belongs_to_many :lists
   has_and_belongs_to_many :tags

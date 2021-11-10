@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   has_many :items
   has_many :stores, through: :items
   has_many :styles
+  has_many :returns
 
   validates :items, :length => {minimum: 1}
 

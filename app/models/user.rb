@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :ordered_items, through: :orders, source: :items
   has_many :lists, dependent: :destroy
 
+  has_many :returns
+
   validates_uniqueness_of :email
   # validates_presence_of :full_name, :phone, :email
 
