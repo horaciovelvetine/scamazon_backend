@@ -26,17 +26,19 @@ class Item < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_by_all, against: [:name, :description, :manufacturer, :model, :material]
 
-  def update_rating(item)
-    @sum = 0
-    item.reviews.each do |review|
-      @sum += review.rating
+  # Updates an items rating based on a simple average of all reviews
+  def update_rating
+    #checks if there are any reviews and rescues if there are none to check
+    if self.reviews.length < 1
+      self.rating = self.review.length
+      return self
     end
-    if item.reviews.length > 0
-      item.rating = @sum / item.reviews.length
-    else
-      item.rating = item.reviews.length
+
+    ratings_sum = 0
+    self.reviews.each do |review|
+      ratings_sum += review.rating
     end
-    item.save
+    self.rating = ratings_sum / self.reviews.length
   end
 
 end
