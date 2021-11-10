@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_many :lists, dependent: :destroy
 
   validates_uniqueness_of :email
-  validates_presence_of :full_name, :phone, :email
+  # validates_presence_of :full_name, :phone, :email
 
 
 end
