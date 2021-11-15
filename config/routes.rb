@@ -15,14 +15,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   ## Include Template for adding in API namespaced routes
-  # namespace :api do
-  #   namespace :v1 do
-  #     ## define routes here for /api/v1/...
-  #     get '/demo_cart_page', to: 'api_controller#demo'
-  #   end
-  # end
-
-  mount API::Base, at: "/"
+  namespace :api do
+    namespace :v1 do
+      ## define routes here for /api/v1/...
+      get '/demo_cart_page', to: 'api_controller#demo'
+    end
+  end
 
 
   ## All Devise Routing
