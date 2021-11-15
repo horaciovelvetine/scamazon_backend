@@ -54,6 +54,13 @@ gem 'pry'
 gem 'bootstrap'
 gem 'jquery-rails'
 
+
+# opinionated Rest API Gem
+gem 'grape'
+gem 'rack-cors'
+gem 'grape-active_model_serializers'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
