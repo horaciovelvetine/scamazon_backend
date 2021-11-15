@@ -1,6 +1,6 @@
 module API
   module V1
-    class ShoppingCart < Grape::API
+    class ShoppingCarts < Grape::API
       include API::V1::Defaults
     
       resource :cart do
@@ -8,7 +8,7 @@ module API
         get "" do
           binding.pry
         end
-        
+
 
     end
   end
