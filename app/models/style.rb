@@ -6,5 +6,4 @@ class Style < ApplicationRecord
 
     #Validations
   validates_format_of :sku, :with => /[0-9]{10}/
-  validates_uniqueness_of :sku
 end
