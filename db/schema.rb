@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_06_173846) do
+ActiveRecord::Schema.define(version: 2021_11_16_174831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,11 +103,25 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
     t.index ["list_id", "item_id"], name: "index_items_lists_on_list_id_and_item_id"
   end
 
+  create_table "items_orders", id: false, force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "order_id", null: false
+    t.index ["item_id", "order_id"], name: "index_items_orders_on_item_id_and_order_id"
+    t.index ["order_id", "item_id"], name: "index_items_orders_on_order_id_and_item_id"
+  end
+
   create_table "items_searches", id: false, force: :cascade do |t|
     t.bigint "item_id", null: false
     t.bigint "search_id", null: false
     t.index ["item_id", "search_id"], name: "index_items_searches_on_item_id_and_search_id"
     t.index ["search_id", "item_id"], name: "index_items_searches_on_search_id_and_item_id"
+  end
+
+  create_table "items_shopping_carts", id: false, force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.bigint "shopping_cart_id", null: false
+    t.index ["item_id", "shopping_cart_id"], name: "index_items_shopping_carts_on_item_id_and_shopping_cart_id"
+    t.index ["shopping_cart_id", "item_id"], name: "index_items_shopping_carts_on_shopping_cart_id_and_item_id"
   end
 
   create_table "items_tags", id: false, force: :cascade do |t|
@@ -313,8 +327,12 @@ ActiveRecord::Schema.define(version: 2021_11_06_173846) do
   add_foreign_key "items", "shopping_carts"
   add_foreign_key "items_lists", "items"
   add_foreign_key "items_lists", "lists"
+  add_foreign_key "items_orders", "items"
+  add_foreign_key "items_orders", "orders"
   add_foreign_key "items_searches", "items"
   add_foreign_key "items_searches", "searches"
+  add_foreign_key "items_shopping_carts", "items"
+  add_foreign_key "items_shopping_carts", "shopping_carts"
   add_foreign_key "items_tags", "items"
   add_foreign_key "items_tags", "tags"
   add_foreign_key "lists", "users"
