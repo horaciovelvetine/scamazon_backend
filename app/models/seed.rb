@@ -17,6 +17,7 @@ class Seed < ApplicationRecord
     
     2.times { create_list(@user)}
     3.times{ create_orders_for_user(@user)}
+    add_items_to_cart(@user)
   end
 
 
@@ -65,8 +66,8 @@ class Seed < ApplicationRecord
     
     #grabs sample item/style info from database to create Order
     @items = Item.all.order("RANDOM()").take(rand(2..5))
-    styles = @items.map { |i| i.styles.order("RANDOM()").first }
-    quantities = Array.new(@items.length) { rand(1..3) }
+    @styles = @items.map { |i| i.styles.order("RANDOM()").first }
+    @quantities = Array.new(@items.length) { rand(1..3) }
     
 
     #grabs and creates information to populate new order
@@ -80,7 +81,7 @@ class Seed < ApplicationRecord
 
     #Call all order update methods to assign info to order
     order.add_items(@items)
-    order.add_update_and_duplicate_styles(styles, quantities)
+    order.add_update_and_duplicate_styles(@styles, @quantities)
     order.update_shipping_info(ship_info)
     order.tracking_info = tracking
     order.status = status
@@ -89,6 +90,24 @@ class Seed < ApplicationRecord
     order.save
 
   end
+
+  ##Add's info to shopping_carts for each demo user
+  def self.add_items_to_cart(user)
+    #grabs the users cart
+    cart = user.shopping_cart
+
+    #selects random items and styles from the db (similar to Order)
+    @items = Item.all.order("RANDOM()").take(rand(2..5))
+    @styles = @items.map { |i| i.styles.order("RANDOM()").first }
+    @quantities = Array.new(@items.length) { rand(1..3) }
+
+    cart.add_items(@items)
+    cart.add_update_and_duplicate_styles(@styles, @quantities)
+    cart.calculate_sub_total
+
+    binding.pry
+  end
+
 
 end
 
