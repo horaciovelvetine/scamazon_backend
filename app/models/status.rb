@@ -1,4 +1,3 @@
 class Status < ApplicationRecord
-  has_many :orders
-  has_many :returns
+  has_many :orders, :returns
 end

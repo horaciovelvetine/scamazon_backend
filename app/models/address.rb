@@ -1,5 +1,3 @@
 class Address < ApplicationRecord
-  belongs_to :user, optional: true
-  belongs_to :store, optional: true
-  belongs_to :account, optional: true
+  belongs_to :user, :store, :account, optional: true
 end

@@ -1,10 +1,10 @@
 class Order < ApplicationRecord
-  belongs_to :user
-  belongs_to :status
+  belongs_to :user, :status
+  
   has_and_belongs_to_many :items
+  
+  has_many :styles, :returns
   has_many :stores, through: :items
-  has_many :styles
-  has_many :returns
 
   validates :items, :length => {minimum: 1}
 
