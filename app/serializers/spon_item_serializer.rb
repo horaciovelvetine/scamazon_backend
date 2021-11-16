@@ -1,7 +1,7 @@
 class SponItemSerializer
   include JSONAPI::Serializer
 
-  has_many :items do 
+  # has_many :items do 
 
 
   ## doesnt make sense here, saving for alter
