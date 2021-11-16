@@ -1,3 +1,5 @@
 class Category < ApplicationRecord
-  has_many :searches, :items
+  has_many :items 
+  has_many :searches
+  
 end

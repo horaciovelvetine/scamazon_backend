@@ -1,4 +1,6 @@
 class Wallet < ApplicationRecord
   belongs_to :user
-  has_many :accounts, :gift_cards
+  
+  has_many :accounts
+  has_many :gift_cards
 end

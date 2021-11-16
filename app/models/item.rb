@@ -1,14 +1,24 @@
 class Item < ApplicationRecord
   #Associated Models 
-  belongs_to :inventory, :category
+  belongs_to :inventory
   delegate :store, :to => :inventory
+  belongs_to :category
   
-  has_many :styles, :questions, :reviews
+  
+  
+  has_many :styles
+  has_many :quesitons
   has_many :answers, through: :quesitons
   has_many :viewers, through: :viewed_items, source: :user
+  has_many :reviews
   has_many :reviewers, through: :reviews, source: :user
   
-  has_and_belongs_to_many :lists, :tags, :searches, :shopping_carts, :orders
+  has_and_belongs_to_many :lists
+  has_and_belongs_to_many :tags
+  has_and_belongs_to_many :searches
+  has_and_belongs_to_many :shopping_cart
+  has_and_belongs_to_many :order
+  
 
   # Make items searchable through PGSearch inherited PGSearch model from PG Search gem
   include PgSearch::Model

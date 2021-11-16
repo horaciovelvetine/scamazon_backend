@@ -1,5 +1,8 @@
 class Return < ApplicationRecord
-  belongs_to :user, :status, :order, :item
+  belongs_to :user
+  belongs_to :status
+  belongs_to :order
+  belongs_to :item 
   
   has_one :style
 
