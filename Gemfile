@@ -52,7 +52,10 @@ gem 'pry'
 
 # Look Pretty
 gem 'bootstrap'
-gem 'jquery-rails'
+# gem 'jquery-rails'
+
+## Adds FastSerializer API
+gem 'jsonapi-serializer'
 
 
 # opinionated Rest API Gem for later
