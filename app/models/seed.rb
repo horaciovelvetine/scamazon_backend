@@ -105,6 +105,8 @@ class Seed < ApplicationRecord
     cart.add_update_and_duplicate_styles(@styles, @quantities)
     cart.calculate_sub_total
 
+
+    # check self has several styles, and that those styles know that they belong to self. (orders and carts!!!)
     binding.pry
   end
 
