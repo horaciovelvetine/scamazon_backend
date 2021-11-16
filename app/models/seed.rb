@@ -18,6 +18,7 @@ class Seed < ApplicationRecord
     2.times { create_list(@user)}
     3.times{ create_orders_for_user(@user)}
     add_items_to_cart(@user)
+
   end
 
 
@@ -104,10 +105,9 @@ class Seed < ApplicationRecord
     cart.add_items(@items)
     cart.add_update_and_duplicate_styles(@styles, @quantities)
     cart.calculate_sub_total
+    cart.update_number_of_items
 
-
-    # check self has several styles, and that those styles know that they belong to self. (orders and carts!!!)
-    binding.pry
+    cart.save
   end
 
 
