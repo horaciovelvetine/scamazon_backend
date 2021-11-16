@@ -20,12 +20,12 @@ class ApplicationRecord < ActiveRecord::Base
   
   #iterates over an array of styles and, creates a new style to associate with that order, adds it to the order and updates the original style by removing the quantity ordered
   def add_update_and_duplicate_styles(styles, quantities)
-    
+    ## Where self == ShoppingCart or Order
+
     styles.each_with_index do |style, i|
 
-      #checkes if there are enough of that style to order/add_to_cart the desired quantity, duplicates and saves new style with correct quantities for it and the original.
+      ## Checkes if enough of that style quantity to self the desired quantity, duplicates and saves new style with correct quantities for it and the original.
       if style.quantity < quantities[i]
-        #if the quantity is less than ordered, creates a duplicate style (which has orig quantity), sets the orignal style's quantity to 0, and saves the duplicated style to self.
         duplicate_style = style.dup
         style.quantity = 0
       else
@@ -34,10 +34,18 @@ class ApplicationRecord < ActiveRecord::Base
         style.quantity -= quantities[i]
       end  
 
-      # Adds styles to self
+      ## Adds style to self (Shopping_cart or Order)
       self.styles << duplicate_style
-      binding.pry 
-      # duplicate_style.self.parent = self
+      
+
+      ## Informs the duplicate style of its associated self
+      case self
+      when self.class == Order
+        duplicate_style.order = self
+      when self.class == ShoppingCart
+        duplicate_style.shopping_cart = self
+      end
+
     end
     
   end
