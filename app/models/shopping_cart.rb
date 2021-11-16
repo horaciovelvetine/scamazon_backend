@@ -1,6 +1,7 @@
 class ShoppingCart < ApplicationRecord
   belongs_to :user, optional: true
   has_many :styles
+  has_and_belongs_to_many :items
 
 
   #Iterates over carts styles, checks the quantity in the cart, and adds that to the attribute
