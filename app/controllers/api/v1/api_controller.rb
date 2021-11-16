@@ -13,7 +13,7 @@ module api
 
           ## JSON wise, I would like to return the shopping_cart with its associated items, which have associated styles
         cart = ShoppingCart.all.order("RANDOM()").last
-
+        binding.pry
         render json: CartSerializer.new(cart).serializable_hash.to_json
 
 
