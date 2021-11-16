@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       ## define routes here for /api/v1/...
-      get '/demo_cart_page', to: 'api_controller#demo'
+      get '/show_cart', to: 'api_controller#show_cart'
     end
   end
 
