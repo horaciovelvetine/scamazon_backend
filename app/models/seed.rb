@@ -64,6 +64,8 @@ class Seed < ApplicationRecord
 
   ## Creates dummy order with: Items, Styles, Random Attr info, updates all styles to correct quantities (removes store quantity, and adds to creates duplicate style belonging to order instead with quantity ordered). 
   def self.create_orders_for_user(user)
+
+    ## ISSUE #16:: This and Cart share these three lines of code, but an order should not add a style which has a shopping_cart_id or return_id, and vice versa
     
     #grabs sample item/style info from database to create Order
     @items = Item.all.order("RANDOM()").take(rand(2..5))
