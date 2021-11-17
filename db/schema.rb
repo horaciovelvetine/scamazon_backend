@@ -84,16 +84,12 @@ ActiveRecord::Schema.define(version: 2021_11_16_174831) do
     t.string "description"
     t.decimal "rating", precision: 3, scale: 2, default: "0.0"
     t.bigint "category_id", null: false
-    t.bigint "order_id"
-    t.bigint "shopping_cart_id"
     t.bigint "inventory_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["inventory_id"], name: "index_items_on_inventory_id"
     t.index ["name"], name: "index_items_on_name"
-    t.index ["order_id"], name: "index_items_on_order_id"
-    t.index ["shopping_cart_id"], name: "index_items_on_shopping_cart_id"
   end
 
   create_table "items_lists", id: false, force: :cascade do |t|
@@ -323,8 +319,6 @@ ActiveRecord::Schema.define(version: 2021_11_16_174831) do
   add_foreign_key "inventories", "stores"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "inventories"
-  add_foreign_key "items", "orders"
-  add_foreign_key "items", "shopping_carts"
   add_foreign_key "items_lists", "items"
   add_foreign_key "items_lists", "lists"
   add_foreign_key "items_orders", "items"

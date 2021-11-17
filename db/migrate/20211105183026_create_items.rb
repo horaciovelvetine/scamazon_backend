@@ -5,8 +5,6 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.string :description
       t.decimal :rating, precision: 3, scale: 2, default: 0.0
       t.belongs_to :category, null: false, foreign_key: true
-      t.belongs_to :order, null: true, foreign_key: true
-      t.belongs_to :shopping_cart, null: true, foreign_key: true
       t.belongs_to :inventory, null: false, foreign_key: true
 
       t.timestamps
