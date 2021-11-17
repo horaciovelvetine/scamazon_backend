@@ -6,14 +6,10 @@ class ShoppingCartSerializer
 
   attribute :sub_total
 
-
-
   ## Array of specially formatted items for providing info needed to display a combo of style/item info
   attribute :cart_items do |cart|
     cart_items = cart.items.each_with_index.map { |item, i| {id: item.id, name: "#{item.name}", rating: item.rating, number_of_reviews: item.reviews.length, price: cart.styles[i].price.to_i, quantity: cart.styles[i].quantity}} 
   end
-
-
 
   ## Array of items related to current items in cart by
   attribute :related_items do |cart|
@@ -26,8 +22,7 @@ class ShoppingCartSerializer
     end
     
     related_items = item_bucket.map { |i| {id: i.id, name: "#{i.name}", category: "#{i.category.name}", rating: i.rating, number_of_reviews: i.reviews.length, price: price_range(i)} }
-    
-
+  
   end
 
   ## Array of random items w/ relevant info
@@ -45,10 +40,6 @@ class ShoppingCartSerializer
     end
   end
 
-
-  
-  
-  
   attributes :items, :styles
 
 
