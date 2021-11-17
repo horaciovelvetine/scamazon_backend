@@ -16,8 +16,8 @@ class Item < ApplicationRecord
   has_and_belongs_to_many :lists
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :searches
-  has_and_belongs_to_many :shopping_cart
-  has_and_belongs_to_many :order
+  has_and_belongs_to_many :shopping_carts
+  has_and_belongs_to_many :orders
   
 
   # Make items searchable through PGSearch inherited PGSearch model from PG Search gem
