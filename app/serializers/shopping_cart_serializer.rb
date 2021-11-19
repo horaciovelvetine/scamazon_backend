@@ -27,7 +27,7 @@ class ShoppingCartSerializer
 
   ## Array of random items w/ relevant info
   attribute :sponsored_items do |cart|
-    sponsored_items = Item.all.order("RANDOM()").take(6).map { |i| {id: i.id, name: "#{i.name}", rating: i.rating, number_of_review: i.reviews.length, price: price_range(i)} }
+    sponsored_items = Item.all.order("RANDOM()").take(6).map { |i| {id: i.id, name: "#{i.name}", rating: i.rating, number_of_reviews: i.reviews.length, price: price_range(i)} }
   end
   
   ## Checks if an items/styles to find and return either a single or range price for an item display
