@@ -4,6 +4,7 @@ class ShoppingCartSerializer
   set_id :user_id
   attribute :number_of_items, &:num_items
 
+  
   attribute :sub_total
 
   ## Array of specially formatted items for providing info needed to display a combo of style/item info
@@ -30,6 +31,11 @@ class ShoppingCartSerializer
     sponsored_items = Item.all.order("RANDOM()").take(6).map { |i| {id: i.id, style: i.name.titleize, rating: i.rating, number_of_reviews: i.reviews.length, price: price_range(i)} }
   end
   
+  attribute :to_order do |cart|
+    order_info = { items: cart.items, styles: cart.styles }
+  end
+
+
   ## Checks if an items/styles to find and return either a single or range price for an item display
   def self.price_range(item)
   
@@ -40,7 +46,7 @@ class ShoppingCartSerializer
     end
   end
 
-  attributes :items, :styles
+  # attributes :items, :styles
 
 
 end
