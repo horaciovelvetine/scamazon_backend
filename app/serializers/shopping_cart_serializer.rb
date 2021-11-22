@@ -9,7 +9,7 @@ class ShoppingCartSerializer
 
   ## Array of specially formatted items for providing info needed to display a combo of style/item info
   attribute :cart_items do |cart|
-    cart_items = cart.items.each_with_index.map { |item, i| {id: item.id, name: item.name.titleize, rating: item.rating, number_of_reviews: item.reviews.length, price: cart.styles[i].price, quantity: cart.styles[i].quantity, color: cart.styles[i].color.titleize, manufacturer: cart.styles[i].manufacturer.titleize} } 
+    cart_items = cart.items.each_with_index.map { |item, i| {id: cart.styles[i].id, item_name: item.name.titleize, style_name: cart.styles[i].name.titleize, rating: item.rating, number_of_reviews: item.reviews.length, price: cart.styles[i].price, quantity: cart.styles[i].quantity, manufacturer: cart.styles[i].manufacturer.titleize} } 
   end
 
   ## Array of items related to current items in cart by
