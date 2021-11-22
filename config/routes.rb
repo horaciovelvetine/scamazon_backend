@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       ## define routes here for /api/v1/...
       get '/show_cart', to: 'carts#show'
+      resources :carts
     end
   end
 
