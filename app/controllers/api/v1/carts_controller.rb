@@ -10,7 +10,9 @@ module API
       end
 
       def update
-        binding.pry
+        cart = ShoppingCart.find(params[:id])
+        cart.update_style_quantities(params)
+
       end
 
       def destroy
