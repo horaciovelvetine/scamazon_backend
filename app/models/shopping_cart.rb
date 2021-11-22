@@ -14,6 +14,18 @@ class ShoppingCart < ApplicationRecord
     end
   end
 
+  def update_style_quantities(params)
+    update_hash = {}
+    params[:cartItems].each do |item|
+      binding.pry
+      update_hash.store(item[:id], item[:quantity])
+    end
+
+    update_hash.each_pair{|id, q| Style.find(id).quantity = q}
+    binding.pry
+  end
+
+
 
 end
 
