@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       ## define routes here for /api/v1/...
       get '/show_cart', to: 'carts#show'
       resources :carts, only: [:destroy, :update]
+      patch '/carts/:id/remove_item/:style_id', to: 'carts#remove_item', as: 'remove_item_from_cart'
     end
   end
 
