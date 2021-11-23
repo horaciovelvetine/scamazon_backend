@@ -32,9 +32,9 @@ module API
       def add_item
         item = Item.find(params[:item_id])
         cart = ShoppingCart.find(params[:id])
-
-        ## TODO: THIS IS WHERE TO START => Needs to add the item to the cart, but currently didnt pick style, so go with some sort of default?? Then add that to the cart, and render the response a bit
+        cart.add_sponsor_item(item, params)
         binding.pry
+        render json:{ }
       end
 
     end
