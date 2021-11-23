@@ -42,8 +42,16 @@ class ShoppingCartSerializer
   end
 
   def self.style_formatter(item)
-    all_styles = item.styles.map {|style| {id: style.id, name: style.name.titleize, manufacturer: style.manufacturer, price: style.price }}
-    all_styles.uniq!{ |style| style[:name]}
+    @all_styles = item.styles.map {|style| {id: style.id, name: style.name.titleize, manufacturer: style.manufacturer, price: style.price }}
+    if @all_styles.length > 1
+      @unique_styles = @all_styles.map{|s| s}.uniq!{ |style| style[:name]}
+      if @unique_styles.nil?
+        return @all_styles
+      end
+      return @unique_styles
+    end
+    return @all_styles
+
   end
 
 
