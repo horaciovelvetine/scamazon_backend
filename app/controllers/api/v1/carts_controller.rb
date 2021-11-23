@@ -26,10 +26,14 @@ module API
       def remove_item
         style = ShoppingCart.find(params[:id]).styles.find(params[:style_id])
         style.destroy
-        # render json: {message: 'Item Removed Successfully'}
+        render json: {message: 'Item Removed Successfully'}
       end
 
-
+      def add_item
+        item = Item.find(params[:item_id])
+        cart = ShoppingCart.find(params[:id])
+        binding.pry
+      end
       
     end
   end
