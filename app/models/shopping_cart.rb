@@ -27,6 +27,21 @@ class ShoppingCart < ApplicationRecord
 
   end
 
+  def add_sponsor_item(item, params)
+    styles = []
+    quantities = []
+    params[:selections].each do |action|
+      if action[:checked] == true
+        styles << item.styles[action[:i]]
+      end
+    end
+    styles.length.times{ quantities << 1}
+    self.add_update_and_duplicate_styles(styles, quantities)
+    
+    binding.pry
+  end
+
+
 
 
 end
