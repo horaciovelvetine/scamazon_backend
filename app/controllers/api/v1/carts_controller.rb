@@ -26,7 +26,7 @@ module API
       def remove_item
         style = ShoppingCart.find(params[:id]).styles.find(params[:style_id])
         style.destroy
-        render json: {message: 'Item Removed Successfully'}
+        # render json: {message: 'Item Removed Successfully'}
       end
 
 
