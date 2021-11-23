@@ -28,7 +28,7 @@ class ShoppingCartSerializer
 
   ## Array of random items w/ relevant info
   attribute :sponsored_items do |cart|
-    sponsored_items = Item.all.order("RANDOM()").take(6).map { |i| {id: i.id, style: i.name.titleize, rating: i.rating, number_of_reviews: i.reviews.length, price: price_range(i)} }
+    sponsored_items = Item.all.order("RANDOM()").take(6).map { |i| {id: i.id, name: i.name.titleize, rating: i.rating, number_of_reviews: i.reviews.length, price: price_range(i), styles: style_formatter(i)} }
   end
   
   ## Checks if an items/styles to find and return either a single or range price for an item display
@@ -40,5 +40,10 @@ class ShoppingCartSerializer
       item.styles.map {|style| style.price}.minmax.uniq
     end
   end
+
+  def self.style_formatter(item)
+    styles = item.styles.map {|style| {id: style.id, name: style.name, manufacturer: style.manufacturer, price: style.price }}
+  end
+
 
 end
