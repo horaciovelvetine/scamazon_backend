@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get '/show_cart', to: 'carts#show'
       resources :carts, only: [:destroy, :update]
       patch '/carts/:id/remove_item/:style_id', to: 'carts#remove_item', as: 'remove_item_from_cart'
+      patch '/carts/:id/add_item/:item_id', to: 'carts#add_item, as 'add_item_to_cart'
     end
   end
 
