@@ -26,3 +26,7 @@ As a part of this ongoing project I've chosen to include a few additional pieces
 
 ## Contributing: 
 Bug reports and pull requests on GitHub: https://github.com/horaciovelvetine/scamazon_backend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct. Additionally, there are some bad jokes throughout that are in no way shape or form intended as anything but satire, if you don't find them funny, you're not the only one.
+
+## Layout Visual/Overview
+![Scamazon V1 1 1 map](https://user-images.githubusercontent.com/78946408/143947036-bbebbfe5-97ee-4cd6-a56a-69406bd9c67a.png)
+
